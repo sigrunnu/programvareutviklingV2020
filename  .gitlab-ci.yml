@@ -22,3 +22,4 @@ coverage:
   stage: Testing
   script:
   - pytest --cov=activate
+  
