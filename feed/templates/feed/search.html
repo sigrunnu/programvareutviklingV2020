@@ -1,6 +1,15 @@
 {% extends "feed/base.html" %}
 
 {% block content %}
+
+    <form action="">
+        <label for="search">
+            Search for muscle group or exercise
+            <br>
+            <input type="text" id="searchfield" name="search">
+        </label>
+    </form>
+
     {% for exercise in exercises %}
 
         <p>{{ exercise }}</p>
