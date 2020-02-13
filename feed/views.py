@@ -18,9 +18,9 @@ def home(request):
 def search(request):
     """
     :param request:
-    :type request:
-    :return:
-    :rtype:
+    :type request: 
+    :return: render:
+    :rtype: HttpResponse:
     """
     search_word = request.GET['search_field']
     print(search_word)
