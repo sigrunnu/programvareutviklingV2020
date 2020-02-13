@@ -2,13 +2,26 @@ from django.shortcuts import render
 
 from .models import Exercise
 
+
 # Create your views here.
 def home(request):
 
-    latestExercises = Exercise.objects.all()
+    latest_exercises = Exercise.objects.all()
 
     context = {
-        'exercises': latestExercises
+        'exercises': latest_exercises
     }
 
-    return render(request, 'feed/search.html', context)
+    return render(request, 'feed/feed.html', context)
+
+
+def search(request):
+    """
+    :param request:
+    :type request:
+    :return:
+    :rtype:
+    """
+    search_word = request.GET['search_field']
+    print(search_word)
+    return render(request, 'feed/search.html', {'search_content': search_word})
