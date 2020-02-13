@@ -12,23 +12,32 @@
 
 </head>
 <body>
+<div id="header">
 
     <div id="container">
         <div>
-            Logo
+           <img src="../logo.png" alt="logo">
         </div>
 
         <div>
-            Search
+           <p id="search">Search</p>
         </div>
 
         <div>
-            Profil
+           <p id="profile">Min profil</p>
         </div>
-
-
     </div>
-
+    <div id="undermenu">
+        <div class="dropdown">
+          <button class="dropbtn">Muskelgrupper</button>
+        </div>
+         <div class="dropdown-content">
+            <a href="#">Rygg</a>
+            <a href="#">Mage</a>
+            <a href="#">Bein</a>
+         </div>
+    </div>
+</div>
     {% block content %}
 
     {% endblock content %}
