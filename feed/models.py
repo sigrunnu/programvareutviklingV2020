@@ -15,7 +15,5 @@ class Exercise(models.Model):
 
     muscleGroup = models.ManyToManyField(MuscleGroup)
 
-
-
     def __str__(self):
         return self.exerciseTitle

@@ -8,9 +8,11 @@
 
     {% load static %}
 
-    <link rel="stylesheet" type="text/css" href="{% static 'feed/headerFooterStyle.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'feed/headerFooterStyle.css' %}">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'feed/feedStyle.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'feed/feedStyle.css' %}">
 
 </head>
 <body>
@@ -18,30 +20,30 @@
 
     <div id="container">
         <div>
-           <img src="../logo.png" alt="logo">
+            <img src="../logo.png" alt="logo">
         </div>
 
         <div>
-           <p id="search">Search</p>
+            <p id="search">Search</p>
         </div>
 
         <div>
-           <p id="profile">Min profil</p>
+            <p id="profile">Min profil</p>
         </div>
     </div>
     <div id="undermenu">
         <div class="dropdown">
-          <button class="dropbtn">Muskelgrupper</button>
+            <button class="dropbtn">Muskelgrupper</button>
         </div>
-         <div class="dropdown-content">
+        <div class="dropdown-content">
             <a href="#">Rygg</a>
             <a href="#">Mage</a>
             <a href="#">Bein</a>
-         </div>
+        </div>
     </div>
 </div>
-    {% block content %}
+{% block content %}
 
-    {% endblock content %}
+{% endblock content %}
 </body>
 </html>
