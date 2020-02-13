@@ -6,8 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Search</title>
 
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'feed/headerFooterStyle.css' %}">
+
 </head>
 <body>
+<div id="header">
+
+    <div id="container">
+        <div>
+           <img src="../logo.png" alt="logo">
+        </div>
+
+        <div>
+           <p id="search">Search</p>
+        </div>
+
+        <div>
+           <p id="profile">Min profil</p>
+        </div>
+    </div>
+    <div id="undermenu">
+        <div class="dropdown">
+          <button class="dropbtn">Muskelgrupper</button>
+        </div>
+         <div class="dropdown-content">
+            <a href="#">Rygg</a>
+            <a href="#">Mage</a>
+            <a href="#">Bein</a>
+         </div>
+    </div>
+</div>
     {% block content %}
 
     {% endblock content %}
