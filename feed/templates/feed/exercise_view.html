@@ -1,0 +1,78 @@
+{% extends "feed/base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise view</title>
+
+</head>
+<body>
+
+
+{% block content %}
+
+    <div id="exerciseViewContainer">
+
+        <div id="exerciseInformationContainer">
+            <div id="exerciseImage">
+
+
+                {% comment %}{% load static %}
+                <img src="{% static "feed/stock_image.jpg" %}" alt="Exercise image">{% endcomment %}
+
+            </div>
+
+
+            <div id="exerciseInformation">
+                <div id="exerciseTitleAndAuthor">
+
+                    {{ exercise.name }}
+                    {{ exercise.author }}
+
+                    {% if verified %}
+
+                        VERIFIED
+
+                    {% endif %}
+
+                </div>
+
+
+                <div id="exerciseLikes">
+
+                    54
+
+                    {% load static %}
+                    <img src="{% static "feed/heart.png" %}" alt="Heart image">
+
+                </div>
+
+                <div id="exerciseStarRating">
+
+                    5 STARS
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <div id="exerciseDescription">
+            <div id="exerciseTitle">
+
+                {{ exercise.description }}
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock content %}
+</body>
+</html>

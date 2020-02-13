@@ -1,0 +1,82 @@
+#exerciseViewContainer {
+    display: flex;
+
+    flex-direction: column;
+
+    margin: 1% 5% 1% 5%;
+
+    font-family: "Times New Roman", serif;
+    font-size: 14px;
+
+    height: 600px;
+
+    align-items: center;
+
+
+}
+
+#exerciseInformationContainer {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-evenly;
+
+    width: 100%;
+    height: 100%;
+
+}
+
+#exerciseImage {
+    display: flex;
+
+    width: 47%;
+    height: 100%;
+
+    background-color: aquamarine;
+
+}
+
+#exerciseInformation {
+    display: flex;
+
+    width: 47%;
+    height: 100%;
+
+    background-color: bisque;
+
+    flex-direction: column;
+}
+
+#exerciseDescription {
+    display: flex;
+
+    background-color: cyan;
+
+    /* FIXME Not correct way to position description, but it works */
+    width: 96%;
+
+    height: 100%;
+
+}
+
+#exerciseTitleAndAuthor {
+    display: flex;
+
+    font-size: 25px;
+
+    background-color: red;
+
+}
+
+#exerciseLikes {
+    display: flex;
+    justify-content: space-evenly;
+
+    width: 15%;
+
+    align-items: center;
+
+    background-color: aquamarine;
+}
+
+
