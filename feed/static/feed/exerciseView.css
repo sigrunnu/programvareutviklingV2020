@@ -1,3 +1,24 @@
+body {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    background-color: #f8f6f2;
+
+    font-family: "Times New Roman", serif;
+
+
+}
+
+#wrapper {
+    display: flex;
+
+    justify-content: center;
+
+    width: 100%;
+}
+
 #exerciseViewContainer {
     display: flex;
 
@@ -5,12 +26,15 @@
 
     margin: 1% 5% 1% 5%;
 
-    font-family: "Times New Roman", serif;
     font-size: 14px;
 
     height: 600px;
 
+    width: 60%;
+
     align-items: center;
+
+    justify-content: space-evenly;
 
 
 }
@@ -26,37 +50,69 @@
 
 }
 
-#exerciseImage {
+#exerciseImageContainer {
     display: flex;
 
-    width: 47%;
+    width: 50%;
     height: 100%;
 
-    background-color: aquamarine;
+    background-color: white;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    margin-right: 1%;
+}
+
+#exerciseImage {
+    height: 300px;
 
 }
 
 #exerciseInformation {
     display: flex;
 
-    width: 47%;
+    width: 50%;
     height: 100%;
 
-    background-color: bisque;
+    background-color: white;
 
     flex-direction: column;
+
+    justify-content: space-evenly;
+
+    margin-left: 1%;
+
+}
+
+#exerciseDescriptionContainer {
+    margin-top: 2%;
+
+    display: flex;
+
+    background-color: white;
+
+    height: 100%;
+    width: 100%;
+
+    overflow-x: auto;
+
+}
+
+#exerciseInformation * {
+    padding: 0 8% 0 8%;
 }
 
 #exerciseDescription {
     display: flex;
+    font-size: 15px;
 
-    background-color: cyan;
+    text-align: left;
 
-    /* FIXME Not correct way to position description, but it works */
-    width: 96%;
+    padding: 2% 10% 2% 10%;
 
-    height: 100%;
-
+    flex-direction: column;
 }
 
 #exerciseTitleAndAuthor {
@@ -64,19 +120,32 @@
 
     font-size: 25px;
 
-    background-color: red;
+    width: 100%;
 
+    align-items: center;
+
+    justify-content: left;
+
+
+}
+
+#exerciseTitleAndAuthor * {
+    margin-right: 12%;
+}
+
+#verifiedIcon {
+    height: 30px;
+    width: 30px;
 }
 
 #exerciseLikes {
     display: flex;
     justify-content: space-evenly;
 
-    width: 15%;
+    width: 60%;
 
     align-items: center;
 
     background-color: aquamarine;
 }
-
 
