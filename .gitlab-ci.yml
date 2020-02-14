@@ -16,7 +16,7 @@ pycodestyle:
 pytest:
   stage: Testing
   script:
-  - pytest exerciseit/
+  - pytest feed/
 
 coverage:
   stage: Testing
