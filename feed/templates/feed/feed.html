@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feed</title>
+</head>
+<body>
+{% extends "feed/base.html" %}
+
+{% block content %}
+
+    <form action="{% url 'search' %}">
+        <label for="search">
+            Search for muscle group or exercise
+            <br>
+            <input type="text" id="searchfield" name="search_field">
+            <br>
+            <input type="submit" value="content"/>
+        </label>
+    </form>
+
+    {% for exercise in exercises %}
+
+        <p>{{ exercise }}</p>
+
+    {% endfor %}
+{% endblock content %}
+</body>
+</html>
