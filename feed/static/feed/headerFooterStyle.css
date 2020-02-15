@@ -1,5 +1,5 @@
 /* General design */
-body{
+body {
     font-family: Play;
 }
 
@@ -36,56 +36,59 @@ Design for header*/
 }
 
 
-#logoContainer{
+#logoContainer {
     margin-left: 3%;
 }
 
-#logo{
+#logo {
     vertical-align: middle;
 
 }
 
-#exerciseIt{
+#exerciseIt {
     vertical-align: middle;
-    display:inline;
+    display: inline;
     font-weight: bold;
     font-size: 25px;
 
 
 }
 
-#searchbtn{
-   height:41.5px;
+#searchbtn {
+    height: 41.5px;
     width: 50px;
 }
 
-#searchfield{
-    margin:0;
-    height:35px;
+#searchfield {
+    margin: 0;
+    height: 35px;
     width: 300px;
 
 }
+
 #profileContainer {
     margin-right: 3%;
 }
 
-#myProfile{
-    display:inline;
-     vertical-align: middle;
+#myProfile {
+    display: inline;
+    vertical-align: middle;
 }
 
-.material-icons{
-   vertical-align: middle;
+.material-icons {
+    vertical-align: middle;
 }
+
 #profileContainer:hover .material-icons {
     color: white;
 }
+
 #profileContainer:hover p {
     text-decoration: underline;
 
 }
 
-#undermenu{
+#undermenu {
     display: flex;
     background-color: #C6E684;
     height: 30px;
@@ -93,32 +96,34 @@ Design for header*/
     align-items: center;
 }
 
-.dropdown{
+.dropdown {
     padding-left: 3%;
-  position: relative;
+    position: relative;
 
 }
 
 
-.dropdown-content{
+.dropdown-content {
     display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  z-index: 1;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    z-index: 1;
 }
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-    background-color: #DAF7A6 ;
+    background-color: #DAF7A6;
 }
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
-    display: block;}
+    display: block;
+}
 
 .dropdown:hover .fa-caret-down {
-   color: white;}
+    color: white;
+}
 
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
@@ -127,10 +132,10 @@ Design for header*/
 }
 
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }
 
 /* Design for header is done
@@ -145,22 +150,22 @@ footer {
 
 }
 
-#logoFooter{
+#logoFooter {
     position: relative;
-    display:inline;
+    display: inline;
     top: 18px;
 
 }
 
 
-#exerciseItFooter{
+#exerciseItFooter {
     margin-top: 50px;
-    display:inline;
+    display: inline;
     font-weight: bold;
     font-size: 30px;
 
 }
 
-#logoContainerFooter{
+#logoContainerFooter {
 
 }

@@ -5,7 +5,6 @@ from .models import Exercise
 
 # Create your views here.
 def home(request):
-
     latest_exercises = Exercise.objects.all()
 
     context = {
@@ -28,7 +27,6 @@ def search(request):
 
 
 def exerciseView(request):
-
     context = {
         'exercise': {
             'name': "Benkpress",
