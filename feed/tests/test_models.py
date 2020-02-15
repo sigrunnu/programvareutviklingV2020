@@ -7,4 +7,3 @@ class TestModels:
     def test_exercise_title_not_empty(self):
         exercise = mixer.blend('feed.Exercise', exerciseTitle="Bench press")
         assert len(exercise.exerciseTitle) > 0
-
