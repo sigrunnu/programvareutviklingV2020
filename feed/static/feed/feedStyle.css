@@ -45,9 +45,12 @@ body {
 .exerciseTitle {
     display: flex;
     align-items: center;
+    justify-content: center;
 
     padding: 1% 1% 1% 1%;
 
-    width: auto;
+    border: 1px solid grey;
+
+    width: 40%;
 
 }

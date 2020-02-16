@@ -49,4 +49,4 @@ def search(request):
         'muscle_groups': result_muscle_group
     }
 
-    return render(request, 'feed/search.html', context)
+    return render(request, 'feed/feed.html', context)

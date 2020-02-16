@@ -22,152 +22,40 @@
 
     <div class="content">
 
+        {% for exercise in exercises %}
 
-        <div class="entity">
-            <button>
-                {% load static %}
-                <img src="{% static "feed/weightlifting.jpg" %}"
-                     alt="Exercise image">
-            </button>
+            <div class="entity">
+                <button>
+                    {% load static %}
+                    <img src="{% static "feed/weightlifting.jpg" %}"
+                         alt="Exercise image">
+                </button>
 
-            <div class="exerciseTitle">
-                Militærpress
+                <div class="exerciseTitle">
+                    {{ exercise.exerciseTitle }}
+                </div>
             </div>
-        </div>
 
-        <div class="entity">
-            <button>
-                {% load static %}
-                <img src="{% static "feed/weightlifting.jpg" %}"
-                     alt="Exercise image">
-            </button>
+        {% endfor %}
 
-            <div class="exerciseTitle">
-                Militærpress
+
+        {% for muscle_group in muscle_groups %}
+
+            <div class="entity">
+                <button>
+                    {% load static %}
+                    <img src="{% static "feed/weightlifting.jpg" %}"
+                         alt="Exercise image">
+                </button>
+
+                <div class="exerciseTitle">
+                    {{ muscle_group.muscleGroupTitle }}
+                </div>
             </div>
-        </div>
-
-        <div class="entity">
-            <button>
-                {% load static %}
-                <img src="{% static "feed/weightlifting.jpg" %}"
-                     alt="Exercise image">
-            </button>
-
-            <div class="exerciseTitle">
-                Militærpress
-            </div>
-        </div>
-
-        <div class="entity">
-            <button>
-                {% load static %}
-                <img src="{% static "feed/weightlifting.jpg" %}"
-                     alt="Exercise image">
-            </button>
-
-            <div class="exerciseTitle">
-                Militærpress
-            </div>
-        </div>
-
-        <div class="entity">
-            <button>
-                {% load static %}
-                <img src="{% static "feed/weightlifting.jpg" %}"
-                     alt="Exercise image">
-            </button>
-
-            <div class="exerciseTitle">
-                Militærpress
-            </div>
-        </div>
-
-        <div class="entity">
-            <button>
-                {% load static %}
-                <img src="{% static "feed/weightlifting.jpg" %}"
-                     alt="Exercise image">
-            </button>
-
-            <div class="exerciseTitle">
-                Militærpress
-            </div>
-        </div>
-
-        <div class="entity">
-            <button>
-                {% load static %}
-                <img src="{% static "feed/weightlifting.jpg" %}"
-                     alt="Exercise image">
-            </button>
-
-            <div class="exerciseTitle">
-                Militærpress
-            </div>
-        </div>
-
-        <div class="entity">
-            <button>
-                {% load static %}
-                <img src="{% static "feed/weightlifting.jpg" %}"
-                     alt="Exercise image">
-            </button>
-
-            <div class="exerciseTitle">
-                Militærpress
-            </div>
-        </div>
-
-        <div class="entity">
-            <button>
-                {% load static %}
-                <img src="{% static "feed/weightlifting.jpg" %}"
-                     alt="Exercise image">
-            </button>
-
-            <div class="exerciseTitle">
-                Militærpress
-            </div>
-        </div>
-
-        <div class="entity">
-            <button>
-                {% load static %}
-                <img src="{% static "feed/weightlifting.jpg" %}"
-                     alt="Exercise image">
-            </button>
-
-            <div class="exerciseTitle">
-                Militærpress
-            </div>
-        </div>
-
-        <div class="entity">
-            <button>
-                {% load static %}
-                <img src="{% static "feed/weightlifting.jpg" %}"
-                     alt="Exercise image">
-            </button>
-
-            <div class="exerciseTitle">
-                Militærpress
-            </div>
-        </div>
-
-        <div class="entity">
-            <button>
-                {% load static %}
-                <img src="{% static "feed/weightlifting.jpg" %}"
-                     alt="Exercise image">
-            </button>
-
-            <div class="exerciseTitle">
-                Militærpress
-            </div>
-        </div>
 
 
+        {% endfor %}
+    
     </div>
 
 {% endblock content %}
