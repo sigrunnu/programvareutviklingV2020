@@ -1,14 +1,17 @@
 # testing search
-import sqlite3
 from sqlite3 import Error
-
 from django.shortcuts import render
-
-from .models import Exercise
+from .models import Exercise, MuscleGroup
 
 
 # Create your views here.
 def home(request):
+    """
+   :param request: the request the user sends when requesting the home page
+   :type request: WSGIRequest
+   :return: render: response with all the exercises listed in a QuerySet
+   :rtype: HttpResponse
+   """
     latest_exercises = Exercise.objects.all()
 
     context = {
@@ -20,80 +23,30 @@ def home(request):
 
 def search(request):
     """
-    :param request:
-    :type request: 
-    :return: render:
-    :rtype: HttpResponse:
+    :param request: the request that contains the search word
+    :type request: WSGIRequest
+    :return: render: response with search content
+    :rtype: HttpResponse
     """
-    search_word = request.GET['search_field']
-    print(search_word)
 
-    # testing search
-    conn = create_connection('db.sqlite3')
-    select_all_tasks(conn, search_word)
+    # search_content fetches the string entered into search_field
+    search_content = request.GET['search_field']
 
-    return render(request, 'feed/search.html', {'search_content': search_word})
+    # List of all search words in search_content
+    search_words = search_content.split(' ')
 
+    result_exercise = Exercise.objects.none()
+    result_muscle_group = MuscleGroup.objects.none()
 
-# testing search
-def create_connection(db_file):
-    """ create a database connection to the SQLite database
-        specified by the db_file
-    :param db_file: database file
-    :return: Connection object or None
-    """
-    conn = None
-    try:
-        conn = sqlite3.connect(db_file)
-    except Error as e:
-        print(e)
+    # Uses static method in Models to fetch QuerySet with Objects that contains the search word
+    for i in range(len(search_words)):
+        result_exercise = result_exercise | Exercise.get_queryset_by_search_word(search_words[i])
+        result_muscle_group = result_muscle_group | MuscleGroup.get_queryset_by_search_word(search_words[i])
 
-    return conn
+    # Context stores the search by the keys: exercises, muscleGroups
+    context = {
+        'exercises': result_exercise,
+        'muscle_groups': result_muscle_group
+    }
 
-
-# fetching data from feed_exercise
-def select_all_tasks(conn, search_word):
-    """
-    Query all rows in the tasks table
-    :param conn: the Connection object
-    :return:
-    """
-    cur = conn.cursor()
-    # cur.execute("SELECT * FROM feed_exercise")
-    cur.execute("SELECT * FROM feed_exercise WHERE exerciseTitle=?",
-                (search_word,))
-
-    rows = cur.fetchall()
-
-    for row in rows:
-        print(row)
-
-
-'''Not in use yet tester for bare select_all i første omgang - her går de 
-etter priority som er definert som tall def select_task_by_priority(conn, 
-priority): """ Query tasks by priority :param conn: the Connection object 
-:param priority: :return: """ cur = conn.cursor() cur.execute("SELECT * FROM 
-tasks WHERE priority=?", (priority,)) 
-
-        rows = cur.fetchall()
-
-        for row in rows:
-            print(row)
-
-
-def main(self):
-        database = r"C:\sqlite\db\pythonsqlite.db"
-
-        # create a database connection
-        conn = create_connection(database)
-        with conn:
-            #tester for bare select_all
-            #print("1. Query task by priority:")
-            #select_task_by_priority(conn, 1)
-
-            print("2. Query all exercises")
-            select_all_tasks(conn)
-
-if __name__ == '__main__':
-        main()
-'''
+    return render(request, 'feed/search.html', context)
