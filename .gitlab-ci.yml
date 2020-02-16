@@ -1,7 +1,8 @@
-image: "python:3.7"
+image: "python:3.8"
 
 before_script:
   - python --version
+  - pip install -r requirements.txt
   - pip install -r requirements-ci.txt
 
 stages:
@@ -16,10 +17,10 @@ pycodestyle:
 pytest:
   stage: Testing
   script:
-  - pytest exerciseit/
+  - pytest feed/
 
 coverage:
   stage: Testing
   script:
-  - pytest --cov=activate
+  - pytest --cov=feed
   
