@@ -1,6 +1,6 @@
 # testing search
-from sqlite3 import Error
 from django.shortcuts import render
+
 from .models import Exercise, MuscleGroup
 
 
@@ -38,10 +38,15 @@ def search(request):
     result_exercise = Exercise.objects.none()
     result_muscle_group = MuscleGroup.objects.none()
 
-    # Uses static method in Models to fetch QuerySet with Objects that contains the search word
+    # Uses static method in Models to fetch QuerySet with Objects that
+    # contains the search word
     for i in range(len(search_words)):
-        result_exercise = result_exercise | Exercise.get_queryset_by_search_word(search_words[i])
-        result_muscle_group = result_muscle_group | MuscleGroup.get_queryset_by_search_word(search_words[i])
+        result_exercise = \
+            result_exercise | Exercise.get_queryset_by_search_word(
+                search_words[i])
+        result_muscle_group = \
+            result_muscle_group | \
+            MuscleGroup.get_queryset_by_search_word(search_words[i])
 
     # Context stores the search by the keys: exercises, muscleGroups
     context = {

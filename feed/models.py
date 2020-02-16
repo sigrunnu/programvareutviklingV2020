@@ -13,10 +13,12 @@ class MuscleGroup(models.Model):
         """
         :param search_word: the word that shall be searched
         :type search_word: String
-        :return: All the objects that contains the search word in muscleGroupTitle
+        :return: All the objects that contains the search word in
+        muscleGroupTitle
         :rtype: QuerySet
         """
-        return MuscleGroup.objects.filter(Q(muscleGroupTitle__icontains=search_word))
+        return MuscleGroup.objects.filter(
+            Q(muscleGroupTitle__icontains=search_word))
 
 
 class Exercise(models.Model):
@@ -34,7 +36,8 @@ class Exercise(models.Model):
         """
         :param search_word: the word that shall be searched
         :type search_word: String
-        :return: All the objects that contains the search word in exerciseTitle or exerciseDescription
+        :return: All the objects that contains the search word in
+        exerciseTitle or exerciseDescription
         :rtype: QuerySet
         """
         return Exercise.objects.filter(
