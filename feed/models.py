@@ -13,7 +13,7 @@ class Exercise(models.Model):
     exerciseDescription = models.CharField(max_length=500)
     pub_date = models.DateTimeField('date published')
 
-    muscleGroup = models.ManyToManyField(MuscleGroup)
+    muscleGroup = models.ManyToManyField(MuscleGroup, blank=True)
 
     def __str__(self):
         return self.exerciseTitle
