@@ -7,11 +7,11 @@
 
     {% load static %}
     <link rel="stylesheet" type="text/css"
-          href="{% static 'feed/headerFooterStyle.css' %}">
+          href="{% static 'feed/header_footer_style.css' %}">
     <link rel="stylesheet" type="text/css"
-          href="{% static 'feed/exerciseView.css' %}">
+          href="{% static 'feed/exercise_view.css' %}">
     <link rel="stylesheet" type="text/css"
-          href="{% static 'feed/feedStyle.css' %}">
+          href="{% static 'feed/feed_style.css' %}">
 
 
     <title>Search</title>
@@ -35,7 +35,7 @@
                 <a class="item" id="logoBtn" href="{% url 'feedHome' %}">
                 <p id="exerciseIt">Exercise It!</p>
                 {% load static %}
-                <img id="logo" src="{% static 'feed/logo.png' %}"
+                <img id="logo" src="{% static 'feed/images/logo.png' %}"
                      alt="My image" style="width: 60px; height: 60px;">
                 </a>
             </div>
@@ -87,7 +87,7 @@
         <div id="logoContainerFooter">
             <p id="exerciseItFooter">Exercise It!</p>
             {% load static %}
-            <img id="logoFooter" src="{% static 'feed/logo.png' %}"
+            <img id="logoFooter" src="{% static 'feed/images/logo.png' %}"
                  alt="My image" style="width: 60px; height: 60px;">
         </div>
         <div id="footerText">
