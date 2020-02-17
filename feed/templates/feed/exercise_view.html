@@ -15,20 +15,23 @@
         <div id="exerciseViewContainer">
 
             <div id="exerciseInformationContainer">
-                <div id="exerciseImageContainer">
 
+                <div id="exerciseImageContainer">
                     {% load static %}
                     <img id="exerciseImage"
                          src="{% static "feed/bench_press.jpg" %}"
                          alt="Exercise image">
-
                 </div>
 
                 <div id="exerciseInformation">
-                    <div id="exerciseTitleAndAuthor">
+                    <div>
+                        <div style="font-size: 40px; padding: 0; margin: 0">
+                            {{ exercise.name }}
+                        </div>
+                    </div>
 
-                        {{ exercise.name }} -
-                        {{ exercise.author }}
+                    <div style="display: flex; align-items: center">
+                        Publisert av {{ exercise.author }}
 
                         {% if exercise.verified %}
 
@@ -38,8 +41,9 @@
                                  alt="Exercise image">
 
                         {% endif %}
-
                     </div>
+
+
 
 
                     {% comment %}
