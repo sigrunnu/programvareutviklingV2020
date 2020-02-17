@@ -10,4 +10,3 @@ urlpatterns = [
     path('<int:exercise_id>', views.exercise_view, name='exerciseView')
 
 ]
-
