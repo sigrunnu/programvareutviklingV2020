@@ -1,0 +1,112 @@
+{% extends "feed/base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise view</title>
+
+</head>
+<body>
+
+
+{% block content %}
+    <div id="wrapper">
+        <div id="exerciseViewContainer">
+
+            <div id="exerciseInformationContainer">
+
+                <div id="exerciseImageContainer">
+                    {% load static %}
+                    <img id="exerciseImage"
+                         src="{% static "feed/bench_press.jpg" %}"
+                         alt="Exercise image">
+                </div>
+
+                <div id="exerciseInformation">
+                    <div>
+                        <div style="font-size: 40px; padding: 0; margin: 0">
+                            {{ exercise.name }}
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center">
+                        Publisert av {{ exercise.author }}
+
+                        {% if exercise.verified %}
+
+                            {% load static %}
+                            <img id="verifiedIcon"
+                                 src="{% static "feed/verified.png" %}"
+                                 alt="Exercise image">
+
+                        {% endif %}
+                    </div>
+
+
+
+
+                    {% comment %}
+
+                <div id="exerciseLikes">
+
+                    54
+
+                    {% load static %}
+                    <img src="{% static "feed/heart.png" %}" alt="Heart image">
+
+                </div>
+
+                <div id="exerciseStarRating">
+
+                    5 STARS
+
+                </div>
+
+                {% endcomment %}
+
+                    <div>
+                        Trener - Sete, forside lår
+                    </div>
+
+
+                    <div>
+                        Benkpress er en ganske kompleks øvelse og det kreves
+                        mye
+                        trening for å få til en bra utførelse. Dessverre er det
+                        ikke så lett som å bare legge seg ned på en benk og
+                        løfte
+                        stangen opp og ned.
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div id="exerciseDescriptionContainer">
+
+                <div id="exerciseDescription">
+                    <h5>Utførelse</h5>
+
+                    {{ exercise.description }}
+                    {{ exercise.description }}
+                    {{ exercise.description }}
+                    {{ exercise.description }}
+                    {{ exercise.description }}
+                    {{ exercise.description }}
+                    {{ exercise.description }}
+                    {{ exercise.description }}
+                    {{ exercise.description }}
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+{% endblock content %}
+</body>
+</html>

@@ -1,0 +1,56 @@
+.content {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    overflow-x: auto;
+    height: 100%;
+
+    background-color: #f8f6f2;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.entity {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 33.33333%;
+    height: auto;
+    margin-bottom: 5%;
+}
+
+/*
+    Remove background styling to only the image is visible for elements in
+    feed view
+ */
+.entity button {
+    background-color: transparent;
+    border: none;
+}
+
+/* Create fade out transition for elements in feed view */
+.entity button:hover {
+    opacity: 0.4;
+    transition: 0.3s;
+
+}
+
+.exerciseTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1% 1% 1% 1%;
+
+    border: 1px solid grey;
+
+    width: 40%;
+
+}

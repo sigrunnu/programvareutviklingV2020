@@ -4,4 +4,3 @@ from .models import Exercise
 from .models import MuscleGroup
 
 admin.site.register(Exercise)
-admin.site.register(MuscleGroup)
