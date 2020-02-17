@@ -1,10 +1,17 @@
+<<<<<<<<< Temporary merge branch 1
 from django.shortcuts import render
 
-from .models import Exercise
+from .models import Exercise, MuscleGroup
 
 
 # Create your views here.
 def home(request):
+    """
+   :param request: the request the user sends when requesting the home page
+   :type request: WSGIRequest
+   :return: render: response with all the exercises listed in a QuerySet
+   :rtype: HttpResponse
+   """
     latest_exercises = Exercise.objects.all()
 
     context = {
@@ -16,29 +23,35 @@ def home(request):
 
 def search(request):
     """
-    :param request:
-    :type request:
-    :return:
-    :rtype:
+    :param request: the request that contains the search word
+    :type request: WSGIRequest
+    :return: render: response with search content
+    :rtype: HttpResponse
     """
-    search_word = request.GET['search_field']
-    print(search_word)
-    return render(request, 'feed/search.html', {'search_content': search_word})
 
+    # search_content fetches the string entered into search_field
+    search_content = request.GET['search_field']
 
-def exerciseView(request):
+    # List of all search words in search_content
+    search_words = search_content.split(' ')
+
+    result_exercise = Exercise.objects.none()
+    result_muscle_group = MuscleGroup.objects.none()
+
+    # Uses static method in Models to fetch QuerySet with Objects that
+    # contains the search word
+    for i in range(len(search_words)):
+        result_exercise = \
+            result_exercise | Exercise.get_queryset_by_search_word(
+                search_words[i])
+        result_muscle_group = \
+            result_muscle_group | \
+            MuscleGroup.get_queryset_by_search_word(search_words[i])
+
+    # Context stores the search by the keys: exercises, muscleGroups
     context = {
-        'exercise': {
-            'name': "Benkpress",
-            'author': 'Petter',
-            'description': "Benkpress er en ganske kompleks øvelse og det "
-                           "kreves mye trening for å få til en bra "
-                           "utførelse. Dessverre er det ikke så lett som å "
-                           "bare legge seg ned på en benk og løfte stangen "
-                           "opp og ned.",
-            'verified': "true"
-        }
-
+        'exercises': result_exercise,
+        'muscle_groups': result_muscle_group
     }
 
-    return render(request, 'feed/exercise_view.html', context)
+    return render(request, 'feed/feed.html', context)
