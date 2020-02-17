@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .models import Exercise, MuscleGroup
 
@@ -56,19 +56,20 @@ def search(request):
     return render(request, 'feed/feed.html', context)
 
 
-def exercise_view(request):
-    context = {
-        'exercise': {
-            'name': "Benkpress",
-            'author': 'Petter',
-            'description': "Benkpress er en ganske kompleks øvelse og det "
-                           "kreves mye trening for å få til en bra "
-                           "utførelse. Dessverre er det ikke så lett som å "
-                           "bare legge seg ned på en benk og løfte stangen "
-                           "opp og ned.",
-            'verified': "true"
-        }
+def exercise_view(request, exercise_id):
+    """
+    :param request:
+    :type request:
+    :param exercise_id:
+    :type exercise_id:
+    :return:
+    :rtype:
+    """
 
+    exercise = get_object_or_404(Exercise, pk=exercise_id)
+
+    context = {
+        'exercise': exercise
     }
 
     return render(request, 'feed/exercise_view.html', context)

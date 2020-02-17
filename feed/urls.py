@@ -5,8 +5,9 @@ from . import views
 urlpatterns = [
     # Maps to home view in views.py
 
-    path('', views.home, name='feed-home'),
+    path('', views.home, name='feedHome'),
     path('search', views.search, name='search'),
-    path('e', views.exercise_view, name='exerciseView')
+    path('<int:exercise_id>', views.exercise_view, name='exerciseView')
 
 ]
+
