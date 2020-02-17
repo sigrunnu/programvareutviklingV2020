@@ -13,8 +13,8 @@
 
         {% for exercise in exercises %}
 
-            <div class="entity" onclick="window.location= '{% url 'exerciseView' exercise.id %}';">
-                <button>
+            <div class="entity">
+                <button onclick="window.location= '{% url 'exerciseView' exercise.id %}';">
                     {% load static %}
                     <img src="{% static "feed/images/weightlifting.jpg" %}"
                          alt="Exercise image">
