@@ -23,3 +23,8 @@ class TestModels:
         exercise = mixer.blend('feed.Exercise',
                                exerciseDescription=description)
         assert description == exercise.exerciseDescription
+
+    def test_exercise_to_musclegroup_not_empty(self):
+        muscleGroup = mixer.blend('feed.MuscleGroup')
+        exercise = mixer.blend('feed.Exercise', muscleGroup=muscleGroup)
+        assert exercise.muscleGroup.count() > 0
