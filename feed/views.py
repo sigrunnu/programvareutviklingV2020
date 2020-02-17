@@ -1,4 +1,3 @@
-<<<<<<<<< Temporary merge branch 1
 from django.shortcuts import render
 
 from .models import Exercise, MuscleGroup
