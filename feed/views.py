@@ -54,3 +54,21 @@ def search(request):
     }
 
     return render(request, 'feed/feed.html', context)
+
+
+def exerciseView(request):
+    context = {
+        'exercise': {
+            'name': "Benkpress",
+            'author': 'Petter',
+            'description': "Benkpress er en ganske kompleks øvelse og det "
+                           "kreves mye trening for å få til en bra "
+                           "utførelse. Dessverre er det ikke så lett som å "
+                           "bare legge seg ned på en benk og løfte stangen "
+                           "opp og ned.",
+            'verified': "true"
+        }
+
+    }
+
+    return render(request, 'feed/exercise_view.html', context)
