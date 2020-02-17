@@ -60,10 +60,10 @@ def exercise_view(request, exercise_id):
     """
     :param request:
     :type request:
-    :param exercise_id:
-    :type exercise_id:
-    :return:
-    :rtype:
+    :param exercise_id: Primary key for Exercise object
+    :type exercise_id: Integer
+    :return: response with Exercise object that has exercise_id as primary key
+    :rtype: HttpResponse
     """
 
     exercise = get_object_or_404(Exercise, pk=exercise_id)
