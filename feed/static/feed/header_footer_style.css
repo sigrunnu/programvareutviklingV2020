@@ -25,13 +25,17 @@ header, main, footer {
 /* General design  done
 Design for header*/
 
+#header{
+   height: 40%;
+}
+
 #container {
     display: flex;
-    flex-direction: row;
     background-color: #63837F;
-    height: 100px;
+    height: 45%;
     justify-content: space-between;
     align-items: center;
+    width: 100%
 
 }
 
@@ -60,26 +64,26 @@ Design for header*/
 #search{
     height: 100%;
     display: flex;
-    justify-content: space-evenly;
-     align-items: center;
-
-
+    align-items: center;
 }
+
 #searchbtn {
-    height: 118%;
-    width: 50px;
+    height: 117%;
+    width: 10%;
 }
 
 #searchfield {
-    padding-left: 10px;
-    margin: 0;
+    padding-left: 2%;
     height: 100%;
-    width: 300px;
+    width: 70%;
 
 }
 
 #searchform{
     height: 35%;
+    width: 40%;
+    flex-direction: column;
+    align-self: center;
 }
 
 #profileContainer {
@@ -109,7 +113,7 @@ Design for header*/
 #undermenu {
     display: flex;
     background-color: #C6E684;
-    height: 30px;
+    height: 13%;
     justify-content: left;
     align-items: center;
 }
