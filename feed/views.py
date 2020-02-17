@@ -56,7 +56,7 @@ def search(request):
     return render(request, 'feed/feed.html', context)
 
 
-def exerciseView(request):
+def exercise_view(request):
     context = {
         'exercise': {
             'name': "Benkpress",
