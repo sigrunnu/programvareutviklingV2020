@@ -7,6 +7,6 @@ urlpatterns = [
 
     path('', views.home, name='feed-home'),
     path('search', views.search, name='search'),
-    path('e', views.exerciseView, name='exerciseView')
+    path('e', views.exercise_view, name='exerciseView')
 
 ]
