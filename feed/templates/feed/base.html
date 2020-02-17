@@ -31,32 +31,35 @@
 
     <div id="header">
         <div id="container">
-            <div class="item" id="logoContainer">
-
+            <div class="item" id="logoContainer" >
+                <a class="item" id="logoBtn" href="{% url 'feed-home' %}">
                 <p id="exerciseIt">Exercise It!</p>
                 {% load static %}
                 <img id="logo" src="{% static 'feed/logo.png' %}"
                      alt="My image" style="width: 60px; height: 60px;">
-
+                </a>
             </div>
-            <div class="item" id="search">
+
                 <form id="searchform" action="{% url 'search' %}">
-                    <input placeholder="  Søk i hele arkivet" type="text"
+                     <div class="item" id="search">
+                    <input placeholder="Søk i hele arkivet" type="text"
                            id="searchfield" name="search_field"/>
                     <button id="searchbtn" type="submit">
                         <i class="fa fa-search"></i>
                     </button>
+                     </div>
                 </form>
-            </div>
 
             <div class="item" id="profileContainer">
                 <i class="material-icons">person</i>
                 <p id="myProfile">Min profil</p>
             </div>
+
         </div>
 
 
         <div id="undermenu">
+            <!--
             <div class="dropdown">
                 <div class="dropbtn">
                     Muskelgrupper <i class="fa fa-caret-down"></i>
@@ -70,8 +73,11 @@
                     <a href="#">Overkropp</a>
                 </div>
             </div>
+            -->
         </div>
+
     </div>
+
     <main>
         {% block content %}
 
