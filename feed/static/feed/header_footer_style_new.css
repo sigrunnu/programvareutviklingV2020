@@ -1,0 +1,59 @@
+body {
+    height: 100%;
+
+    font-family: Play, serif;
+}
+
+#container {
+    display: flex;
+
+    width: 100%;
+
+    flex-direction: row;
+
+    justify-content: space-evenly;
+
+    background-color: #63837F;
+
+    align-items: center;
+
+    padding: 1.5% 0 1.5% 0;
+
+}
+
+#logoContainer, #profileContainer, #logoBtn {
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: space-evenly;
+
+}
+
+#profileContainer {
+    width: 15%;
+}
+
+#logoContainer {
+    width: 15%;
+}
+
+#logoBtn {
+    width: 100%;
+}
+
+footer {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+
+
+    background-color: #63837F;
+
+    height: auto;
+}
