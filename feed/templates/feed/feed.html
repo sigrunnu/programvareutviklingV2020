@@ -9,39 +9,42 @@
 
 {% block content %}
 
-    <div class="content">
+    <div id="wrapper">
+        <div class="content">
+            {% for exercise in exercises %}
 
-        {% for exercise in exercises %}
+                <div class="entity">
+                    <button onclick="window.location= '{% url 'exerciseView' exercise.id %}';">
+                        {% load static %}
+                        <img src="{% static "feed/images/weightlifting.jpg" %}"
+                             alt="Exercise image">
+                    </button>
 
-            <div class="entity" onclick="window.location= '{% url 'exerciseView' exercise.id %}';">
-                <button>
-                    {% load static %}
-                    <img src="{% static "feed/weightlifting.jpg" %}"
-                         alt="Exercise image">
-                </button>
-
-                <div class="exerciseTitle">
-                    {{ exercise.exerciseTitle }}
+                    <div class="exerciseTitle">
+                        {{ exercise.exerciseTitle }}
+                    </div>
                 </div>
-            </div>
 
-        {% endfor %}
+            {% endfor %}
 
 
-        {% for muscle_group in muscle_groups %}
+            {% comment %}
+            {% for muscle_group in muscle_groups %}
 
-            <div class="entity">
-                <button>
-                    {% load static %}
-                    <img src="{% static "feed/weightlifting.jpg" %}"
-                         alt="Exercise image">
-                </button>
+                <div class="entity">
+                    <button>
+                        {% load static %}
+                        <img src="{% static "feed/images/weightlifting.jpg" %}"
+                             alt="Exercise image">
+                    </button>
 
-                <div class="exerciseTitle">
-                    {{ muscle_group.muscleGroupTitle }}
+                    <div class="exerciseTitle">
+                        {{ muscle_group.muscleGroupTitle }}
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+            {% endcomment %}
+        </div>
     </div>
 
 {% endblock content %}

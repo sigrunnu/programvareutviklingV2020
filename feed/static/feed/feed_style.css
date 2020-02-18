@@ -1,3 +1,19 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+}
+
+#wrapper {
+    display: flex;
+
+    width: auto;
+
+    height: 100%;
+
+}
+
 .content {
     display: flex;
     justify-content: space-evenly;
@@ -5,14 +21,10 @@
 
     overflow-x: auto;
     height: 100%;
+    width: 100%;
 
     background-color: #f8f6f2;
-}
 
-body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
 }
 
 .entity {
@@ -23,7 +35,8 @@ body {
 
     width: 33.33333%;
     height: auto;
-    margin-bottom: 5%;
+
+    margin: 2.5% 0 2.5% 0;
 }
 
 /*
