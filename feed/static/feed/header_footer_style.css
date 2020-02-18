@@ -26,7 +26,7 @@ header, main, footer {
 Design for header*/
 
 #header{
-   height: 40%;
+   height: 200px;
 }
 
 #container {
@@ -68,7 +68,7 @@ Design for header*/
 }
 
 #searchbtn {
-    height: 117%;
+    height: 121%;
     width: 10%;
 }
 
