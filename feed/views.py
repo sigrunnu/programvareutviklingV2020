@@ -4,6 +4,14 @@ from .models import Exercise, MuscleGroup
 
 
 # Create your views here.
+def home(request):
+    """
+   :param request: the request the user sends when requesting the home page
+   :type request: WSGIRequest
+   :return: render: response with all the exercises listed in a QuerySet
+   :rtype: HttpResponse
+   """
+    latest_exercises = Exercise.objects.all()
 
     context = {
         'exercises': latest_exercises
