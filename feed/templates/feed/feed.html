@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feed</title>
+</head>
+<body>
+{% extends "feed/base.html" %}
+
+{% block content %}
+
+    <div id="wrapper">
+        <div class="content">
+            {% for exercise in exercises %}
+
+                <div class="entity">
+                    <button onclick="window.location= '{% url 'exerciseView' exercise.id %}';">
+                        {% load static %}
+                        <img src="{% static "feed/images/weightlifting.jpg" %}"
+                             alt="Exercise image">
+                    </button>
+
+                    <div class="exerciseTitle">
+                        {{ exercise.exerciseTitle }}
+                    </div>
+                </div>
+
+            {% endfor %}
+
+
+            {% comment %}
+            {% for muscle_group in muscle_groups %}
+
+                <div class="entity">
+                    <button>
+                        {% load static %}
+                        <img src="{% static "feed/images/weightlifting.jpg" %}"
+                             alt="Exercise image">
+                    </button>
+
+                    <div class="exerciseTitle">
+                        {{ muscle_group.muscleGroupTitle }}
+                    </div>
+                </div>
+            {% endfor %}
+            {% endcomment %}
+        </div>
+    </div>
+
+{% endblock content %}
+</body>
+</html>
