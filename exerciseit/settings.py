@@ -71,12 +71,21 @@ WSGI_APPLICATION = 'exerciseit.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+
+# :DATABASES This is the production database configured in heroku
+# this will be overridden when in localhost
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd6sjscv3eebbki',
+        'USER': 'ubpdyphavronmv',
+        'PASSWORD': 'a7da20baceb36792a6a474cd07e60c04148b33bc9f77e5b53d98da2b0c1a9e95',
+        'HOST': 'ec2-18-210-51-239.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -117,3 +126,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
+"""
+:ImportError Is thrown when local_settings.py is not present, such as in the production environment.
+"""
+if DATABASES['default']['NAME'] == 'danqmuh2tkpv2h':
+    print("\033[95mRunning django with local settings: \033[0m")
+    print("\033[95mDatabase is: exercise-it-db-development\033[0m")
+else:
+    print("\033[95mRunning django with production settings:\033[0m")
+    print("\033[95mDatabase is: exercise-it-db\033[0m")
