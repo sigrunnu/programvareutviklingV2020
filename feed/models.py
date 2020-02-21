@@ -1,12 +1,20 @@
 from django.db import models
 from django.db.models import Q
+from django.contrib.postgres.search import SearchVector
+from datetime import datetime
 
 
 class MuscleGroup(models.Model):
-    muscleGroupTitle = models.CharField(max_length=200)
+    muscleGroupTitle = models.CharField(max_length=200, unique=True)
 
     def __str__(self):
         return self.muscleGroupTitle
+
+    @staticmethod
+    def get_search_vector():
+        return (
+                SearchVector('muscleGroupTitle', weight='B')
+        )
 
     @staticmethod
     def get_queryset_by_search_word(search_word):
@@ -24,12 +32,17 @@ class MuscleGroup(models.Model):
 class Exercise(models.Model):
     exerciseTitle = models.CharField(max_length=200)
     exerciseDescription = models.CharField(max_length=500)
-    pub_date = models.DateTimeField('date published')
-
+    pub_date = models.DateTimeField('date published', default=datetime.now())
     muscleGroup = models.ManyToManyField(MuscleGroup, blank=True)
 
     def __str__(self):
         return self.exerciseTitle
+
+    @staticmethod
+    def get_search_vector():
+        return (
+                SearchVector('exerciseTitle', weight='A', config='norwegian')
+        )
 
     @staticmethod
     def get_queryset_by_search_word(search_word):

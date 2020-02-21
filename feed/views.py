@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
-
+from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
 from .models import Exercise, MuscleGroup
+from functools import reduce
 
 
 # Create your views here.
@@ -31,26 +32,23 @@ def search(request):
     # search_content fetches the string entered into search_field
     search_content = request.GET['search_field']
 
-    # List of all search words in search_content
+    # Search Query
     search_words = search_content.split(' ')
-
-    result_exercise = Exercise.objects.none()
-    result_muscle_group = MuscleGroup.objects.none()
-
-    # Uses static method in Models to fetch QuerySet with Objects that
-    # contains the search word
+    search_queries = [SearchQuery(search_content), SearchQuery(''.join(search_words))]
     for i in range(len(search_words)):
-        result_exercise = \
-            result_exercise | Exercise.get_queryset_by_search_word(
-                search_words[i])
-        result_muscle_group = \
-            result_muscle_group | \
-            MuscleGroup.get_queryset_by_search_word(search_words[i])
+        if search_words[i] == '':
+            search_words.pop(i)
+    for search_word in search_words:
+        search_queries.append(SearchQuery(search_word))
+    super_query = reduce(lambda x, y: x | y, search_queries)
+    vector_exercise = Exercise.get_search_vector()
+    vector_musclegroup = MuscleGroup.get_search_vector()
+
 
     # Context stores the search by the keys: exercises, muscleGroups
     context = {
-        'exercises': result_exercise,
-        'muscle_groups': result_muscle_group
+        'exercises': Exercise.objects.annotate(rank=SearchRank(vector_exercise, super_query, weights=[0.1, 0.2, 0.3, 1])).order_by('-rank'),
+        'muscle_groups': MuscleGroup.objects.annotate(rank=SearchRank(vector_musclegroup, super_query)).order_by('-rank')
     }
 
     return render(request, 'feed/feed.html', context)
