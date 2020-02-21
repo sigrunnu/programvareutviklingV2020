@@ -32,23 +32,36 @@ def search(request):
     # search_content fetches the string entered into search_field
     search_content = request.GET['search_field']
 
-    # Search Query
+    # Creates list of search words
     search_words = search_content.split(' ')
-    search_queries = [SearchQuery(search_content), SearchQuery(''.join(search_words))]
-    for i in range(len(search_words)):
-        if search_words[i] == '':
-            search_words.pop(i)
-    for search_word in search_words:
-        search_queries.append(SearchQuery(search_word))
-    super_query = reduce(lambda x, y: x | y, search_queries)
-    vector_exercise = Exercise.get_search_vector()
-    vector_musclegroup = MuscleGroup.get_search_vector()
+
+    # Checks that there was not a space as the last character
+    if len(search_words) > 1 and search_words[-1] == '':
+        search_words.pop(-1)
+
+    index_list = list(set((i for i in range(len(search_words)))))
+    print(index_list)
+    ps = []
+    for i in range(1, 1 << len(index_list)):
+        ps.append([index_list[j] for j in range(len(index_list)) if i & (1 << j)])
 
 
+    print(ps)
+    result = Exercise.objects.none()
+    for search in ps:
+        search_string = ''
+        for index in search:
+            search_string += ' ' + search_words[index]
+        search_string.strip()
+        print(search_string)
+        print(result)
+        w = Exercise.get_queryset_by_search_word(search_string)
+        result = result.union(w)
+        print(result)
     # Context stores the search by the keys: exercises, muscleGroups
+    print(result)
     context = {
-        'exercises': Exercise.objects.annotate(rank=SearchRank(vector_exercise, super_query, weights=[0.1, 0.2, 0.3, 1])).order_by('-rank'),
-        'muscle_groups': MuscleGroup.objects.annotate(rank=SearchRank(vector_musclegroup, super_query)).order_by('-rank')
+        'exercises': result
     }
 
     return render(request, 'feed/feed.html', context)
