@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Feed</title>
+
 </head>
 <body>
 {% extends "feed/base.html" %}
@@ -45,7 +46,9 @@
             {% endfor %}
             {% endcomment %}
         </div>
-    </div>
+            {% load static %}
+            <img id="addExercise" src="{% static "feed/images/addExercise.png" %}"
+                             alt="Exercise image">
 
 {% endblock content %}
 </body>

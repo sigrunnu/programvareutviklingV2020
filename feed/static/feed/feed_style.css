@@ -59,11 +59,21 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-
     padding: 1% 1% 1% 1%;
-
     border: 1px solid grey;
-
     width: 40%;
+
+}
+
+#addExercise{
+    align-self: flex-end;
+    margin-bottom: 1.5em;
+    height: 60px;
+    width: 60px;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom:1.5em;
+    right: 20px;
+
 
 }
