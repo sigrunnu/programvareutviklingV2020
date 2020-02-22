@@ -29,6 +29,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
+    'django_elasticsearch_dsl',
+    'django_elasticsearch_dsl_drf',
     'feed.apps.FeedConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -86,6 +89,12 @@ DATABASES = {
     }
 }
 
+
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': 'elasticsearch:9200'
+    },
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
