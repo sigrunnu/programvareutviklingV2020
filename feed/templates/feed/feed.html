@@ -16,13 +16,17 @@
                 <div class="entity">
                     <button onclick="window.location= '{% url 'exerciseView' exercise.id %}';">
                         {% load static %}
-                        <img src="{% static "feed/images/weightlifting.jpg" %}"
+                        <img id="entityImage" src="{% static "feed/images/weightlifting.jpg" %}"
                              alt="Exercise image">
+
                     </button>
 
                     <div class="exerciseTitle">
                         {{ exercise.exerciseTitle }}
                     </div>
+
+                    <p style="color: cornflowerblue">Verifisert</p>
+
                 </div>
 
             {% endfor %}
