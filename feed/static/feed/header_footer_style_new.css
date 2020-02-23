@@ -32,28 +32,66 @@ body {
 
 }
 
+form {
+    display: flex;
+
+    justify-content: center;
+
+    width: 30%;
+    height: 2.1em;
+
+    background-color: red;
+
+
+}
+
+input[type="search"] {
+
+    width: 100%;
+
+    padding-left: 3%;
+
+    font-size: 15px;
+}
+
 #profileContainer {
-    width: 15%;
+    width: 12%;
+
+    font-size: 25px;
 }
 
 #logoContainer {
-    width: 15%;
-}
+    width: auto;
 
-#logoBtn {
-    width: 100%;
+    text-decoration: none;
+
+    font-size: 25px;
+
+    color: black;
 }
 
 footer {
     display: flex;
 
-    flex-direction: column;
-
-    align-items: center;
-
-
+    justify-content: center;
 
     background-color: #63837F;
 
-    height: auto;
+    height: 15%;
+
+}
+
+.footerWrapper {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-evenly;
+
+    flex-direction: row;
+
+    width: 20%;
+
+    font-size: 20px;
+
 }
