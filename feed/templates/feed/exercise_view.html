@@ -18,7 +18,7 @@
 
                 <div id="exerciseImageContainer">
                     {% load static %}
-                        <img id="exerciseImage"
+                    <img id="exerciseImage"
                          src="{% static "feed/images/bench_press.jpg" %}"
                          alt="Exercise image">
                 </div>
@@ -60,7 +60,22 @@
 
                 <div id="exerciseDescription">
                     <h5>Utførelse</h5>
-                    <P>{{ exercise.exerciseDescription }}</P>
+
+                    {{ exercise.exerciseDescription }}
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Aenean iaculis fermentum mi a tincidunt.
+                        Vestibulum vel massa lorem. Sed venenatis aliquam
+                        augue, tempor interdum nibh pulvinar eu. Nam a massa
+                        sapien. Ut rutrum convallis commodo. Morbi eget dolor
+                        dignissim ligula lobortis tempus. Duis vel tempus urna.
+                        Morbi blandit leo at pharetra aliquet. Aenean id
+                        placerat lorem, non porttitor ligula. Ut sit amet ipsum
+                        facilisis, luctus orci et, venenatis lorem. In luctus
+                    </p>
+
+
                 </div>
             </div>
 
