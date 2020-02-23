@@ -1,7 +1,20 @@
 body {
-    height: 100%;
-
     font-family: Play, serif;
+
+    margin-bottom: 0;
+    padding-bottom: 0;
+
+    height: 100vh;
+}
+
+#header {
+
+    background-color: red;
+
+    padding-bottom: 0;
+
+    height: 15%;
+
 }
 
 #container {
@@ -17,7 +30,7 @@ body {
 
     align-items: center;
 
-    padding: 1.5% 0 1.5% 0;
+    height: 80%;
 
 }
 
@@ -38,10 +51,8 @@ form {
     justify-content: center;
 
     width: 30%;
-    height: 2.1em;
 
-    background-color: red;
-
+    padding: 0;
 
 }
 
@@ -52,12 +63,13 @@ input[type="search"] {
     padding-left: 3%;
 
     font-size: 15px;
+
 }
 
 #profileContainer {
     width: 12%;
 
-    font-size: 25px;
+    font-size: 20px;
 }
 
 #logoContainer {
@@ -65,19 +77,27 @@ input[type="search"] {
 
     text-decoration: none;
 
-    font-size: 25px;
+    font-size: 20px;
 
     color: black;
 }
 
-footer {
+#seperator {
+
+    height: 20%;
+
+    background-color: #C6E684;
+}
+
+#footer {
     display: flex;
 
     justify-content: center;
 
     background-color: #63837F;
 
-    height: 15%;
+    height: 10%;
+
 
 }
 

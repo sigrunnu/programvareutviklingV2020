@@ -26,27 +26,10 @@
                 </div>
 
             {% endfor %}
-
-
-            {% comment %}
-            {% for muscle_group in muscle_groups %}
-
-                <div class="entity">
-                    <button>
-                        {% load static %}
-                        <img src="{% static "feed/images/weightlifting.jpg" %}"
-                             alt="Exercise image">
-                    </button>
-
-                    <div class="exerciseTitle">
-                        {{ muscle_group.muscleGroupTitle }}
-                    </div>
-                </div>
-            {% endfor %}
-            {% endcomment %}
         </div>
     </div>
 
 {% endblock content %}
+
 </body>
 </html>

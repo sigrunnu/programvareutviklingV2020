@@ -3,13 +3,16 @@ body {
     flex-direction: column;
 
     width: 100%;
-
-    padding: 0;
-    margin: 0;
+    height: 100%;
 
     background-color: #f8f6f2;
 
     font-family: Roboto, Arial, serif;
+
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
 
 }
 
@@ -20,6 +23,7 @@ body {
 
     width: 100%;
 
+    height: 100%;
 
 }
 
@@ -36,7 +40,7 @@ body {
 
     font-size: 14px;
 
-    height: 600px;
+    height: auto;
 
     /* Use this parameter to adjust content width */
     width: 60%;
@@ -54,7 +58,7 @@ body {
     justify-content: space-evenly;
 
     width: 100%;
-    height: 100%;
+    height: 50%;
 
 }
 
@@ -93,15 +97,17 @@ body {
 }
 
 #exerciseDescriptionContainer {
-    margin-top: 2%;
+    display: flex;
 
+    margin-top: 2%;
 
     background-color: white;
 
-    height: 100%;
+    height: 50%;
     width: 100%;
 
-    overflow-x: auto;
+    overflow-x: hidden;
+
 
 }
 
@@ -110,7 +116,6 @@ body {
 }
 
 #exerciseDescription {
-
     font-size: 15px;
 
     text-align: left;
@@ -118,6 +123,9 @@ body {
     padding: 2% 10% 2% 10%;
 
     flex-direction: column;
+
+
+
 }
 
 #exerciseTitleAndAuthor * {

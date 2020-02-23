@@ -28,21 +28,23 @@
 
 </head>
 <body>
-<div id="content">
+
+<div id="header">
 
 
-        <div id="container">
+    <div id="container">
 
-            <a id="logoContainer" href="{% url 'feedHome' %}">
+        <a id="logoContainer" href="{% url 'feedHome' %}">
 
-                <p>ExerciseIt!</p>
+            <p>ExerciseIt!</p>
 
-                {% load static %}
-                <img id="logo" src="{% static 'feed/images/logo.png' %}"
-                     alt="My image" style="margin-left: 5%; width: 60px; height: 60px;">
-            </a>
+            {% load static %}
+            <img id="logo" src="{% static 'feed/images/logo.png' %}"
+                 alt="My image"
+                 style="margin-left: 5%; width: 60px; height: 60px;">
+        </a>
 
-            <!---
+        <!---
             <form action="{% url 'search' %}">
 
                 <div id="search">
@@ -59,64 +61,66 @@
             --->
 
 
-            <form action="{% url 'search' %}">
-                <input placeholder="Søk i etter øvelser eller muskelgrupper"
-                       type="search" name="search_field" />
+        <form action="{% url 'search' %}">
+            <input placeholder="Søk i etter øvelser eller muskelgrupper"
+                   type="search" name="search_field"/>
 
-                <button type="submit">Search</button>
+            <button style="margin-left: 2%" type="submit">Søk</button>
 
-            </form>
-
-
-            <div class="item" id="profileContainer">
-                <i class="material-icons" >person</i>
-                <p id="myProfile">Min profil</p>
-            </div>
-
-        </div>
+        </form>
 
 
-        <div id="undermenu">
-            <!--
-            <div class="dropdown">
-                <div class="dropbtn">
-                    Muskelgrupper <i class="fa fa-caret-down"></i>
-                </div>
-                <div class="dropdown-content">
-                    <a href="#">Rygg</a>
-                    <a href="#">Mage</a>
-                    <a href="#">Bein</a>
-                    <a href="#">Skuldre</a>
-                    <a href="#">Armer</a>
-                    <a href="#">Overkropp</a>
-                </div>
-            </div>
-            -->
+        <div class="item" id="profileContainer">
+            <i class="material-icons">person</i>
+            <p id="myProfile">Min profil</p>
         </div>
 
     </div>
 
-    <main>
-        {% block content %}
+    <div id="seperator">
+        <!--
+        <div class="dropdown">
+            <div class="dropbtn">
+                Muskelgrupper <i class="fa fa-caret-down"></i>
+            </div>
+            <div class="dropdown-content">
+                <a href="#">Rygg</a>
+                <a href="#">Mage</a>
+                <a href="#">Bein</a>
+                <a href="#">Skuldre</a>
+                <a href="#">Armer</a>
+                <a href="#">Overkropp</a>
+            </div>
+        </div>
+        -->
 
-        {% endblock content %}
-    </main>
+    </div>
 
-    <footer>
+</div>
+
+
+{% block content %}
+
+{% endblock content %}
+
+
+<div id="footer">
+    <div class="footerWrapper">
 
         <div class="footerWrapper">
 
-            <div class="footerWrapper">
+            <p>ExerciseIt!</p>
 
-                <p>ExerciseIt!</p>
+            {% load static %}
+            <img id="logoFooter" src="{% static 'feed/images/logo.png' %}"
+                 alt="My image"
+                 style="margin-left: 6%; width: 40px; height: 40px;">
 
-                {% load static %}
-                <img id="logoFooter" src="{% static 'feed/images/logo.png' %}"
-                     alt="My image" style="margin-left: 6%; width: 60px; height: 60px;">
-
-            </div>
         </div>
+    </div>
+</div>
 
-    </footer>
 </body>
+
+
 </html>
