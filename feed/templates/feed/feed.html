@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Feed</title>
 
+
 </head>
 <body>
 {% extends "feed/base.html" %}
@@ -46,9 +47,16 @@
             {% endfor %}
             {% endcomment %}
         </div>
+        <div id="addExerciseContainer">
             {% load static %}
-            <img id="addExercise" src="{% static "feed/images/addExercise.png" %}"
-                             alt="Exercise image">
+            <a  id="addExerciseBtn" href="{% url 'addExercise' %}">
+            <img id="addExercise" src="{% static 'feed/images/addExercise.png' %}"
+                             alt="Exercise"/>
+            </a>
+
+            </div>
+
+    </div>
 
 {% endblock content %}
 </body>
