@@ -66,7 +66,9 @@ class Exercise(models.Model):
         null=True,
         blank=True
     )
-    createdByPro = models.BooleanField(default=False)
+    createdByPro = models.BooleanField(
+        default=False
+    )
     exerciseImage = models.ImageField(
         null=True,
         blank=True,

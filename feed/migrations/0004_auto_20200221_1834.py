@@ -19,6 +19,8 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='exercise',
             name='pub_date',
-            field=models.DateTimeField(default=datetime.datetime(2020, 2, 21, 18, 34, 14, 278594), verbose_name='date published'),
+            field=models.DateTimeField(
+                default=datetime.datetime(2020, 2, 21, 18, 34, 14, 278594),
+                verbose_name='date published'),
         ),
     ]
