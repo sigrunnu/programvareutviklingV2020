@@ -2,7 +2,11 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
 from .models import Exercise, MuscleGroup
 from functools import reduce
-
+from search_indexes.documents.book import BookDocument
+from elasticsearch import Elasticsearch
+from elasticsearch_dsl import Search
+from elasticsearch_dsl.query import MultiMatch, Match
+from elasticsearch_dsl import Q
 
 # Create your views here.
 def home(request):
@@ -32,34 +36,21 @@ def search(request):
     # search_content fetches the string entered into search_field
     search_content = request.GET['search_field']
 
-    # Creates list of search words
-    search_words = search_content.split(' ')
+    client = Elasticsearch()
 
-    # Checks that there was not a space as the last character
-    if len(search_words) > 1 and search_words[-1] == '':
-        search_words.pop(-1)
+    s = Search(using=client)
 
-    index_list = list(set((i for i in range(len(search_words)))))
-    print(index_list)
-    ps = []
-    for i in range(1, 1 << len(index_list)):
-        ps.append([index_list[j] for j in range(len(index_list)) if i & (1 << j)])
+    q = Q("multi_match", query='database', fields=['title'])
+    # s = s.query(q)
+    #print(s)
+    #for x in s:
+    #    print(x.title)
 
-
-    print(ps)
-    result = Exercise.objects.none()
-    for search in ps:
-        search_string = ''
-        for index in search:
-            search_string += ' ' + search_words[index]
-        search_string.strip()
-        print(search_string)
-        print(result)
-        w = Exercise.get_queryset_by_search_word(search_string)
-        result = result.union(w)
-        print(result)
-    # Context stores the search by the keys: exercises, muscleGroups
-    print(result)
+    s = s.sort()
+    
+    for x in s:
+        print(x.title)
+    result = s
     context = {
         'exercises': result
     }

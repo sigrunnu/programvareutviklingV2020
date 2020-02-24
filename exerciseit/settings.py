@@ -29,6 +29,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'books',
+    'search_indexes',
     'rest_framework',
     'django_elasticsearch_dsl',
     'django_elasticsearch_dsl_drf',
@@ -53,14 +55,15 @@ MIDDLEWARE = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    ),
-    'DEFAULT_PAGINATION_CLASS':
-        'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 100,
-    'ORDERING_PARAM': 'ordering',
+            'rest_framework.authentication.BasicAuthentication',
+            'rest_framework.authentication.SessionAuthentication',
+        ),
+        'DEFAULT_PAGINATION_CLASS':
+            'rest_framework.pagination.PageNumberPagination',
+        'PAGE_SIZE': 100,
+        'ORDERING_PARAM': 'ordering',
 }
+
 
 # Elasticsearch configuration
 ELASTICSEARCH_DSL = {
@@ -68,6 +71,12 @@ ELASTICSEARCH_DSL = {
         'hosts': 'localhost:9200'
     },
 }
+
+
+ELASTICSEARCH_INDEX_NAMES = {
+    'search_indexes.documents.book': 'book',
+}
+
 
 ROOT_URLCONF = 'exerciseit.urls'
 
@@ -107,12 +116,6 @@ DATABASES = {
     }
 }
 
-
-ELASTICSEARCH_DSL = {
-    'default': {
-        'hosts': 'elasticsearch:9200'
-    },
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
