@@ -67,9 +67,26 @@ body {
     margin-top: 2%;
 
     padding: 1% 1% 1% 1%;
-
     border: 1px solid grey;
-
     width: 40%;
 
 }
+
+#addExercise {
+    height: 60px;
+    width: 60px;
+
+}
+
+#addExerciseContainer {
+    cursor: pointer;
+    display: inline-block;
+    align-self: flex-end;
+    margin-bottom: 1.5em;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 1.5em;
+    right: 20px;
+
+}
+

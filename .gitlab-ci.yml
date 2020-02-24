@@ -12,15 +12,15 @@ stages:
 pycodestyle:
   stage: Static Analysis
   script:
-  - pycodestyle .
+    - pycodestyle .
 
 pytest:
   stage: Testing
   script:
-  - pytest feed/
+    - pytest feed/
 
 coverage:
   stage: Testing
   script:
-  - pytest --cov=feed
+    - pytest --cov=feed
   
