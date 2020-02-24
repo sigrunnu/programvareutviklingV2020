@@ -25,6 +25,7 @@ body {
 
     background-color: #f8f6f2;
 
+
 }
 
 .entity {
@@ -34,10 +35,13 @@ body {
     align-items: center;
 
     width: 33.33333%;
-    height: auto;
 
-    margin: 2.5% 0 2.5% 0;
+    height: 60%;
+
+    margin: 2.5% 0 0 0;
+
 }
+
 
 /*
     Remove background styling to only the image is visible for elements in
@@ -60,10 +64,29 @@ body {
     align-items: center;
     justify-content: center;
 
+    margin-top: 2%;
+
     padding: 1% 1% 1% 1%;
-
     border: 1px solid grey;
-
     width: 40%;
 
 }
+
+#addExercise {
+    height: 60px;
+    width: 60px;
+
+}
+
+#addExerciseContainer {
+    cursor: pointer;
+    display: inline-block;
+    align-self: flex-end;
+    margin-bottom: 1.5em;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 1.5em;
+    right: 20px;
+
+}
+
