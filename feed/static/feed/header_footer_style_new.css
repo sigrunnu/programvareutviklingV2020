@@ -45,7 +45,7 @@ body {
 
 }
 
-form {
+#searchForm {
     display: flex;
 
     justify-content: center;
