@@ -37,12 +37,6 @@ class MuscleGroup(models.Model):
 @python_2_unicode_compatible
 class Exercise(models.Model):
 
-    exerciseTitle = models.CharField(max_length=200)
-    exerciseDescription = models.CharField(max_length=500)
-    pub_date = models.DateTimeField('date published', default=datetime.now())
-    muscleGroup = models.ManyToManyField(MuscleGroup, blank=True)
-
-
     exerciseTitle = models.CharField(
         max_length=200
     )
@@ -58,7 +52,9 @@ class Exercise(models.Model):
         default=datetime.now(),
         editable=False
     )
-    exerciseLikes = models.IntegerField(default=0)
+    exerciseLikes = models.IntegerField(
+        default=0
+    )
     exerciseRating = models.DecimalField(
         null=True,
         blank=True,
