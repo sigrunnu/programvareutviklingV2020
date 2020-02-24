@@ -16,6 +16,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True,
                                         serialize=False, verbose_name='ID')),
                 ('exerciseTitle', models.CharField(max_length=200)),
+                ('exerciseAuthor', models.CharField(max_length=50)),
                 ('exerciseDescription', models.CharField(max_length=500)),
                 ('pub_date',
                  models.DateTimeField(verbose_name='date published')),

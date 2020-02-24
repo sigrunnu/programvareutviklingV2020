@@ -1,9 +1,14 @@
 from django.db import models
 from django.db.models import Q
+from datetime import datetime
+from six import python_2_unicode_compatible
 
 
+@python_2_unicode_compatible
 class MuscleGroup(models.Model):
-    muscleGroupTitle = models.CharField(max_length=200)
+    muscleGroupTitle = models.CharField(
+        max_length=200
+    )
 
     def __str__(self):
         return self.muscleGroupTitle
@@ -21,12 +26,45 @@ class MuscleGroup(models.Model):
             Q(muscleGroupTitle__icontains=search_word))
 
 
+@python_2_unicode_compatible
 class Exercise(models.Model):
-    exerciseTitle = models.CharField(max_length=200)
-    exerciseDescription = models.CharField(max_length=500)
-    pub_date = models.DateTimeField('date published')
-
-    muscleGroup = models.ManyToManyField(MuscleGroup, blank=True)
+    exerciseTitle = models.CharField(
+        max_length=200
+    )
+    exerciseAuthor = models.CharField(
+        max_length=50
+    )
+    exerciseInfo = models.TextField(
+        max_length=500,
+        null=True,
+        blank=True
+    )
+    pub_date = models.DateTimeField(
+        default=datetime.now(),
+        editable=False
+    )
+    exerciseLikes = models.IntegerField(default=0)
+    exerciseRating = models.DecimalField(
+        null=True,
+        blank=True,
+        decimal_places=3,
+        max_digits=4
+    )
+    exerciseHowTo = models.TextField(
+        max_length=500,
+        null=True,
+        blank=True
+    )
+    createdByPro = models.BooleanField(default=False)
+    exerciseImage = models.ImageField(
+        null=True,
+        blank=True,
+        upload_to='exercises/'
+    )
+    muscleGroup = models.ManyToManyField(
+        MuscleGroup,
+        blank=True
+    )
 
     def __str__(self):
         return self.exerciseTitle
