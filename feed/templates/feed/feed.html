@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Feed</title>
+
+
 </head>
 <body>
 {% extends "feed/base.html" %}
@@ -16,37 +18,34 @@
                 <div class="entity">
                     <button onclick="window.location= '{% url 'exerciseView' exercise.id %}';">
                         {% load static %}
-                        <img src="{% static "feed/images/weightlifting.jpg" %}"
+                        <img id="entityImage" src="{% static "feed/images/weightlifting.jpg" %}"
                              alt="Exercise image">
+
                     </button>
 
                     <div class="exerciseTitle">
                         {{ exercise.exerciseTitle }}
                     </div>
+
+                    <p style="color: cornflowerblue">Verifisert</p>
+
                 </div>
 
             {% endfor %}
-
-
-            {% comment %}
-            {% for muscle_group in muscle_groups %}
-
-                <div class="entity">
-                    <button>
-                        {% load static %}
-                        <img src="{% static "feed/images/weightlifting.jpg" %}"
-                             alt="Exercise image">
-                    </button>
-
-                    <div class="exerciseTitle">
-                        {{ muscle_group.muscleGroupTitle }}
-                    </div>
-                </div>
-            {% endfor %}
-            {% endcomment %}
         </div>
+        <div id="addExerciseContainer">
+            {% load static %}
+            <a id="addExerciseBtn" href="{% url 'addExercise' %}">
+                <img id="addExercise"
+                     src="{% static 'feed/images/addExercise.png' %}"
+                     alt="Exercise"/>
+            </a>
+
+        </div>
+
     </div>
 
 {% endblock content %}
+
 </body>
 </html>

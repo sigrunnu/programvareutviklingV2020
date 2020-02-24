@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404
+from django.views.generic import CreateView
+
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
 from .models import Exercise, MuscleGroup
 from functools import reduce
@@ -84,3 +86,11 @@ def exercise_view(request, exercise_id):
     }
 
     return render(request, 'feed/exercise_view.html', context)
+
+
+class ExerciseCreateView(CreateView):
+    model = Exercise
+    template_name = 'feed/exercise_form.html'
+    success_url = '/'
+    fields = (
+        'exerciseTitle', 'exerciseDescription', 'pub_date', 'muscleGroup')

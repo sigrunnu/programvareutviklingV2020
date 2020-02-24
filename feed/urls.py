@@ -1,4 +1,6 @@
 from django.urls import path
+
+from feed.views import ExerciseCreateView
 from . import views
 
 urlpatterns = [
@@ -6,6 +8,7 @@ urlpatterns = [
 
     path('', views.home, name='feedHome'),
     path('search', views.search, name='search'),
-    path('<int:exercise_id>', views.exercise_view, name='exerciseView')
+    path('<int:exercise_id>', views.exercise_view, name='exerciseView'),
+    path('addExercise', ExerciseCreateView.as_view(), name="addExercise")
 
 ]
