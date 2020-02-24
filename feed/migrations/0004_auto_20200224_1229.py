@@ -28,7 +28,10 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='exercise',
             name='exerciseImage',
-            field=models.ImageField(blank=True, null=True, upload_to='exercises/'),
+            field=models.ImageField(
+                blank=True,
+                null=True,
+                upload_to='exercises/'),
         ),
         migrations.AddField(
             model_name='exercise',
@@ -43,7 +46,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='exercise',
             name='exerciseRating',
-            field=models.DecimalField(blank=True, decimal_places=3, max_digits=4, null=True),
+            field=models.DecimalField(
+                blank=True,
+                decimal_places=3,
+                max_digits=4,
+                null=True),
         ),
         migrations.AlterField(
             model_name='exercise',
@@ -53,6 +60,8 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='exercise',
             name='pub_date',
-            field=models.DateTimeField(default=datetime.datetime(2020, 2, 24, 12, 29, 44, 974038), editable=False),
+            field=models.DateTimeField(
+                default=datetime.datetime(2020, 2, 24, 12, 29, 44, 974038),
+                editable=False),
         ),
     ]
