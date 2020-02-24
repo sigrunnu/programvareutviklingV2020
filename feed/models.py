@@ -3,6 +3,7 @@ from django.db.models import Q
 from datetime import datetime
 from six import python_2_unicode_compatible
 
+
 @python_2_unicode_compatible
 class MuscleGroup(models.Model):
     muscleGroupTitle = models.CharField(max_length=200)
@@ -22,6 +23,7 @@ class MuscleGroup(models.Model):
         return MuscleGroup.objects.filter(
             Q(muscleGroupTitle__icontains=search_word))
 
+
 @python_2_unicode_compatible
 class Exercise(models.Model):
     exerciseTitle = models.CharField(max_length=200)
@@ -33,8 +35,6 @@ class Exercise(models.Model):
     exerciseHowTo = models.TextField(max_length=500, null=True, blank=True)
     createdByPro = models.BooleanField(default=False)
     exerciseImage = models.ImageField(null=True, blank=True, upload_to='exercises/')
-
-
     muscleGroup = models.ManyToManyField(MuscleGroup, blank=True)
 
     def __str__(self):
