@@ -65,20 +65,20 @@ body {
 
 }
 
-#addExercise{
+#addExercise {
     height: 60px;
     width: 60px;
 
 }
 
-#addExerciseContainer{
-     cursor: pointer;
+#addExerciseContainer {
+    cursor: pointer;
     display: inline-block;
     align-self: flex-end;
     margin-bottom: 1.5em;
     position: -webkit-sticky;
     position: sticky;
-    bottom:1.5em;
+    bottom: 1.5em;
     right: 20px;
 
 }

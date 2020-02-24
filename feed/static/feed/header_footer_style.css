@@ -25,8 +25,8 @@ header, main, footer {
 /* General design  done
 Design for header*/
 
-#header{
-   height: 200px;
+#header {
+    height: 200px;
 }
 
 #container {
@@ -50,9 +50,10 @@ Design for header*/
 
 }
 
-#logoBtn{
+#logoBtn {
     text-decoration: none;
 }
+
 #exerciseIt {
     vertical-align: middle;
     display: inline;
@@ -61,7 +62,8 @@ Design for header*/
     color: black;
     text-decoration: none;
 }
-#search{
+
+#search {
     height: 100%;
     display: flex;
     align-items: center;
@@ -79,7 +81,7 @@ Design for header*/
 
 }
 
-#searchform{
+#searchform {
     height: 35%;
     width: 40%;
     flex-direction: column;

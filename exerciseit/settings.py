@@ -70,7 +70,6 @@ TEMPLATES = [
     },
 ]
 
-
 WSGI_APPLICATION = 'exerciseit.wsgi.application'
 
 # Database
