@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+from elasticsearch import Elasticsearch, RequestsHttpConnection
+from requests_aws4auth import AWS4Auth
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -29,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'books',
     'search_indexes',
     'rest_framework',
     'django_elasticsearch_dsl',
@@ -72,12 +73,12 @@ REST_FRAMEWORK = {
 # Elasticsearch configuration
 ELASTICSEARCH_DSL = {
     'default': {
-        'hosts': 'localhost:9200'
+        'hosts': 'https://59d039eba59a428d829f21971b4bbbcb.eu-central-1.aws.cloud.es.io:9243/',
+        'http_auth': ('elastic', 'icsoaFY5MXOkQKj2Kug4sODg'),
     },
 }
 
 ELASTICSEARCH_INDEX_NAMES = {
-    'search_indexes.documents.book': 'book',
     'search_indexes.documents.exercise': 'exercise'
 }
 
