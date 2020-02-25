@@ -41,7 +41,8 @@ class Exercise(models.Model):
         max_length=200
     )
     exerciseAuthor = models.CharField(
-        max_length=50
+        max_length=50,
+        null=True
     )
     exerciseInfo = models.TextField(
         max_length=500,
@@ -79,8 +80,24 @@ class Exercise(models.Model):
         blank=True
     )
 
+    class Meta(object):
+        ordering = ["exerciseLikes", "exerciseRating", "exerciseTitle"]
+
     def __str__(self):
         return self.exerciseTitle
+
+    @property
+    def muscle_group_indexing(self):
+        """Muscle group for indexing. Used in Elasticsearch indexing.
+            We only need a flat list of MuscleGroups titles, on which
+            we can filter. Therefore, we define a properly on a model level,
+            which will return a JSON dumped list of MuscleGroups relevant to
+            the current Exercise model object.
+        """
+        return [
+            muscleGroup.muscleGroupTitle
+            for muscleGroup in self.muscleGroup.all()
+        ]
 
     @staticmethod
     def get_search_vector():
@@ -98,5 +115,5 @@ class Exercise(models.Model):
         :rtype: QuerySet
         """
         return Exercise.objects.filter(
-            Q(exerciseDescription__icontains=search_word)
+            Q(exerciseInfo__icontains=search_word)
             | Q(exerciseTitle__icontains=search_word))
