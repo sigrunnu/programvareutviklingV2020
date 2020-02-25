@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import CreateView
-
+from search_indexes.documents.exercise import ExerciseDocument
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
 from .models import Exercise, MuscleGroup
 from functools import reduce
@@ -9,6 +9,7 @@ from elasticsearch import Elasticsearch
 from elasticsearch_dsl import Search
 from elasticsearch_dsl.query import MultiMatch, Match
 from elasticsearch_dsl import Q
+
 
 # Create your views here.
 def home(request):
@@ -38,25 +39,16 @@ def search(request):
     # search_content fetches the string entered into search_field
     search_content = request.GET['search_field']
 
-    client = Elasticsearch()
+    query = ExerciseDocument.search().query(
+        "wildcard",
+        exerciseTitle={'value': f'*{search_content}*'}
+    )
 
-    s = Search(using=client)
-
-    q = Q("multi_match", query='database', fields=['title'])
-    # s = s.query(q)
-    #print(s)
-    #for x in s:
-    #    print(x.title)
-
-    s = s.sort()
-    
-    for x in s:
-        print(x.title)
-    result = s
+    result = query.execute()
+    print(result.to_dict())
     context = {
         'exercises': result
     }
-
     return render(request, 'feed/feed.html', context)
 
 
@@ -84,4 +76,4 @@ class ExerciseCreateView(CreateView):
     template_name = 'feed/exercise_form.html'
     success_url = '/'
     fields = (
-        'exerciseTitle', 'exerciseDescription', 'pub_date', 'muscleGroup')
+        'exerciseTitle', 'exerciseInfo', 'pub_date', 'muscleGroup')

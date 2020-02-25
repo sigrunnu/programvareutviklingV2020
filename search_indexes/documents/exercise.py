@@ -28,7 +28,6 @@ class ExerciseDocument(Document):
 
     exerciseTitle = fields.TextField(
         attr='exerciseTitle',
-        tokenizer='standard',
         analyzer=html_strip,
         fields={
             'raw': fields.TextField(analyzer='keyword', multi=True),
@@ -37,13 +36,8 @@ class ExerciseDocument(Document):
         filter='lowercase'
     )
 
-    muscleGroup = fields.TextField(
-        attr='muscleGroups',
-        tokenizer='standard',
-        fileds={
-            'raw': fields.TextField(analyzer='keyword', multi=True),
-        },
-        filter='lowercase'
+    muscleGroup = fields.ObjectField(
+
     )
 
     class Django(object):

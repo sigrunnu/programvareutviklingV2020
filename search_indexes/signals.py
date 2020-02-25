@@ -34,6 +34,15 @@ def update_document(sender, **kwargs):
             instances = instance.books.all()
             for _instance in instances:
                 registry.update(_instance)
+    if app_label == 'feed':
+        if model_name == 'exercise':
+            instances = instance.exercises.all()
+            for _instance in instances:
+                registry.update(_instance)
+        if model_name == 'muscleGroup':
+            instances = instance.exercises.all()
+            for _instance in instances:
+                registry.update(_instance)
 
 
 @receiver(post_delete)
@@ -69,3 +78,15 @@ def delete_document(sender, **kwargs):
             for _instance in instances:
                 registry.update(_instance)
                 # registry.delete(_instance, raise_on_error=False)
+        if app_label == 'feed':
+            # If it is `books.Publisher` that is being updated.
+            if model_name == 'exercise':
+                instances = instance.exercises.all()
+                for _instance in instances:
+                    registry.update(_instance)
+                    # registry.delete(_instance, raise_on_error=False)
+            if model_name == 'muscleGroup':
+                instances = instance.exercises.all()
+                for _instance in instances:
+                    registry.update(_instance)
+                    # registry.delete(_instance, raise_on_error=False)

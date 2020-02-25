@@ -33,6 +33,8 @@ class BookDocument(Document):
         }
     )
 
+
+
     class Django(object):
         """Inner nested class Django."""
 
