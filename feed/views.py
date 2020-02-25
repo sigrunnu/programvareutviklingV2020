@@ -4,7 +4,6 @@ from search_indexes.documents.exercise import ExerciseDocument
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
 from .models import Exercise, MuscleGroup
 from functools import reduce
-from search_indexes.documents.book import BookDocument
 from elasticsearch import Elasticsearch
 from elasticsearch_dsl import Search
 from elasticsearch_dsl.query import MultiMatch, Match

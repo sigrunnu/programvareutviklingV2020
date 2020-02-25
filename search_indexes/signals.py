@@ -1,6 +1,5 @@
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
-
 from django_elasticsearch_dsl.registries import registry
 
 
@@ -16,24 +15,6 @@ def update_document(sender, **kwargs):
     model_name = sender._meta.model_name
     instance = kwargs['instance']
 
-    if app_label == 'book':
-        # If it is `books.Publisher` that is being updated.
-        if model_name == 'publisher':
-            instances = instance.books.all()
-            for _instance in instances:
-                registry.update(_instance)
-
-        # If it is `books.Author` that is being updated.
-        if model_name == 'author':
-            instances = instance.books.all()
-            for _instance in instances:
-                registry.update(_instance)
-
-        # If it is `books.Tag` that is being updated.
-        if model_name == 'tag':
-            instances = instance.books.all()
-            for _instance in instances:
-                registry.update(_instance)
     if app_label == 'feed':
         if model_name == 'exercise':
             instances = instance.exercises.all()
@@ -56,37 +37,15 @@ def delete_document(sender, **kwargs):
     app_label = sender._meta.app_label
     model_name = sender._meta.model_name
     instance = kwargs['instance']
-
-    if app_label == 'books':
+    if app_label == 'feed':
         # If it is `books.Publisher` that is being updated.
-        if model_name == 'publisher':
-            instances = instance.books.all()
+        if model_name == 'exercise':
+            instances = instance.exercises.all()
             for _instance in instances:
                 registry.update(_instance)
                 # registry.delete(_instance, raise_on_error=False)
-
-        # If it is `books.Author` that is being updated.
-        if model_name == 'author':
-            instances = instance.books.all()
+        if model_name == 'muscleGroup':
+            instances = instance.exercises.all()
             for _instance in instances:
                 registry.update(_instance)
                 # registry.delete(_instance, raise_on_error=False)
-
-        # If it is `books.Tag` that is being updated.
-        if model_name == 'tag':
-            instances = instance.books.all()
-            for _instance in instances:
-                registry.update(_instance)
-                # registry.delete(_instance, raise_on_error=False)
-        if app_label == 'feed':
-            # If it is `books.Publisher` that is being updated.
-            if model_name == 'exercise':
-                instances = instance.exercises.all()
-                for _instance in instances:
-                    registry.update(_instance)
-                    # registry.delete(_instance, raise_on_error=False)
-            if model_name == 'muscleGroup':
-                instances = instance.exercises.all()
-                for _instance in instances:
-                    registry.update(_instance)
-                    # registry.delete(_instance, raise_on_error=False)
