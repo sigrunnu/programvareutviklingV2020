@@ -28,32 +28,39 @@
                         <div style="font-size: 40px; padding: 0; margin: 0">
                             {{ exercise.exerciseTitle }}
                         </div>
+
+
                     </div>
-                    <div style="display: flex; align-items: center">
-                        {{ exercise.exerciseAuthor }}
-                        {% comment %}
+
+
+                    <div class="exerciseAuthor">
                         Publisert av:
-                        {{ exercise.author }}
-                        {% if exercise.verified %}
-                            {% load static %}
-                            <img id="verifiedIcon"
-                                 src="{% static "feed/verified.png" %}"
-                                 alt="Exercise image">
+                        {{ exercise.exerciseAuthor }}
+
+                        {% if exercise.createdByPro == True %}
+                            <div class="item-image">
+                                <img src="{% static 'feed/images/verified.png' %}"
+                                     style="width:20px;height:20px;">
+                            </div>
                         {% endif %}
-                        {% endcomment %}
+                        <div class="item-noImage" style="display:none;">
+                        </div>
                     </div>
-                    {% comment %}
-                <div id="exerciseLikes">
-                    54
-                    {% load static %}
-                    <img src="{% static "feed/heart.png" %}" alt="Heart image">
-                </div>
-                <div id="exerciseStarRating">
-                    5 STARS
-                </div>
-                {% endcomment %}
+
+
+                    {% comment %}<div id="exerciseLikes">
+                        54
+                        {% load static %}
+                        <img src="{% static "feed/" %}"
+                             alt="Heart image">
+                    </div>
+                    <div id="exerciseStarRating">
+                        5 STARS
+                    </div>{% endcomment %}
+
+                    <div> {{ exercise.exerciseInfo }}</div>
                     <div></div>
-                    <div></div>
+
                 </div>
             </div>
 
@@ -64,51 +71,51 @@
 
                     {{ exercise.exerciseDescription }}
 
-                <p>
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
+                    <p>
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
 
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
+                        hei på deg hei på deg hei på deg hei på deg
 
-                    slutt
-                </p>
+                        slutt
+                    </p>
 
 
                 </div>
