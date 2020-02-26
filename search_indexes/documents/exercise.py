@@ -31,7 +31,7 @@ class ExerciseDocument(Document):
         analyzer=html_strip,
         fields={
             'raw': fields.TextField(analyzer='keyword', multi=True),
-            'suggest': fields.Completion(),
+            'suggest': fields.CompletionField(multi=True),
         },
     )
 
