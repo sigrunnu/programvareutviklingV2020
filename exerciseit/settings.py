@@ -60,20 +60,20 @@ MIDDLEWARE = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-            'rest_framework.authentication.BasicAuthentication',
-            'rest_framework.authentication.SessionAuthentication',
-        ),
-        'DEFAULT_PAGINATION_CLASS':
-            'rest_framework.pagination.PageNumberPagination',
-        'PAGE_SIZE': 100,
-        'ORDERING_PARAM': 'ordering',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PAGINATION_CLASS':
+        'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 100,
+    'ORDERING_PARAM': 'ordering',
 }
-
 
 # Elasticsearch configuration
 ELASTICSEARCH_DSL = {
     'default': {
-        'hosts': 'https://59d039eba59a428d829f21971b4bbbcb.eu-central-1.aws.cloud.es.io:9243/',
+        'hosts': 'https://59d039eba59a428d829f21971b4bbbcb.'
+                 + 'eu-central-1.aws.cloud.es.io:9243/',
         'http_auth': ('elastic', 'icsoaFY5MXOkQKj2Kug4sODg'),
     },
 }
@@ -81,7 +81,6 @@ ELASTICSEARCH_DSL = {
 ELASTICSEARCH_INDEX_NAMES = {
     'search_indexes.documents.exercise': 'exercise'
 }
-
 
 ROOT_URLCONF = 'exerciseit.urls'
 
@@ -115,12 +114,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'd6sjscv3eebbki',
         'USER': 'ubpdyphavronmv',
-        'PASSWORD': 'a7da20baceb36792a6a474cd07e60c04148b33bc9f77e5b53d98da2b0c1a9e95',
+        'PASSWORD':
+            'a7da20baceb36792a6a474cd07e60c04148b33bc9f77e5b53d98da2b0c1a9e95',
         'HOST': 'ec2-18-210-51-239.compute-1.amazonaws.com',
         'PORT': '5432'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -170,8 +169,10 @@ except ImportError:
     pass
 
 """
-:ImportError Is thrown when local_settings.py is not present, such as in the production environment.
+    ImportError Is thrown when local_settings.py is not present,
+    such as in the production environment.
 """
+
 if DATABASES['default']['NAME'] == 'danqmuh2tkpv2h':
     print("\033[95mRunning django with local settings: \033[0m")
     print("\033[95mDatabase is: exercise-it-db-development\033[0m")

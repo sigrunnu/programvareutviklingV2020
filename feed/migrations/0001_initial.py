@@ -15,27 +15,43 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='MuscleGroup',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID')),
                 ('muscleGroupTitle', models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
             name='Exercise',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID')),
                 ('exerciseTitle', models.CharField(max_length=200)),
                 ('exerciseAuthor', models.CharField(max_length=50, null=True)),
-                ('exerciseInfo', models.TextField(blank=True, max_length=500, null=True)),
-                ('pub_date', models.DateTimeField(default=datetime.datetime(2020, 2, 25, 22, 50, 54, 710677), editable=False)),
+                ('exerciseInfo', models.TextField(
+                    blank=True, max_length=500, null=True)),
+                ('pub_date', models.DateTimeField(
+                    default=datetime.datetime(2020, 2, 25, 22, 50, 54, 710677),
+                    editable=False)),
                 ('exerciseLikes', models.IntegerField(default=0)),
-                ('exerciseRating', models.DecimalField(blank=True, decimal_places=3, max_digits=4, null=True)),
-                ('exerciseHowTo', models.TextField(blank=True, max_length=500, null=True)),
+                ('exerciseRating', models.DecimalField(
+                    blank=True, decimal_places=3, max_digits=4, null=True)),
+                ('exerciseHowTo', models.TextField(
+                    blank=True, max_length=500, null=True)),
                 ('createdByPro', models.BooleanField(default=False)),
-                ('exerciseImage', models.ImageField(blank=True, null=True, upload_to='exercises/')),
-                ('muscleGroup', models.ManyToManyField(blank=True, to='feed.MuscleGroup')),
+                ('exerciseImage', models.ImageField(
+                    blank=True, null=True, upload_to='exercises/')),
+                ('muscleGroup', models.ManyToManyField(
+                    blank=True, to='feed.MuscleGroup')),
             ],
             options={
-                'ordering': ['exerciseLikes', 'exerciseRating', 'exerciseTitle'],
+                'ordering':
+                    ['exerciseLikes', 'exerciseRating', 'exerciseTitle'],
             },
         ),
     ]
