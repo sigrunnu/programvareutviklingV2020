@@ -75,4 +75,5 @@ class ExerciseCreateView(CreateView):
     template_name = 'feed/exercise_form.html'
     success_url = '/'
     fields = (
-        'exerciseTitle', 'exerciseInfo', 'pub_date', 'muscleGroup')
+        'exerciseTitle', 'exerciseAuthor', 'exerciseInfo', 'exerciseHowTo',
+        'createdByPro', 'exerciseImage', 'muscleGroup')
