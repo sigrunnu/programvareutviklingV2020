@@ -33,11 +33,16 @@ class ExerciseDocument(Document):
             'raw': fields.TextField(analyzer='keyword', multi=True),
             'suggest': fields.Completion(),
         },
-        filter='lowercase'
     )
 
-    muscleGroup = fields.ObjectField(
-
+    muscleGroupTitle = fields.TextField(
+        attr='muscle_group_indexing',
+        analyzer=html_strip,
+        fields={
+            'raw': fields.TextField(analyzer='keyword', multi=True),
+            'suggest': fields.CompletionField(multi=True),
+        },
+        multi=True,
     )
 
     class Django(object):
