@@ -49,14 +49,9 @@ def search(request):
         muscleGroupTitle={'value': f'*{search_content}*'}
     )
 
-    q3 = Q(
-        "wildcard",
-        muscleGroupTitle={'value': f'{search_content}*'}
-    )
+    q3 = q1 | q2
 
-    q4 = q1 | q2 | q3
-
-    query = ExerciseDocument.search().query(q4)
+    query = ExerciseDocument.search().query(q3)
     result = query.execute()
 
 
