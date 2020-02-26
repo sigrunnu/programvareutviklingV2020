@@ -1,23 +1,18 @@
-body {
+#feed_wrapper {
     display: flex;
-    flex-direction: column;
-    height: 100vh;
+
+    width: 100%;
+
+    flex-grow: 1;
 
 }
 
-#wrapper {
-    display: flex;
-
-    width: auto;
-
-    height: 100%;
-
-}
-
-.content {
+.feed_content {
     display: flex;
     justify-content: space-evenly;
+
     flex-wrap: wrap;
+
 
     height: 100%;
     width: 100%;
@@ -27,7 +22,7 @@ body {
 
 }
 
-.entity {
+.feed_entity {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,13 +41,13 @@ body {
     Remove background styling to only the image is visible for elements in
     feed view
  */
-.entity button {
+.feed_entity button {
     background-color: transparent;
     border: none;
 }
 
 /* Create fade out transition for elements in feed view */
-.entity button:hover {
+.feed_entity button:hover {
     opacity: 0.4;
     transition: 0.3s;
 
@@ -75,11 +70,16 @@ body {
     height: 60px;
     width: 60px;
 
+    margin-right: 0;
+
 }
 
 #addExerciseContainer {
+
+    min-height: 100%;
+
     cursor: pointer;
-    display: inline-block;
+
     align-self: flex-end;
     margin-bottom: 1.5em;
     position: -webkit-sticky;
