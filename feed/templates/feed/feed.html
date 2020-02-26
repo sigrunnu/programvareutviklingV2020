@@ -1,3 +1,5 @@
+{% extends "feed/base.html" %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,15 +9,15 @@
 
 </head>
 <body>
-{% extends "feed/base.html" %}
+
 
 {% block content %}
 
-    <div id="wrapper">
-        <div class="content">
+    <div id="feed_wrapper">
+        <div class="feed_content">
             {% for exercise in exercises %}
 
-                <div class="entity">
+                <div class="feed_entity">
                     <button onclick="window.location= '{% url 'exerciseView' exercise.id %}';">
                         {% load static %}
                         <img id="entityImage" src="{% static "feed/images/weightlifting.jpg" %}"
@@ -33,6 +35,8 @@
 
             {% endfor %}
         </div>
+
+
         <div id="addExerciseContainer">
             {% load static %}
             <a id="addExerciseBtn" href="{% url 'addExercise' %}">
