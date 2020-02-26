@@ -1,3 +1,4 @@
+ {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@
           crossorigin="anonymous">
 
 
-    {% load static %}
+
     <link rel="stylesheet" type="text/css"
           href="{% static 'feed/base.css' %}">
     <link rel="stylesheet" type="text/css"
@@ -40,15 +41,17 @@
 
         <div id="container">
 
-            <a id="logoContainer" href="{% url 'feedHome' %}">
+            <a href="{% url 'feedHome' %}">
+                <div id="logoContainer">
+                    ExerciseIt!
 
-                <p>ExerciseIt!</p>
 
-                {% load static %}
-                <img id="logo" src="{% static 'feed/images/logo.png' %}"
-                     alt="My image"
-                     style="width: 60px; height: 60px;">
+                    <img id="logo" src="{% static 'feed/images/logo.png' %}"
+                         alt="My image"
+                         style="width: 60px; height: 60px;">
+                </div>
             </a>
+
 
             <form id="searchForm" action="{% url 'search' %}">
                 <input placeholder="Søk i etter øvelser eller muskelgrupper"
@@ -61,7 +64,7 @@
 
             <div class="item" id="profileContainer">
                 <i class="material-icons">person</i>
-                <p id="myProfile">Min profil</p>
+                Min profil
             </div>
 
         </div>
@@ -100,11 +103,11 @@
     <footer>
         <div class="footerWrapper">
 
-            <div class="footerWrapper">
+            <div class="footerWrapper" style="min-width: 12rem;">
 
-                <p>ExerciseIt!</p>
+                ExerciseIt!
 
-                {% load static %}
+
                 <img id="logoFooter" src="{% static 'feed/images/logo.png' %}"
                      alt="My image"
                      style="width: 60px; height: 60px;">
