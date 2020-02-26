@@ -49,4 +49,3 @@ class ExerciseDocument(Document):
         """Inner nested class Django."""
 
         model = Exercise  # The model associate with this Document
-
