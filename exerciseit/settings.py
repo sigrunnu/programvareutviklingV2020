@@ -169,7 +169,7 @@ except ImportError:
     pass
 
 """
-:ImportError Is thrown when local_settings.py is not present, 
+ImportError Is thrown when local_settings.py is not present, 
 such as in the production environment.
 """
 if DATABASES['default']['NAME'] == 'danqmuh2tkpv2h':
