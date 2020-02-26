@@ -60,15 +60,14 @@ MIDDLEWARE = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-            'rest_framework.authentication.BasicAuthentication',
-            'rest_framework.authentication.SessionAuthentication',
-        ),
-        'DEFAULT_PAGINATION_CLASS':
-            'rest_framework.pagination.PageNumberPagination',
-        'PAGE_SIZE': 100,
-        'ORDERING_PARAM': 'ordering',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PAGINATION_CLASS':
+        'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 100,
+    'ORDERING_PARAM': 'ordering',
 }
-
 
 # Elasticsearch configuration
 ELASTICSEARCH_DSL = {
@@ -82,7 +81,6 @@ ELASTICSEARCH_DSL = {
 ELASTICSEARCH_INDEX_NAMES = {
     'search_indexes.documents.exercise': 'exercise'
 }
-
 
 ROOT_URLCONF = 'exerciseit.urls'
 
@@ -122,7 +120,6 @@ DATABASES = {
         'PORT': '5432'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
