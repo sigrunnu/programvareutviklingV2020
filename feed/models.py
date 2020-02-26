@@ -2,6 +2,9 @@ from datetime import datetime
 
 from django.db import models
 from django.db.models import Q
+from django.contrib.postgres.search import SearchVector
+from datetime import datetime
+from datetime import datetime
 from six import python_2_unicode_compatible
 
 
@@ -13,6 +16,12 @@ class MuscleGroup(models.Model):
 
     def __str__(self):
         return self.muscleGroupTitle
+
+    @staticmethod
+    def get_search_vector():
+        return (
+                SearchVector('muscleGroupTitle', weight='B')
+        )
 
     @staticmethod
     def get_queryset_by_search_word(search_word):
@@ -29,13 +38,15 @@ class MuscleGroup(models.Model):
 
 @python_2_unicode_compatible
 class Exercise(models.Model):
+
     exerciseTitle = models.CharField(
         max_length=200,
         verbose_name='Tittel på øvelsen'
     )
     exerciseAuthor = models.CharField(
         max_length=50,
-        verbose_name='Forfatternavn'
+        verbose_name='Forfatternavn',
+        null=True
     )
     exerciseInfo = models.TextField(
         max_length=500,
@@ -47,7 +58,9 @@ class Exercise(models.Model):
         default=datetime.now(),
         editable=False,
     )
-    exerciseLikes = models.IntegerField(default=0)
+    exerciseLikes = models.IntegerField(
+        default=0
+    )
     exerciseRating = models.DecimalField(
         null=True,
         blank=True,
@@ -76,8 +89,30 @@ class Exercise(models.Model):
         verbose_name='Muskelgrupper'
     )
 
+    class Meta(object):
+        ordering = ["exerciseLikes", "exerciseRating", "exerciseTitle"]
+
     def __str__(self):
         return self.exerciseTitle
+
+    @property
+    def muscle_group_indexing(self):
+        """Muscle group for indexing. Used in Elasticsearch indexing.
+            We only need a flat list of MuscleGroups titles, on which
+            we can filter. Therefore, we define a properly on a model level,
+            which will return a JSON dumped list of MuscleGroups relevant to
+            the current Exercise model object.
+        """
+        return [
+            muscleGroup.muscleGroupTitle
+            for muscleGroup in self.muscleGroup.all()
+        ]
+
+    @staticmethod
+    def get_search_vector():
+        return (
+                SearchVector('exerciseTitle', weight='A', config='norwegian')
+        )
 
     @staticmethod
     def get_queryset_by_search_word(search_word):
@@ -89,5 +124,5 @@ class Exercise(models.Model):
         :rtype: QuerySet
         """
         return Exercise.objects.filter(
-            Q(exerciseDescription__icontains=search_word)
+            Q(exerciseInfo__icontains=search_word)
             | Q(exerciseTitle__icontains=search_word))

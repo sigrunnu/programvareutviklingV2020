@@ -1,7 +1,14 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import CreateView
-
+from search_indexes.documents.exercise import ExerciseDocument
+from django.contrib.postgres.search import SearchQuery, \
+    SearchRank, SearchVector
 from .models import Exercise, MuscleGroup
+from functools import reduce
+from elasticsearch import Elasticsearch
+from elasticsearch_dsl import Search
+from elasticsearch_dsl.query import MultiMatch, Match
+from elasticsearch_dsl import Q
 
 
 # Create your views here.
@@ -32,28 +39,25 @@ def search(request):
     # search_content fetches the string entered into search_field
     search_content = request.GET['search_field']
 
-    # List of all search words in search_content
-    search_words = search_content.split(' ')
+    q1 = Q(
+        "wildcard",
+        exerciseTitle={'value': f'*{search_content}*'}
+    )
+    q2 = Q(
+        "wildcard",
+        muscleGroupTitle={'value': f'*{search_content}*'}
+    )
 
-    result_exercise = Exercise.objects.none()
-    result_muscle_group = MuscleGroup.objects.none()
+    q3 = q1 | q2
 
-    # Uses static method in Models to fetch QuerySet with Objects that
-    # contains the search word
-    for i in range(len(search_words)):
-        result_exercise = \
-            result_exercise | Exercise.get_queryset_by_search_word(
-                search_words[i])
-        result_muscle_group = \
-            result_muscle_group | \
-            MuscleGroup.get_queryset_by_search_word(search_words[i])
+    query = ExerciseDocument.search().query(q3)
+    result = query.execute()
 
-    # Context stores the search by the keys: exercises, muscleGroups
+    print(result.to_dict())
+
     context = {
-        'exercises': result_exercise,
-        'muscle_groups': result_muscle_group
+        'exercises': result
     }
-
     return render(request, 'feed/feed.html', context)
 
 

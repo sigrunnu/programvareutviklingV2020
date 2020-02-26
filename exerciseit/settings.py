@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+from elasticsearch import Elasticsearch, RequestsHttpConnection
+from requests_aws4auth import AWS4Auth
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -29,6 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'search_indexes',
+    'rest_framework',
+    'django_elasticsearch_dsl',
+    'django_elasticsearch_dsl_drf',
     'feed.apps.FeedConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -51,6 +57,30 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PAGINATION_CLASS':
+        'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 100,
+    'ORDERING_PARAM': 'ordering',
+}
+
+# Elasticsearch configuration
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': 'https://59d039eba59a428d829f21971b4bbbcb.'
+                 + 'eu-central-1.aws.cloud.es.io:9243/',
+        'http_auth': ('elastic', 'icsoaFY5MXOkQKj2Kug4sODg'),
+    },
+}
+
+ELASTICSEARCH_INDEX_NAMES = {
+    'search_indexes.documents.exercise': 'exercise'
+}
 
 ROOT_URLCONF = 'exerciseit.urls'
 
@@ -75,10 +105,19 @@ WSGI_APPLICATION = 'exerciseit.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+
+# :DATABASES This is the production database configured in heroku
+# this will be overridden when in localhost
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd6sjscv3eebbki',
+        'USER': 'ubpdyphavronmv',
+        'PASSWORD':
+            'a7da20baceb36792a6a474cd07e60c04148b33bc9f77e5b53d98da2b0c1a9e95',
+        'HOST': 'ec2-18-210-51-239.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
@@ -123,6 +162,23 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATIC_URL = '/static/'
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
+"""
+    ImportError Is thrown when local_settings.py is not present,
+    such as in the production environment.
+"""
+
+if DATABASES['default']['NAME'] == 'danqmuh2tkpv2h':
+    print("\033[95mRunning django with local settings: \033[0m")
+    print("\033[95mDatabase is: exercise-it-db-development\033[0m")
+else:
+    print("\033[95mRunning django with production settings:\033[0m")
+    print("\033[95mDatabase is: exercise-it-db\033[0m")
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
