@@ -5,6 +5,8 @@
 
     width: 100%;
 
+    height: 100%;
+
 }
 
 /* Tell every child of wrapper to use display: flex; */
@@ -27,8 +29,7 @@
 
     justify-content: space-evenly;
 
-
-    min-height: 100%;
+    height: 100%;
 
 }
 
@@ -38,7 +39,9 @@
     justify-content: space-evenly;
 
     width: 100%;
+
     height: 50%;
+
 
 }
 
@@ -84,6 +87,7 @@
     background-color: white;
 
     height: 50%;
+
     width: 100%;
 
 }
