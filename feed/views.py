@@ -54,9 +54,7 @@ def search(request):
     query = ExerciseDocument.search().query(q3)
     result = query.execute()
 
-
-
-    #print(result.to_dict())
+    print(result.to_dict())
 
     context = {
         'exercises': result
