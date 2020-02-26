@@ -38,8 +38,6 @@ def search(request):
     # search_content fetches the string entered into search_field
     search_content = request.GET['search_field']
 
-
-
     q1 = Q(
         "wildcard",
         exerciseTitle={'value': f'*{search_content}*'}
