@@ -59,7 +59,14 @@
                     </div>{% endcomment %}
 
                     <div> {{ exercise.exerciseInfo }}</div>
-                    <div></div>
+
+                    <div>
+                        Trener:
+
+                        {% for muscleGroup in exercise.muscleGroup.all %}
+                            {{ muscleGroup|lower }}
+                        {% endfor %}
+                    </div>
 
                 </div>
             </div>
