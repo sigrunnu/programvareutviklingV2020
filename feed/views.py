@@ -38,13 +38,24 @@ def search(request):
     # search_content fetches the string entered into search_field
     search_content = request.GET['search_field']
 
-    query = ExerciseDocument.search().query(
+
+
+    q1 = Q(
         "wildcard",
         exerciseTitle={'value': f'*{search_content}*'}
     )
+    q2 = Q(
+        "wildcard",
+        muscleGroupTitle={'value': f'*{search_content}*'}
+    )
 
+    q3 = q1 | q2
+
+    query = ExerciseDocument.search().query(q3)
     result = query.execute()
+
     print(result.to_dict())
+
     context = {
         'exercises': result
     }
