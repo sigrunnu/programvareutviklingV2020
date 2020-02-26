@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from search_indexes import urls as search_index_urls
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('feed.urls'))
+    path('', include('feed.urls')),
+    url(r'^search/', include(search_index_urls)),
 ]
