@@ -1,6 +1,7 @@
+from datetime import datetime
+
 from django.db import models
 from django.db.models import Q
-from datetime import datetime
 from six import python_2_unicode_compatible
 
 
@@ -29,19 +30,22 @@ class MuscleGroup(models.Model):
 @python_2_unicode_compatible
 class Exercise(models.Model):
     exerciseTitle = models.CharField(
-        max_length=200
+        max_length=200,
+        verbose_name='Tittel på øvelsen'
     )
     exerciseAuthor = models.CharField(
-        max_length=50
+        max_length=50,
+        verbose_name='Forfatternavn'
     )
     exerciseInfo = models.TextField(
         max_length=500,
         null=True,
-        blank=True
+        blank=True,
+        verbose_name='Informasjon om øvelsen'
     )
     pub_date = models.DateTimeField(
         default=datetime.now(),
-        editable=False
+        editable=False,
     )
     exerciseLikes = models.IntegerField(default=0)
     exerciseRating = models.DecimalField(
@@ -53,17 +57,23 @@ class Exercise(models.Model):
     exerciseHowTo = models.TextField(
         max_length=500,
         null=True,
-        blank=True
+        blank=True,
+        verbose_name='Utførelse av øvelsen'
     )
-    createdByPro = models.BooleanField(default=False)
+    createdByPro = models.BooleanField(
+        default=False,
+        verbose_name='Profesjonell'
+    )
     exerciseImage = models.ImageField(
         null=True,
         blank=True,
-        upload_to='exercises/'
+        upload_to='exercises/',
+        verbose_name='Bilde av øvelsen'
     )
     muscleGroup = models.ManyToManyField(
         MuscleGroup,
-        blank=True
+        blank=True,
+        verbose_name='Muskelgrupper'
     )
 
     def __str__(self):
