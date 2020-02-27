@@ -29,31 +29,45 @@
                             {{ exercise.exerciseTitle }}
                         </div>
                     </div>
-                    <div style="display: flex; align-items: center">
-                        {{ exercise.exerciseAuthor }}
-                        {% comment %}
+
+
+                    <div>
                         Publisert av:
-                        {{ exercise.author }}
-                        {% if exercise.verified %}
-                            {% load static %}
-                            <img id="verifiedIcon"
-                                 src="{% static "feed/verified.png" %}"
-                                 alt="Exercise image">
+                        {{ exercise.exerciseAuthor }}
+
+                        {% if exercise.createdByPro == True %}
+                            <div class="item-image">
+                                <img src="{% static 'feed/images/verified.png' %}"
+                                     style="width: 25px; height: 20px;">
+                            </div>
                         {% endif %}
-                        {% endcomment %}
+                        <div class="item-noImage" style="display:none;">
+                        </div>
                     </div>
-                    {% comment %}
-                <div id="exerciseLikes">
-                    54
-                    {% load static %}
-                    <img src="{% static "feed/heart.png" %}" alt="Heart image">
-                </div>
-                <div id="exerciseStarRating">
-                    5 STARS
-                </div>
-                {% endcomment %}
-                    <div></div>
-                    <div></div>
+
+
+                    {% comment %}<div id="exerciseLikes">
+                        54
+                        {% load static %}
+                        <img src="{% static "feed/" %}"
+                             alt="Heart image">
+                    </div>
+                    <div id="exerciseStarRating">
+                        5 STARS
+                    </div>{% endcomment %}
+
+                    <div>
+                        Trener:
+
+                        {% for muscleGroup in exercise.muscleGroup.all %}
+                            {{ muscleGroup|lower }}
+                        {% endfor %}
+                    </div>
+
+                    <div> {{ exercise.exerciseInfo }}</div>
+
+
+
                 </div>
             </div>
 
@@ -62,54 +76,7 @@
                 <div id="exerciseView_description">
                     <h5>Utførelse</h5>
 
-                    {{ exercise.exerciseDescription }}
-
-                <p>
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-                    hei på deg hei på deg hei på deg hei på deg
-
-                    slutt
-                </p>
-
+                    {{ exercise.exerciseHowTo }}
 
                 </div>
             </div>
