@@ -12,19 +12,12 @@ from django_elasticsearch_dsl_drf.constants import (
     SUGGESTER_COMPLETION,
 )
 from django_elasticsearch_dsl_drf.filter_backends import (
-    FilteringFilterBackend,
-    IdsFilterBackend,
-    OrderingFilterBackend,
-    DefaultOrderingFilterBackend,
     CompoundSearchFilterBackend,
     DefaultOrderingFilterBackend,
-    FacetedSearchFilterBackend,
     FilteringFilterBackend,
-    SearchFilterBackend,
     SuggesterFilterBackend,
 )
 from django_elasticsearch_dsl_drf.viewsets import BaseDocumentViewSet
-from django_elasticsearch_dsl_drf.pagination import PageNumberPagination
 
 from search_indexes.documents.exercise import ExerciseDocument
 from search_indexes.serializers.exercise import ExerciseDocumentSerializer

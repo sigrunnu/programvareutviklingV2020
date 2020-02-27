@@ -1,6 +1,7 @@
 from django.conf import settings
 from django_elasticsearch_dsl import Document, Index, fields
 from elasticsearch_dsl import analyzer
+
 from feed.models import Exercise
 
 # Name of the Elasticsearch index

@@ -1,14 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import CreateView
-from search_indexes.documents.exercise import ExerciseDocument
-from django.contrib.postgres.search import SearchQuery, \
-    SearchRank, SearchVector
-from .models import Exercise, MuscleGroup
-from functools import reduce
-from elasticsearch import Elasticsearch
-from elasticsearch_dsl import Search
-from elasticsearch_dsl.query import MultiMatch, Match
 from elasticsearch_dsl import Q
+
+from search_indexes.documents.exercise import ExerciseDocument
+from .models import Exercise
 
 
 # Create your views here.

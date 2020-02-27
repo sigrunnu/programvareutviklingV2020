@@ -1,10 +1,8 @@
 from datetime import datetime
 
+from django.contrib.postgres.search import SearchVector
 from django.db import models
 from django.db.models import Q
-from django.contrib.postgres.search import SearchVector
-from datetime import datetime
-from datetime import datetime
 from six import python_2_unicode_compatible
 
 
@@ -20,7 +18,7 @@ class MuscleGroup(models.Model):
     @staticmethod
     def get_search_vector():
         return (
-                SearchVector('muscleGroupTitle', weight='B')
+            SearchVector('muscleGroupTitle', weight='B')
         )
 
     @staticmethod
@@ -38,7 +36,6 @@ class MuscleGroup(models.Model):
 
 @python_2_unicode_compatible
 class Exercise(models.Model):
-
     exerciseTitle = models.CharField(
         max_length=200,
         verbose_name='Tittel på øvelsen'
@@ -111,7 +108,7 @@ class Exercise(models.Model):
     @staticmethod
     def get_search_vector():
         return (
-                SearchVector('exerciseTitle', weight='A', config='norwegian')
+            SearchVector('exerciseTitle', weight='A', config='norwegian')
         )
 
     @staticmethod

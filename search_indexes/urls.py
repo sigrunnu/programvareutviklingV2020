@@ -1,5 +1,6 @@
 from django.conf.urls import url, include
 from rest_framework.routers import DefaultRouter
+
 from search_indexes.viewsets.exercise import ExerciseDocumentView
 
 router = DefaultRouter()
