@@ -36,9 +36,9 @@
                         {{ exercise.exerciseAuthor }}
 
                         {% if exercise.createdByPro == True %}
-                            <div class="item-image"
-                                 id="exerciseView_verifiedIcon">
-                                <img src="{% static 'feed/images/verified.png' %}">
+                            <div class="item-image">
+                                <img src="{% static 'feed/images/verified.png' %}"
+                                     style="width: 25px; height: 20px;">
                             </div>
                         {% endif %}
                         <div class="item-noImage" style="display:none;">
@@ -58,15 +58,6 @@
 
                     <div>
                         Trener:
-
-                        <ol style="list-style-type: circle">
-                            <li>
-                                hei
-                            </li>
-                            <li>
-                                på
-                            </li>
-                        </ol>
 
                         {% for muscleGroup in exercise.muscleGroup.all %}
                             {{ muscleGroup|lower }}

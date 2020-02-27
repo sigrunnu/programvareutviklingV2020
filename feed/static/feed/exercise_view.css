@@ -40,9 +40,6 @@
 
     width: 100%;
 
-    height: 50%;
-
-
 }
 
 #exerciseView_ImageContainer {
@@ -53,8 +50,6 @@
     background-color: white;
 
     justify-content: center;
-
-
 
     margin-right: 1%;
 }
@@ -67,7 +62,7 @@
 #exerciseView_Information {
 
     width: 50%;
-    height: 100%;
+    min-height: 100%;
 
     background-color: white;
 
@@ -86,7 +81,8 @@
 
     background-color: white;
 
-    height: 50%;
+
+    min-height: 50%;
 
     width: 100%;
 
@@ -114,10 +110,7 @@
     margin-right: 12%;
 }
 
-#exerciseView_verifiedIcon {
-    height: 20px;
-    width: 20px;
-}
+
 
 #exerciseView_likes {
 
