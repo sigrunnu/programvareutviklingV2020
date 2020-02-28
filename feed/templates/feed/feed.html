@@ -21,7 +21,7 @@
                     <button onclick="window.location= '{% url 'exerciseView' exercise.id %}';">
                         {% load static %}
                         <img id="entityImage"
-                             src="{% static "feed/images/weightlifting.jpg" %}"
+                             src="{% static 'feed/images/weightlifting.jpg' %}"
                              alt="Exercise image">
 
                     </button>
@@ -45,19 +45,21 @@
         </div>
 
 
-        <div id="addExerciseContainer">
+    </div>
+<div class="tooltip1" id="addExerciseContainer">
+       <p class="tooltiptext">Lag øvelse!</p>
             {% load static %}
-            <a id="addExerciseBtn" href="{% url 'addExercise' %}">
-                <img id="addExercise"
+            <a  id="addExerciseBtn" href="{% url 'addExercise' %}">
+                <img  id="addExercise"
                      src="{% static 'feed/images/addExercise.png' %}"
                      alt="Exercise"/>
             </a>
 
         </div>
 
-    </div>
 
 {% endblock content %}
+
 
 </body>
 </html>
