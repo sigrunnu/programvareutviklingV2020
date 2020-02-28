@@ -57,34 +57,49 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-    margin-top: 2%;
+    margin-top: 1%;
 
     padding: 1% 1% 1% 1%;
     border: 1px solid grey;
-    width: 40%;
+    width: 45%;
 
 }
 
 #addExercise {
-    height: 60px;
-    width: 60px;
-
-    margin-right: 0;
-
+    height: 100%;
+    width: 100%;
 }
-
 #addExerciseContainer {
+    display: flex;
 
-    min-height: 100%;
-
+    width: 2%;
+    float:right;
+    margin-right: 1.5em;
     cursor: pointer;
-
-    align-self: flex-end;
     margin-bottom: 1.5em;
     position: -webkit-sticky;
     position: sticky;
     bottom: 1.5em;
-    right: 20px;
+}
 
+
+/* Tooltip text */
+.tooltiptext {
+  visibility: hidden;
+  width: 190px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  /* Position the tooltip text - see examples below! */
+  margin-right: 5px;
+  bottom: 180%;
+  left: 50%;
+  margin-left: -130px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip1:hover .tooltiptext {
+  visibility: visible;
 }
