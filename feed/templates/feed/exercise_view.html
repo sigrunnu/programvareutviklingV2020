@@ -11,56 +11,72 @@
 
 
 {% block content %}
-    <div id="wrapper">
-        <div id="exerciseViewContainer">
+    <div id="exerciseView_wrapper">
+        <div id="exerciseView_Container">
 
-            <div id="exerciseInformationContainer">
+            <div id="exerciseView_InformationContainer">
 
-                <div id="exerciseImageContainer">
+                <div id="exerciseView_ImageContainer">
                     {% load static %}
-                        <img id="exerciseImage"
+                    <img id="exerciseView_Image"
                          src="{% static "feed/images/bench_press.jpg" %}"
                          alt="Exercise image">
                 </div>
 
-                <div id="exerciseInformation">
+                <div id="exerciseView_Information">
                     <div>
                         <div style="font-size: 40px; padding: 0; margin: 0">
                             {{ exercise.exerciseTitle }}
                         </div>
                     </div>
-                    <div style="display: flex; align-items: center">
-                        {% comment %}
+
+
+                    <div>
                         Publisert av:
-                        {{ exercise.author }}
-                        {% if exercise.verified %}
-                            {% load static %}
-                            <img id="verifiedIcon"
-                                 src="{% static "feed/verified.png" %}"
-                                 alt="Exercise image">
+                        {{ exercise.exerciseAuthor }}
+
+                        {% if exercise.createdByPro == True %}
+                            <div class="item-image">
+                                <img src="{% static 'feed/images/verified.png' %}"
+                                     style="width: 25px; height: 20px;">
+                            </div>
                         {% endif %}
-                        {% endcomment %}
+                        <div class="item-noImage" style="display:none;">
+                        </div>
                     </div>
-                    {% comment %}
-                <div id="exerciseLikes">
-                    54
-                    {% load static %}
-                    <img src="{% static "feed/heart.png" %}" alt="Heart image">
-                </div>
-                <div id="exerciseStarRating">
-                    5 STARS
-                </div>
-                {% endcomment %}
-                    <div></div>
-                    <div></div>
+
+
+                    {% comment %}<div id="exerciseLikes">
+                        54
+                        {% load static %}
+                        <img src="{% static "feed/" %}"
+                             alt="Heart image">
+                    </div>
+                    <div id="exerciseStarRating">
+                        5 STARS
+                    </div>{% endcomment %}
+
+                    <div>
+                        Trener:
+
+                        {% for muscleGroup in exercise.muscleGroup.all %}
+                            {{ muscleGroup|lower }}
+                        {% endfor %}
+                    </div>
+
+                    <div> {{ exercise.exerciseInfo }}</div>
+
+
                 </div>
             </div>
 
-            <div id="exerciseDescriptionContainer">
+            <div id="exerciseView_DescriptionContainer">
 
-                <div id="exerciseDescription">
+                <div id="exerciseView_description">
                     <h5>Utførelse</h5>
-                    <P>{{ exercise.exerciseDescription }}</P>
+
+                    {{ exercise.exerciseHowTo }}
+
                 </div>
             </div>
 
