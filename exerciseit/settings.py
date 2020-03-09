@@ -115,10 +115,10 @@ WSGI_APPLICATION = 'exerciseit.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd6sjscv3eebbki',
-        'USER': 'ubpdyphavronmv',
+        'NAME': 'd5cktgdu3vpeu',
+        'USER': 'kumsvgtfzzimon',
         'PASSWORD':
-            'a7da20baceb36792a6a474cd07e60c04148b33bc9f77e5b53d98da2b0c1a9e95',
+            '231c2db8940957be9244f42b1c2fd109224be17e0658e6f2c76c21012cb668b3',
         'HOST': 'ec2-18-210-51-239.compute-1.amazonaws.com',
         'PORT': '5432'
     }
