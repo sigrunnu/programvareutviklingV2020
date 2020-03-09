@@ -14,6 +14,7 @@ import os
 
 from elasticsearch import Elasticsearch, RequestsHttpConnection
 from requests_aws4auth import AWS4Auth
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +28,7 @@ SECRET_KEY = '6!9f=yao2t)-vvoc0)x(lr55ob01cgipl=$snx2#0eu8i^=_mx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['exercise-it.herokuapp.com']
 
 # Application definition
 
@@ -44,11 +45,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -112,10 +115,10 @@ WSGI_APPLICATION = 'exerciseit.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd6sjscv3eebbki',
-        'USER': 'ubpdyphavronmv',
+        'NAME': 'd5cktgdu3vpeu',
+        'USER': 'kumsvgtfzzimon',
         'PASSWORD':
-            'a7da20baceb36792a6a474cd07e60c04148b33bc9f77e5b53d98da2b0c1a9e95',
+            '231c2db8940957be9244f42b1c2fd109224be17e0658e6f2c76c21012cb668b3',
         'HOST': 'ec2-18-210-51-239.compute-1.amazonaws.com',
         'PORT': '5432'
     }
@@ -158,10 +161,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 try:
     from .local_settings import *
@@ -173,7 +177,7 @@ except ImportError:
     such as in the production environment.
 """
 
-if DATABASES['default']['NAME'] == 'danqmuh2tkpv2h':
+if DATABASES['default']['NAME'] == 'dslsomjcgv6f5':
     print("\033[95mRunning django with local settings: \033[0m")
     print("\033[95mDatabase is: exercise-it-db-development\033[0m")
 else:
