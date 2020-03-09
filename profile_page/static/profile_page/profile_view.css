@@ -1,0 +1,155 @@
+#profile_wrapper {
+    display: flex;
+    background-color: red;
+
+    width: 100%;
+
+    height: 100%;
+
+
+}
+
+#profile_containerWrapper {
+    display: flex;
+
+    width: 100%;
+
+    justify-content: space-evenly;
+
+    background-color: bisque;
+
+
+
+}
+
+#profile_containerWrapper * {
+    display: flex;
+}
+
+/* LEFT SIDE */
+#profile_infoWrapper {
+
+    width: 45%;
+
+
+    background-color: #C6E684;
+
+    flex-direction: column;
+
+    justify-content: space-evenly;
+
+}
+
+#profile_infoContainer {
+
+    height: 30%;
+
+    background-color: aquamarine;
+
+    flex-direction: column;
+
+    justify-content: space-evenly;
+
+    align-items: center;
+
+}
+
+#profile_publishedExercisesWrapper {
+    height: 60%;
+
+    background-color: cornflowerblue;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+#profile_publishedExercisesContainer {
+
+    width: 98%;
+
+    height: 70%;
+    flex-direction: column;
+
+    overflow-x: auto;
+
+    margin-bottom: 1%;
+
+}
+
+#profile_publishedExercisesContainer a {
+    display: flex;
+    justify-content: center;
+
+    background-color: yellow;
+
+    align-items: center;
+
+    padding: 5% 0 5% 0;
+
+    text-decoration: none;
+
+    margin-bottom: 2%;
+
+}
+
+#profile_publishedExercisesContainer a:active {
+    color: black;
+}
+
+#profile_ranking {
+    width: 98%;
+
+    font-size: 30px;
+
+    flex-direction: row;
+
+    justify-content: space-evenly;
+
+    align-items: center;
+
+    background-color: white;
+
+    margin-bottom: 2%;
+
+
+}
+
+/* RIGHT SIDE */
+#profile_favouritesWrapper {
+
+    width: 45%;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+#profile_favouritesContainer {
+
+    background-color: #63837F;
+
+    justify-content: space-evenly;
+
+    flex-wrap: wrap;
+
+    overflow-x: auto;
+
+}
+
+#profile_favouritesContainer > div {
+
+    align-items: center;
+    justify-content: center;
+
+    width: 50%;
+
+    margin-bottom: 5%;
+}
+
+#profile_favouritesContainer > div button img {
+    width: 100px;
+    height: 100px;
+
+}

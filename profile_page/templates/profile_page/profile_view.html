@@ -1,0 +1,502 @@
+{% extends "profile_page/profile_base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise view</title>
+
+</head>
+<body>
+
+
+{% block content %}
+
+    <div id="profile_wrapper">
+
+        <div id="profile_containerWrapper">
+
+            <div id="profile_infoWrapper">
+
+                <div id="profile_infoContainer">
+
+                    <div style="font-size: 40px">
+                        Andreas Amundsen
+                    </div>
+
+                    <div style="font-size: 30px">
+                        testomundsen
+                    </div>
+
+                    <button href="">
+                        Rediger profil
+                    </button>
+
+                </div>
+
+                <div id="profile_publishedExercisesWrapper">
+
+                    <div style="font-size: 40px">
+                        Mine publiserte økter
+                    </div>
+
+                    <div id="profile_publishedExercisesContainer">
+
+                        <a href="">
+                            Exercise: Military press - 22.02.2020
+                        </a>
+
+                        <a href="">
+                            Exercise: Military press - 22.02.2020
+                        </a>
+
+                        <a href="">
+                            Exercise: Military press - 22.02.2020
+                        </a>
+
+                        <a href="">
+                            Exercise: Military press - 22.02.2020
+                        </a>
+
+                        <a href="">
+                            Exercise: Military press - 22.02.2020
+                        </a>
+
+                        <a href="">
+                            Exercise: Military press - 22.02.2020
+                        </a>
+
+                        <a href="">
+                            Exercise: Military press - 22.02.2020
+                        </a>
+
+                        <a href="">
+                            Exercise: Military press - 22.02.2020
+                        </a>
+
+                        <a href="">
+                            Exercise: Military press - 22.02.2020
+                        </a>
+
+                        <a href="">
+                            Exercise: Military press - 22.02.2020
+                        </a>
+
+                        <a href="">
+                            Exercise: Military press - 22.02.2020
+                        </a>
+
+                        <a href="">
+                            Exercise: Military press - 22.02.2020
+                        </a>
+
+                        <a href="">
+                            Exercise: Military press - 22.02.2020
+                        </a>
+
+                        <a href="">
+                            Exercise: Military press - 22.02.2020
+                        </a>
+
+                        <a href="">
+                            Exercise: Military press - 22.02.2020
+                        </a>
+
+                        <a href="">
+                            Exercise: Military press - 22.02.2020
+                        </a>
+
+                        <a href="">
+                            Exercise: Military press - 22.02.2020
+                        </a>
+
+                        <a href="">
+                            Exercise: Military press - 22.02.2020
+                        </a>
+
+                        <a href="">
+                            Exercise: Military press - 22.02.2020
+                        </a>
+
+                        <a href="">
+                            Exercise: Military press - 22.02.2020
+                        </a>
+
+                    </div>
+
+                    <div id="profile_ranking">
+                        Snitt rangering: 3.5 ⭐
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="profile_favouritesWrapper">
+
+                <div style="font-size: 40px;">
+                    Favoriserte øvelser
+                </div>
+
+                <div id="profile_favouritesContainer">
+
+                    <div>
+                        <button>
+                            {% load static %}
+                            <img id="entityImage"
+                                 src="{% static 'feed/images/weightlifting.jpg' %}"
+                                 alt="Exercise image">
+
+                        </button>
+
+                        {% comment %}<div class="exerciseTitle">
+                            {{ exercise.exerciseTitle }}
+                            {% if exercise.createdByPro == True %}
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
+                            </div>
+                        </div>{% endcomment %}
+                    </div>
+
+                    <div>
+                        <button>
+                            {% load static %}
+                            <img id="entityImage"
+                                 src="{% static 'feed/images/weightlifting.jpg' %}"
+                                 alt="Exercise image">
+
+                        </button>
+
+                        {% comment %}<div class="exerciseTitle">
+                            {{ exercise.exerciseTitle }}
+                            {% if exercise.createdByPro == True %}
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
+                            </div>
+                        </div>{% endcomment %}
+                    </div>
+
+                    <div>
+                        <button>
+                            {% load static %}
+                            <img id="entityImage"
+                                 src="{% static 'feed/images/weightlifting.jpg' %}"
+                                 alt="Exercise image">
+
+                        </button>
+
+                        {% comment %}<div class="exerciseTitle">
+                            {{ exercise.exerciseTitle }}
+                            {% if exercise.createdByPro == True %}
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
+                            </div>
+                        </div>{% endcomment %}
+                    </div>
+
+                    <div>
+                        <button>
+                            {% load static %}
+                            <img id="entityImage"
+                                 src="{% static 'feed/images/weightlifting.jpg' %}"
+                                 alt="Exercise image">
+
+                        </button>
+
+                        {% comment %}<div class="exerciseTitle">
+                            {{ exercise.exerciseTitle }}
+                            {% if exercise.createdByPro == True %}
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
+                            </div>
+                        </div>{% endcomment %}
+                    </div>
+
+                    <div>
+                        <button>
+                            {% load static %}
+                            <img id="entityImage"
+                                 src="{% static 'feed/images/weightlifting.jpg' %}"
+                                 alt="Exercise image">
+
+                        </button>
+
+                        {% comment %}<div class="exerciseTitle">
+                            {{ exercise.exerciseTitle }}
+                            {% if exercise.createdByPro == True %}
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
+                            </div>
+                        </div>{% endcomment %}
+                    </div>
+
+                    <div>
+                        <button>
+                            {% load static %}
+                            <img id="entityImage"
+                                 src="{% static 'feed/images/weightlifting.jpg' %}"
+                                 alt="Exercise image">
+
+                        </button>
+
+                        {% comment %}<div class="exerciseTitle">
+                            {{ exercise.exerciseTitle }}
+                            {% if exercise.createdByPro == True %}
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
+                            </div>
+                        </div>{% endcomment %}
+                    </div>
+
+                    <div>
+                        <button>
+                            {% load static %}
+                            <img id="entityImage"
+                                 src="{% static 'feed/images/weightlifting.jpg' %}"
+                                 alt="Exercise image">
+
+                        </button>
+
+                        {% comment %}<div class="exerciseTitle">
+                            {{ exercise.exerciseTitle }}
+                            {% if exercise.createdByPro == True %}
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
+                            </div>
+                        </div>{% endcomment %}
+                    </div>
+
+
+                    <div>
+                        <button>
+                            {% load static %}
+                            <img id="entityImage"
+                                 src="{% static 'feed/images/weightlifting.jpg' %}"
+                                 alt="Exercise image">
+
+                        </button>
+
+                        {% comment %}<div class="exerciseTitle">
+                            {{ exercise.exerciseTitle }}
+                            {% if exercise.createdByPro == True %}
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
+                            </div>
+                        </div>{% endcomment %}
+                    </div>
+
+                    <div>
+                        <button>
+                            {% load static %}
+                            <img id="entityImage"
+                                 src="{% static 'feed/images/weightlifting.jpg' %}"
+                                 alt="Exercise image">
+
+                        </button>
+
+                        {% comment %}<div class="exerciseTitle">
+                            {{ exercise.exerciseTitle }}
+                            {% if exercise.createdByPro == True %}
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
+                            </div>
+                        </div>{% endcomment %}
+                    </div>
+
+                    <div>
+                        <button>
+                            {% load static %}
+                            <img id="entityImage"
+                                 src="{% static 'feed/images/weightlifting.jpg' %}"
+                                 alt="Exercise image">
+
+                        </button>
+
+                        {% comment %}<div class="exerciseTitle">
+                            {{ exercise.exerciseTitle }}
+                            {% if exercise.createdByPro == True %}
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
+                            </div>
+                        </div>{% endcomment %}
+                    </div>
+
+                    <div>
+                        <button>
+                            {% load static %}
+                            <img id="entityImage"
+                                 src="{% static 'feed/images/weightlifting.jpg' %}"
+                                 alt="Exercise image">
+
+                        </button>
+
+                        {% comment %}<div class="exerciseTitle">
+                            {{ exercise.exerciseTitle }}
+                            {% if exercise.createdByPro == True %}
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
+                            </div>
+                        </div>{% endcomment %}
+                    </div>
+
+                    <div>
+                        <button>
+                            {% load static %}
+                            <img id="entityImage"
+                                 src="{% static 'feed/images/weightlifting.jpg' %}"
+                                 alt="Exercise image">
+
+                        </button>
+
+                        {% comment %}<div class="exerciseTitle">
+                            {{ exercise.exerciseTitle }}
+                            {% if exercise.createdByPro == True %}
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
+                            </div>
+                        </div>{% endcomment %}
+                    </div>
+
+                    <div>
+                        <button>
+                            {% load static %}
+                            <img id="entityImage"
+                                 src="{% static 'feed/images/weightlifting.jpg' %}"
+                                 alt="Exercise image">
+
+                        </button>
+
+                        {% comment %}<div class="exerciseTitle">
+                            {{ exercise.exerciseTitle }}
+                            {% if exercise.createdByPro == True %}
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
+                            </div>
+                        </div>{% endcomment %}
+                    </div>
+
+                    <div>
+                        <button>
+                            {% load static %}
+                            <img id="entityImage"
+                                 src="{% static 'feed/images/weightlifting.jpg' %}"
+                                 alt="Exercise image">
+
+                        </button>
+
+                        {% comment %}<div class="exerciseTitle">
+                            {{ exercise.exerciseTitle }}
+                            {% if exercise.createdByPro == True %}
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
+                            </div>
+                        </div>{% endcomment %}
+                    </div>
+
+                    <div>
+                        <button>
+                            {% load static %}
+                            <img id="entityImage"
+                                 src="{% static 'feed/images/weightlifting.jpg' %}"
+                                 alt="Exercise image">
+
+                        </button>
+
+                        {% comment %}<div class="exerciseTitle">
+                            {{ exercise.exerciseTitle }}
+                            {% if exercise.createdByPro == True %}
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
+                            </div>
+                        </div>{% endcomment %}
+                    </div>
+
+                    <div>
+                        <button>
+                            {% load static %}
+                            <img id="entityImage"
+                                 src="{% static 'feed/images/weightlifting.jpg' %}"
+                                 alt="Exercise image">
+
+                        </button>
+
+                        {% comment %}<div class="exerciseTitle">
+                            {{ exercise.exerciseTitle }}
+                            {% if exercise.createdByPro == True %}
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
+                            </div>
+                        </div>{% endcomment %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+</body>
+</html>
