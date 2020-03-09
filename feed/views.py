@@ -4,6 +4,7 @@ from elasticsearch_dsl import Q
 
 from search_indexes.documents.exercise import ExerciseDocument
 from .models import Exercise
+from image_cropping import ImageCropWidget
 
 
 # Create your views here.
@@ -79,6 +80,12 @@ class ExerciseCreateView(CreateView):
     model = Exercise
     template_name = 'feed/exercise_form.html'
     success_url = '/'
+    class Meta:
+        widgets = {
+            'exerciseImage': ImageCropWidget,
+        }
     fields = (
         'exerciseTitle', 'exerciseAuthor', 'exerciseInfo', 'exerciseHowTo',
-        'createdByPro', 'exerciseImage', 'muscleGroup')
+        'createdByPro', 'exerciseImage', 'cropping', 'muscleGroup')
+
+

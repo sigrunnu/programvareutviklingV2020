@@ -4,6 +4,8 @@ from django.contrib.postgres.search import SearchVector
 from django.db import models
 from django.db.models import Q
 from six import python_2_unicode_compatible
+from image_cropping import ImageRatioField
+
 
 
 @python_2_unicode_compatible
@@ -75,12 +77,12 @@ class Exercise(models.Model):
         verbose_name='Profesjonell'
     )
     exerciseImage = models.ImageField(
-        null=True,
-        blank=True,
         upload_to='exercises/',
         default='exercises/trening.jpg',
         verbose_name='Bilde av øvelsen'
     )
+    cropping = ImageRatioField('exerciseImage', '250x250')
+
     muscleGroup = models.ManyToManyField(
         MuscleGroup,
         blank=True,
@@ -124,3 +126,4 @@ class Exercise(models.Model):
         return Exercise.objects.filter(
             Q(exerciseInfo__icontains=search_word)
             | Q(exerciseTitle__icontains=search_word))
+

@@ -103,8 +103,3 @@
 .tooltip1:hover .tooltiptext {
   visibility: visible;
 }
-
-#feedImage{
-    height: 250px;
-    width: 250px;
-}
