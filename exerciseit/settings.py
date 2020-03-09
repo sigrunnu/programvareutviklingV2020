@@ -177,7 +177,7 @@ except ImportError:
     such as in the production environment.
 """
 
-if DATABASES['default']['NAME'] == 'danqmuh2tkpv2h':
+if DATABASES['default']['NAME'] == 'dslsomjcgv6f5':
     print("\033[95mRunning django with local settings: \033[0m")
     print("\033[95mDatabase is: exercise-it-db-development\033[0m")
 else:
