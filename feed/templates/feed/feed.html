@@ -19,10 +19,9 @@
 
                 <div class="feed_entity">
                     <button onclick="window.location= '{% url 'exerciseView' exercise.id %}';">
-                        {% load static %}
-                        <img id="entityImage"
-                             src="{% static 'feed/images/weightlifting.jpg' %}"
-                             alt="Exercise image">
+                         <img id="feedImage"
+                         src="{{ exercise.exerciseImage.url }}"
+                         alt="Exercise image">
 
                     </button>
 
@@ -30,6 +29,8 @@
                         {{ exercise.exerciseTitle }}
                         {% if exercise.createdByPro == True %}
                             <div class="item-image">
+                                                        {% load static %}
+
                                 <img src="{% static 'feed/images/verified.png' %}"
                                      style="width:20px;height:20px;">
                             </div>

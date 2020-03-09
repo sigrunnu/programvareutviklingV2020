@@ -1,4 +1,4 @@
-import pytest
+i>mport pytest
 from mixer.backend.django import mixer
 
 

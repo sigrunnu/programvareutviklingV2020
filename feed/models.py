@@ -78,6 +78,7 @@ class Exercise(models.Model):
         null=True,
         blank=True,
         upload_to='exercises/',
+        default='exercises/trening.jpg',
         verbose_name='Bilde av øvelsen'
     )
     muscleGroup = models.ManyToManyField(
