@@ -8,6 +8,7 @@ urlpatterns = [
 
     path('', views.home, name='feedHome'),
     path('search/', views.search, name='search'),
+    path('login/', views.loginView, name='loginView'),
     path('<int:exercise_id>', views.exercise_view, name='exerciseView'),
     path('addExercise', ExerciseCreateView.as_view(), name="addExercise")
 

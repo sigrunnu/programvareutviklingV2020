@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+
+    <!-- Main CSS-->
+    {% load static %}
+    <link href='{% static "feed/login.css"%}' rel="stylesheet" media="all">
+
+</head>
+<body>
+{% block content %}
+
+ <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
+        <div class="wrapper wrapper--w960">
+            <div class="card card-2">
+                <div class="card-heading"><div id="logoContainer">
+                    ExerciseIt!
+
+
+                    <img id="logo" src="{% static 'feed/images/logo.png' %}"
+                         alt="My image"
+                         style="width: 60px; height: 60px;">
+                </div></div>
+                <div class="card-body">
+                    <h2 class="title">Lag bruker</h2>
+                    <form method="POST">
+                        <div class="input-group">
+                            <input class="input--style-2" type="text" placeholder="Name" name="name">
+                        </div>
+                                <div class="input-group">
+                                    <input class="input--style-2" type="text" placeholder="epost" name="epost">
+                                </div>
+                                <div class="input-group">
+                                    <input class="input--style-2" type="text" placeholder="passord" name="passord">
+                                </div>
+
+                        <div class="p-t-30">
+                            <button class="btn btn--radius btn--green" type="submit">Lag bruker</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+
+</body>
+</html>

@@ -82,3 +82,9 @@ class ExerciseCreateView(CreateView):
     fields = (
         'exerciseTitle', 'exerciseAuthor', 'exerciseInfo', 'exerciseHowTo',
         'createdByPro', 'muscleGroup')
+
+
+def loginView(request):
+    context = {
+    }
+    return render(request, "feed/login.html", context)
