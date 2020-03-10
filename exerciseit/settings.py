@@ -75,9 +75,9 @@ REST_FRAMEWORK = {
 # Elasticsearch configuration
 ELASTICSEARCH_DSL = {
     'default': {
-        'hosts': 'https://59d039eba59a428d829f21971b4bbbcb.'
-                 + 'eu-central-1.aws.cloud.es.io:9243/',
-        'http_auth': ('elastic', 'icsoaFY5MXOkQKj2Kug4sODg'),
+        'hosts': 'https://643bbf071faf46e89dec98df57394888.'
+                 + 'eu-central-1.aws.cloud.es.io:9243',
+        'http_auth': ('elastic', '2WXZ2mUwSLjwSVKp7zkn1o0h'),
     },
 }
 
@@ -177,7 +177,7 @@ except ImportError:
     such as in the production environment.
 """
 
-if DATABASES['default']['NAME'] == 'dslsomjcgv6f5':
+if DATABASES['default']['NAME'] == 'dabfubmjtdho1p':
     print("\033[95mRunning django with local settings: \033[0m")
     print("\033[95mDatabase is: exercise-it-db-development\033[0m")
 else:
