@@ -13,3 +13,5 @@ class ExerciseAdmin(ImageCroppingMixin, admin.ModelAdmin):
 admin.site.register(Exercise, ExerciseAdmin)
 
 
+
+

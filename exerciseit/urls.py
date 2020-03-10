@@ -24,3 +24,5 @@ urlpatterns = [
     path('', include('feed.urls')),
     url(r'^search/', include(search_index_urls)),
 ]
+
+

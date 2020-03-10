@@ -80,12 +80,8 @@ class ExerciseCreateView(CreateView):
     model = Exercise
     template_name = 'feed/exercise_form.html'
     success_url = '/'
-    class Meta:
-        widgets = {
-            'exerciseImage': ImageCropWidget,
-        }
     fields = (
         'exerciseTitle', 'exerciseAuthor', 'exerciseInfo', 'exerciseHowTo',
-        'createdByPro', 'exerciseImage', 'cropping', 'muscleGroup')
+        'createdByPro', 'exerciseImage', 'muscleGroup')
 
 

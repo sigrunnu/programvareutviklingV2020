@@ -18,9 +18,9 @@
 
                 <div id="exerciseView_ImageContainer">
 
-                    <img id="exerciseView_Image"
-                         src="{{ exercise.exerciseImage.url }}"
-                         alt="Exercise image">
+                     {% load thumbnail %}
+                    {% thumbnail exercise.exerciseImage 250x250 box=exercise.cropping crop detail as im %}
+                    <img src="{{ im.url }}" >
 
                 </div>
 
