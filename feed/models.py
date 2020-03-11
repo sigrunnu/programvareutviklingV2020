@@ -123,3 +123,4 @@ class Exercise(models.Model):
         return Exercise.objects.filter(
             Q(exerciseInfo__icontains=search_word)
             | Q(exerciseTitle__icontains=search_word))
+
