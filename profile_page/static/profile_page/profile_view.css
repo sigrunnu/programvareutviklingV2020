@@ -56,6 +56,18 @@
 
 }
 
+#profile_infoContainer button {
+    border-radius: 10px;
+    background-color: #ffffff;
+
+}
+
+#profile_infoContainer button:hover {
+
+
+}
+
+
 #profile_publishedExercisesWrapper {
     height: 60%;
 
@@ -92,6 +104,8 @@
 
     padding: 5% 0 5% 0;
 
+    color: #63837f;
+
     text-decoration: none;
 
     margin-bottom: 2%;
@@ -105,7 +119,7 @@
 #profile_ranking {
     width: 98%;
 
-    font-size: 20px;
+    font-size: 17px;
 
     flex-direction: row;
 
@@ -113,12 +127,7 @@
 
     align-items: center;
 
-    background-color: white;
-
     margin-bottom: 2%;
-
-
-
 
 }
 
@@ -188,10 +197,11 @@
     margin-top: 1%;
 
     padding: 1% 1% 1% 1%;
-    border: 1px solid black;
-    width: 35%;
+    border: 1px solid grey;
+    width: 60%;
 
-    font-size: 12px;
+    font-size: 15px;
+
 
 }
 
@@ -211,5 +221,10 @@
 #profile_favouritesContainer > div button:hover {
     opacity: 0.4;
     transition: 0.3s;
+
+}
+
+#profile_favouritesContainer > div button:active {
+
 
 }
