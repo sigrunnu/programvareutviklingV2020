@@ -88,3 +88,8 @@ def loginView(request):
     context = {
     }
     return render(request, "feed/login.html", context)
+
+def signUpView(request):
+    context = {
+    }
+    return render(request, "feed/signup.html", context)

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Logg inn</title>
+    <title>Register bruker</title>
 
 
     <!-- Main CSS-->
@@ -16,27 +16,29 @@
  <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
         <div class="wrapper wrapper--w960">
             <div class="card card-2">
-                <div class="card-heading">
-                    <div id="logoLoginSignUp">
+                <div class="card-heading"><div id="logoContainer">
                     ExerciseIt!
 
 
                     <img id="logo" src="{% static 'feed/images/logo.png' %}"
                          alt="My image"
                          style="width: 60px; height: 60px;">
-                </div>
-                </div>
+                </div></div>
                 <div class="card-body">
-                    <h2 class="title">Logg inn</h2>
+                    <h2 class="title">Registrer bruker</h2>
                     <form method="POST">
                         <div class="input-group">
                             <input class="input--style-2" type="text" placeholder="E-post" name="E-post">
                         </div>
-                        <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="passord" name="passord">
-                        </div>
+                                <div class="input-group">
+                                    <input class="input--style-2" type="text" placeholder="Navn" name="Navn">
+                                </div>
+                                <div class="input-group">
+                                    <input class="input--style-2" type="text" placeholder="passord" name="passord">
+                                </div>
+
                         <div class="p-t-30">
-                            <button class="btn btn--radius btn--green" type="submit">Logg inn</button>
+                            <button class="btn btn--radius btn--green" type="submit">Lag bruker</button>
                         </div>
                     </form>
                 </div>
