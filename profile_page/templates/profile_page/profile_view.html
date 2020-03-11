@@ -24,8 +24,8 @@
                         Andreas Amundsen
                     </div>
 
-                    <div style="font-size: 30px">
-                        testomundsen
+                    <div style="font-size: 30px; border: 1px none grey; border-bottom-style: solid;">
+                        testomundsen123
                     </div>
 
                     <button href="">
@@ -36,7 +36,7 @@
 
                 <div id="profile_publishedExercisesWrapper">
 
-                    <div style="font-size: 40px">
+                    <div style="font-size: 40px; border: 2px none grey; border-bottom-style: solid;">
                         Mine publiserte økter
                     </div>
 
@@ -118,7 +118,7 @@
 
             <div id="profile_favouritesWrapper">
 
-                <div style="font-size: 40px;">
+                <div id="profile_favouritesTitle">
                     Favoriserte øvelser
                 </div>
 
@@ -128,28 +128,28 @@
                     {% for i in '12345678901234567890'|make_list %}
 
                         <div>
-                        <button>
-                            {% load static %}
-                            <img id="entityImage"
-                                 src="{% static 'feed/images/weightlifting.jpg' %}"
-                                 alt="Exercise image">
+                            <button>
+                                {% load static %}
+                                <img id="entityImage"
+                                     src="{% static 'feed/images/weightlifting.jpg' %}"
+                                     alt="Exercise image">
 
-                        </button>
+                            </button>
 
-                        <div>
-                            Armhevinger
-                            <div class="item-image">
-                                <img src="{% static 'feed/images/verified.png' %}"
-                                     style="width:20px;height:20px;">
-                            </div>
+                            <div>
+                                Armhevinger
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
 
-                            <div class="item-noImage" style="display:none;">
+                                <div class="item-noImage"
+                                     style="display:none;">
+                                </div>
                             </div>
                         </div>
-                    </div>
 
                     {% endfor %}
-
 
 
                 </div>

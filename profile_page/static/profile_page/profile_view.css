@@ -2,10 +2,10 @@
     overflow: hidden;
 
     display: flex;
-    background-color: red;
 
     width: 100%;
     height: 77.5%;
+
 
 }
 
@@ -16,10 +16,12 @@
 
     justify-content: space-evenly;
 
-    background-color: bisque;
+    background-color: #f8f6f1;
 
     flex-grow: 1;
     flex-shrink: 0;
+
+
 
 }
 
@@ -32,8 +34,9 @@
 
     width: 25%;
 
+    background-color: #ffffff;
 
-    background-color: #C6E684;
+    padding: 0 2% 0 2%;
 
     flex-direction: column;
 
@@ -45,7 +48,7 @@
 
     height: 30%;
 
-    background-color: aquamarine;
+    background-color: #ecf0e4;
 
     flex-direction: column;
 
@@ -58,11 +61,13 @@
 #profile_publishedExercisesWrapper {
     height: 60%;
 
-    background-color: cornflowerblue;
+    background-color: #ecf0e4;
 
     flex-direction: column;
 
     align-items: center;
+
+    justify-content: space-evenly;
 }
 
 #profile_publishedExercisesContainer {
@@ -74,7 +79,9 @@
 
     overflow-x: auto;
 
-    margin-bottom: 1%;
+
+
+
 
 }
 
@@ -82,7 +89,9 @@
     display: flex;
     justify-content: center;
 
-    background-color: yellow;
+
+    border: 1px none grey;
+    border-bottom-style: solid;
 
     align-items: center;
 
@@ -124,11 +133,16 @@
     flex-direction: column;
 
     align-items: center;
+
+    background-color: #ffffff;
+
+
+
 }
 
 #profile_favouritesContainer {
 
-    background-color: #63837F;
+    /*background-color: #63837F;*/
 
     justify-content: space-evenly;
 
@@ -143,6 +157,16 @@
 
 }
 
+#profile_favouritesTitle  {
+    font-size: 40px;
+    border: 2px none grey;
+    border-bottom-style: solid;
+
+    width: auto;
+
+    margin-bottom: 2%;
+}
+
 #profile_favouritesContainer > div {
 
     align-items: center;
@@ -151,6 +175,8 @@
     flex-direction: column;
 
     width: 30%;
+
+
 
     margin-bottom: 5%;
 
@@ -173,5 +199,18 @@
 #profile_favouritesContainer > div button img {
     width: 300px;
     height: 300px;
+
+}
+
+#profile_favouritesContainer > div button {
+    background-color: transparent;
+    border: none;
+}
+
+
+/* Create fade out transition for elements in feed view */
+#profile_favouritesContainer > div button:hover {
+    opacity: 0.4;
+    transition: 0.3s;
 
 }
