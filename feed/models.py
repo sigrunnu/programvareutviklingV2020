@@ -4,7 +4,7 @@ from django.contrib.postgres.search import SearchVector
 from django.db import models
 from django.db.models import Q
 from six import python_2_unicode_compatible
-from profile_page.models import User
+import profile_page.models.User
 
 
 @python_2_unicode_compatible
