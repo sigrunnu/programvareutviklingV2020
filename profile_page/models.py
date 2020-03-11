@@ -6,7 +6,6 @@ from django.db.models import Q
 from six import python_2_unicode_compatible
 
 
-
 @python_2_unicode_compatible
 class User(models.Model):
     userName = models.CharField(
@@ -19,7 +18,6 @@ class User(models.Model):
     )
     password = models.CharField(
         max_length=32,
-        #widget=forms.PasswordInput
         verbose_name='Password'
     )
     pro = models.BooleanField(
