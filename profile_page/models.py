@@ -28,3 +28,9 @@ class User(models.Model):
         null=True,
         blank=True
     )
+
+    class Meta(object):
+        ordering = ["userName", "email", "age", "password", "sex"]
+
+    def __str__(self):
+        return self.userName
