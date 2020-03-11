@@ -13,37 +13,49 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='exercise',
             name='createdByPro',
-            field=models.BooleanField(default=False, verbose_name='Profesjonell'),
+            field=models.BooleanField(
+                default=False, verbose_name='Profesjonell'),
         ),
         migrations.AlterField(
             model_name='exercise',
             name='exerciseAuthor',
-            field=models.CharField(max_length=50, null=True, verbose_name='Forfatternavn'),
+            field=models.CharField(
+                max_length=50, null=True, verbose_name='Forfatternavn'),
         ),
         migrations.AlterField(
             model_name='exercise',
             name='exerciseHowTo',
-            field=models.TextField(blank=True, max_length=500, null=True, verbose_name='Utførelse av øvelsen'),
+            field=models.TextField(
+                blank=True,
+                max_length=500,
+                null=True, verbose_name='Utførelse av øvelsen'),
         ),
         migrations.AlterField(
             model_name='exercise',
             name='exerciseImage',
-            field=models.ImageField(blank=True, null=True, upload_to='exercises/', verbose_name='Bilde av øvelsen'),
+            field=models.ImageField(
+                blank=True, null=True,
+                upload_to='exercises/', verbose_name='Bilde av øvelsen'),
         ),
         migrations.AlterField(
             model_name='exercise',
             name='exerciseInfo',
-            field=models.TextField(blank=True, max_length=500, null=True, verbose_name='Informasjon om øvelsen'),
+            field=models.TextField(
+                blank=True, max_length=500,
+                null=True, verbose_name='Informasjon om øvelsen'),
         ),
         migrations.AlterField(
             model_name='exercise',
             name='exerciseTitle',
-            field=models.CharField(max_length=200, verbose_name='Tittel på øvelsen'),
+            field=models.CharField(max_length=200,
+                                   verbose_name='Tittel på øvelsen'),
         ),
         migrations.AlterField(
             model_name='exercise',
             name='muscleGroup',
-            field=models.ManyToManyField(blank=True, to='feed.MuscleGroup', verbose_name='Muskelgrupper'),
+            field=models.ManyToManyField(
+                blank=True, to='feed.MuscleGroup',
+                verbose_name='Muskelgrupper'),
         ),
         migrations.AlterField(
             model_name='exercise',
