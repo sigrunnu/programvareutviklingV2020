@@ -15,46 +15,65 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='exercise',
             name='cropping',
-            field=image_cropping.fields.ImageRatioField('exerciseImage', '250x250', adapt_rotation=False, allow_fullsize=False, free_crop=False, help_text=None, hide_image_field=False, size_warning=False, verbose_name='cropping'),
+            field=image_cropping.fields.ImageRatioField(
+                'exerciseImage', '250x250',
+                adapt_rotation=False, allow_fullsize=False,
+                free_crop=False, help_text=None,
+                hide_image_field=False,
+                size_warning=False, verbose_name='cropping'),
         ),
         migrations.AlterField(
             model_name='exercise',
             name='createdByPro',
-            field=models.BooleanField(default=False, verbose_name='Profesjonell'),
+            field=models.BooleanField(
+                default=False, verbose_name='Profesjonell'),
         ),
         migrations.AlterField(
             model_name='exercise',
             name='exerciseAuthor',
-            field=models.CharField(max_length=50, null=True, verbose_name='Forfatternavn'),
+            field=models.CharField(
+                max_length=50, null=True, verbose_name='Forfatternavn'),
         ),
         migrations.AlterField(
             model_name='exercise',
             name='exerciseHowTo',
-            field=models.TextField(blank=True, max_length=500, null=True, verbose_name='Utførelse av øvelsen'),
+            field=models.TextField(blank=True,
+                                   max_length=500,
+                                   null=True,
+                                   verbose_name='Utførelse av øvelsen'),
         ),
         migrations.AlterField(
             model_name='exercise',
             name='exerciseImage',
-            field=models.ImageField(default='exercises/trening.jpg', upload_to='exercises/', verbose_name='Bilde av øvelsen'),
+            field=models.ImageField(
+                default='exercises/trening.jpg',
+                upload_to='exercises/', verbose_name='Bilde av øvelsen'),
         ),
         migrations.AlterField(
             model_name='exercise',
             name='exerciseInfo',
-            field=models.TextField(blank=True, max_length=500, null=True, verbose_name='Informasjon om øvelsen'),
+            field=models.TextField(
+                blank=True, max_length=500, null=True,
+                verbose_name='Informasjon om øvelsen'),
         ),
         migrations.AlterField(
             model_name='exercise',
             name='exerciseTitle',
-            field=models.CharField(max_length=200, verbose_name='Tittel på øvelsen'),
+            field=models.CharField(
+                max_length=200, verbose_name='Tittel på øvelsen'),
         ),
         migrations.AlterField(
             model_name='exercise',
             name='muscleGroup',
-            field=models.ManyToManyField(blank=True, to='feed.MuscleGroup', verbose_name='Muskelgrupper'),
+            field=models.ManyToManyField(
+                blank=True, to='feed.MuscleGroup',
+                verbose_name='Muskelgrupper'),
         ),
         migrations.AlterField(
             model_name='exercise',
             name='pub_date',
-            field=models.DateTimeField(default=datetime.datetime(2020, 3, 9, 11, 5, 21, 587933), editable=False),
+            field=models.DateTimeField(
+                default=datetime.datetime(2020, 3, 9, 11, 5, 21, 587933),
+                editable=False),
         ),
     ]
