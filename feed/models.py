@@ -71,10 +71,12 @@ class Exercise(models.Model):
         blank=True,
         verbose_name='Utførelse av øvelsen'
     )
+    '''
     createdByPro = models.BooleanField(
         default=False,
         verbose_name='Profesjonell'
     )
+    '''
     exerciseImage = models.ImageField(
         null=True,
         blank=True,
@@ -87,7 +89,9 @@ class Exercise(models.Model):
         verbose_name='Muskelgrupper'
     )
     createdBy = models.ForeignKey(
-        User,
+        to='profile_page.User',
+        null=True,
+        on_delete=models.SET_NULL,
         verbose_name='Bruker'
     )
 
