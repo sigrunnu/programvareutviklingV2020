@@ -5,6 +5,7 @@ from django.db import models
 from django.db.models import Q
 from six import python_2_unicode_compatible
 
+
 @python_2_unicode_compatible
 class User(models.Model):
     userName=models.CharField(
@@ -34,7 +35,7 @@ class User(models.Model):
     )
 
     class Meta(object):
-        ordering=["userName", "email", "age", "password", "sex"]
+        ordering = ["userName", "email", "age", "password", "sex"]
 
     def __str__(self):
         return self.userName
