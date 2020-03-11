@@ -51,6 +51,7 @@ def search(request):
 
     print(result.to_dict())
 
+    # TODO: Make the result index fetch the relevant Exercises from the db
     context = {
         'exercises': result
     }

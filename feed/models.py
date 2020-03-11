@@ -53,7 +53,7 @@ class Exercise(models.Model):
         verbose_name='Informasjon om øvelsen'
     )
     pub_date = models.DateTimeField(
-        default=datetime.now(),
+        auto_now_add=True,
         editable=False,
     )
     exerciseLikes = models.IntegerField(
