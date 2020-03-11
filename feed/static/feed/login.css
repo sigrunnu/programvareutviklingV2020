@@ -278,6 +278,14 @@ input {
   cursor: pointer;
 }
 
+label{
+   padding: 9px 0;
+  color: #666;
+  font-size: 16px;
+  font-weight: 500;
+
+}
+
 .input--style-2 {
   padding: 9px 0;
   color: #666;
@@ -381,7 +389,6 @@ input {
 
     width: auto;
 
-
     font-size: 25px;
 
     color: black;
@@ -393,3 +400,15 @@ input {
 
 }
 
+#checkboxp{
+  padding-bottom: 5px;
+
+}
+
+
+#checkboxclass{
+  display: flex;
+
+
+
+}
