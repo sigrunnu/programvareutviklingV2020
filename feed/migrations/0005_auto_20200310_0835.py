@@ -18,11 +18,14 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='exercise',
             name='exerciseImage',
-            field=models.ImageField(upload_to='exercises/', verbose_name='Bilde av øvelsen'),
+            field=models.ImageField(
+                upload_to='exercises/', verbose_name='Bilde av øvelsen'),
         ),
         migrations.AlterField(
             model_name='exercise',
             name='pub_date',
-            field=models.DateTimeField(default=datetime.datetime(2020, 3, 10, 8, 35, 4, 483668), editable=False),
+            field=models.DateTimeField(
+                default=datetime.datetime(2020, 3, 10, 8, 35, 4, 483668),
+                editable=False),
         ),
     ]

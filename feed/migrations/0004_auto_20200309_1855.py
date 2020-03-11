@@ -15,11 +15,14 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='exercise',
             name='exerciseImage',
-            field=image_cropping.fields.ImageCropField(upload_to='exercises/', verbose_name='Bilde av øvelsen'),
+            field=image_cropping.fields.ImageCropField(
+                upload_to='exercises/', verbose_name='Bilde av øvelsen'),
         ),
         migrations.AlterField(
             model_name='exercise',
             name='pub_date',
-            field=models.DateTimeField(default=datetime.datetime(2020, 3, 9, 18, 55, 41, 148022), editable=False),
+            field=models.DateTimeField(
+                default=datetime.datetime(2020, 3, 9, 18, 55, 41, 148022),
+                editable=False),
         ),
     ]
