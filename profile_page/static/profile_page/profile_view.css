@@ -152,25 +152,29 @@
 
     justify-content: space-evenly;
 
+
+
     flex-wrap: wrap;
 
     overflow-x: auto;
 
     min-width: 100%;
 
+    margin-top: 3%;
     padding-top: 2%;
+
+    border: 1px none grey;
+    border-top-style: solid;
 
 
 }
 
 #profile_favouritesTitle  {
     font-size: 25px;
-    border: 2px none grey;
-    border-bottom-style: solid;
 
     width: auto;
 
-    margin-bottom: 2%;
+
 }
 
 #profile_favouritesContainer > div {
