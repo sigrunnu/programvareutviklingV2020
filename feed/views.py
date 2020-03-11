@@ -50,6 +50,7 @@ def search(request):
 
     print(result.to_dict())
 
+    # TODO: Make the result index fetch the relevant Exercises from the db
     context = {
         'exercises': result
     }
@@ -80,8 +81,7 @@ class ExerciseCreateView(CreateView):
     template_name = 'feed/exercise_form.html'
     success_url = '/'
     fields = (
-        'exerciseTitle', 'exerciseAuthor', 'exerciseInfo', 'exerciseHowTo',
-        'createdByPro', 'muscleGroup')
+        'exerciseTitle', 'exerciseAuthor', 'exerciseInfo', 'exerciseHowTo', 'muscleGroup')
 
 
 def loginView(request):
@@ -93,3 +93,4 @@ def signUpView(request):
     context = {
     }
     return render(request, "feed/signup.html", context)
+
