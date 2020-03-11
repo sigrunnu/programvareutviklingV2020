@@ -375,13 +375,14 @@ input {
 }
 
 #logoLoginSignUp{
+   text-decoration: none;
+
     display: flex;
 
     width: auto;
 
-    text-decoration: none;
 
-    font-size: 20px;
+    font-size: 25px;
 
     color: black;
 
@@ -391,3 +392,4 @@ input {
 
 
 }
+
