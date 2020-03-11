@@ -29,9 +29,20 @@ class User(models.Model):
         null=True,
         blank=True
     )
-    pro = models.CheckboxInput(
+    pro = models.BooleanField(
         default=false,
-        widget=forms.CheckboxInput
+        verbose_name='Profesjonell bruker'
+    )
+    hasLiked = models.ManyToManyField(
+        Exercise,
+        blank=True,
+        verbose_name='Liked Exercises'
+    )
+    # make this field read-only for normal users
+    hasRated = models.ManyToManyField(
+        Exercise,
+        blank=true,
+        verbose_name='Ranked Exercises'
     )
 
     class Meta(object):

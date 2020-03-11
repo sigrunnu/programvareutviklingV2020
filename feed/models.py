@@ -85,6 +85,10 @@ class Exercise(models.Model):
         blank=True,
         verbose_name='Muskelgrupper'
     )
+    createdBy = models.ForeignKey(
+        User,
+        verbose_name='Bruker'
+    )
 
     class Meta(object):
         ordering = ["exerciseLikes", "exerciseRating", "exerciseTitle"]
