@@ -1,0 +1,234 @@
+#profile_wrapper {
+    overflow: hidden;
+
+    display: flex;
+
+    width: 100%;
+    height: 72.5%;
+
+
+}
+
+#profile_containerWrapper {
+    display: flex;
+
+    width: 100%;
+
+    justify-content: space-evenly;
+
+    background-color: #f8f6f1;
+
+    flex-grow: 1;
+    flex-shrink: 0;
+
+}
+
+#profile_containerWrapper * {
+    display: flex;
+}
+
+/* LEFT SIDE */
+#profile_infoWrapper {
+
+    width: 25%;
+
+    background-color: #ffffff;
+
+    padding: 0 2% 0 2%;
+
+    flex-direction: column;
+
+    justify-content: space-evenly;
+
+}
+
+#profile_infoContainer {
+
+    height: 30%;
+
+    background-color: #ecf0e4;
+
+    flex-direction: column;
+
+    justify-content: space-evenly;
+
+    align-items: center;
+
+}
+
+#profile_infoContainer button {
+    border-radius: 10px;
+    background-color: #ffffff;
+
+}
+
+#profile_infoContainer button:hover {
+
+
+}
+
+
+#profile_publishedExercisesWrapper {
+    height: 60%;
+
+    background-color: #ecf0e4;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: space-evenly;
+}
+
+#profile_publishedExercisesContainer {
+
+    width: 98%;
+
+    height: 70%;
+    flex-direction: column;
+
+    overflow-x: auto;
+
+
+}
+
+#profile_publishedExercisesContainer a {
+    display: flex;
+    justify-content: center;
+
+
+    border: 1px none grey;
+    border-bottom-style: solid;
+
+    align-items: center;
+
+    padding: 5% 0 5% 0;
+
+    color: #63837f;
+
+    text-decoration: none;
+
+    margin-bottom: 2%;
+
+}
+
+#profile_publishedExercisesContainer a:active {
+    color: black;
+}
+
+#profile_ranking {
+    width: 98%;
+
+    font-size: 17px;
+
+    flex-direction: row;
+
+    justify-content: space-evenly;
+
+    align-items: center;
+
+    margin-bottom: 2%;
+
+}
+
+/* RIGHT SIDE */
+#profile_favouritesWrapper {
+
+    width: 65%;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    background-color: #ffffff;
+
+
+
+}
+
+#profile_favouritesContainer {
+
+    /*background-color: #63837F;*/
+
+    justify-content: space-evenly;
+
+
+
+    flex-wrap: wrap;
+
+    overflow-x: auto;
+
+    min-width: 100%;
+
+    margin-top: 3%;
+    padding-top: 2%;
+
+    border: 1px none grey;
+    border-top-style: solid;
+
+
+}
+
+#profile_favouritesTitle  {
+    font-size: 25px;
+
+    width: auto;
+
+
+}
+
+#profile_favouritesContainer > div {
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    width: 30%;
+
+
+
+    margin-bottom: 5%;
+
+
+
+}
+
+#profile_favouritesContainer > div > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 1%;
+
+    padding: 1% 1% 1% 1%;
+    border: 1px solid grey;
+    width: 60%;
+
+    font-size: 15px;
+
+
+}
+
+#profile_favouritesContainer > div button img {
+    width: 230px;
+    height: 230px;
+
+}
+
+#profile_favouritesContainer > div button {
+    background-color: transparent;
+    border: none;
+}
+
+
+/* Create fade out transition for elements in feed view */
+#profile_favouritesContainer > div button:hover {
+    opacity: 0.4;
+    transition: 0.3s;
+
+}
+
+#profile_favouritesContainer > div button:active {
+
+
+}
