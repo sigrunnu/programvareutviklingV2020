@@ -106,22 +106,6 @@
                             Exercise: Military press - 22.02.2020
                         </a>
 
-                        <a href="">
-                            Exercise: Military press - 22.02.2020
-                        </a>
-
-                        <a href="">
-                            Exercise: Military press - 22.02.2020
-                        </a>
-
-                        <a href="">
-                            Exercise: Military press - 22.02.2020
-                        </a>
-
-                        <a href="">
-                            Exercise: Military press - 22.02.2020
-                        </a>
-
                     </div>
 
                     <div id="profile_ranking">
@@ -294,6 +278,51 @@
                         </div>{% endcomment %}
                     </div>
 
+
+                    <div>
+                        <button>
+                            {% load static %}
+                            <img id="entityImage"
+                                 src="{% static 'feed/images/weightlifting.jpg' %}"
+                                 alt="Exercise image">
+
+                        </button>
+
+                        {% comment %}<div class="exerciseTitle">
+                            {{ exercise.exerciseTitle }}
+                            {% if exercise.createdByPro == True %}
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
+                            </div>
+                        </div>{% endcomment %}
+                    </div>
+
+
+                    <div>
+                        <button>
+                            {% load static %}
+                            <img id="entityImage"
+                                 src="{% static 'feed/images/weightlifting.jpg' %}"
+                                 alt="Exercise image">
+
+                        </button>
+
+                        {% comment %}<div class="exerciseTitle">
+                            {{ exercise.exerciseTitle }}
+                            {% if exercise.createdByPro == True %}
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
+                            </div>
+                        </div>{% endcomment %}
+                    </div>
 
                     <div>
                         <button>

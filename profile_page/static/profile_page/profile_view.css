@@ -3,9 +3,7 @@
     background-color: red;
 
     width: 100%;
-
-    height: 100%;
-
+    height: 80%;
 
 }
 
@@ -18,7 +16,7 @@
 
     background-color: bisque;
 
-
+    height: 100%;
 
 }
 
@@ -62,7 +60,6 @@
     flex-direction: column;
 
     align-items: center;
-
 }
 
 #profile_publishedExercisesContainer {
@@ -136,6 +133,7 @@
 
     overflow-x: auto;
 
+
 }
 
 #profile_favouritesContainer > div {
@@ -143,13 +141,15 @@
     align-items: center;
     justify-content: center;
 
-    width: 50%;
+    width: 100%;
 
     margin-bottom: 5%;
+
+    background-color: red;
 }
 
 #profile_favouritesContainer > div button img {
-    width: 100px;
-    height: 100px;
+    width: 400px;
+    height: 400px;
 
 }
