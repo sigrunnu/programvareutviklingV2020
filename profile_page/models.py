@@ -8,7 +8,7 @@ from six import python_2_unicode_compatible
 
 @python_2_unicode_compatible
 class User(models.Model):
-    userName=models.CharField(
+    userName = models.CharField(
         max_length=50,
         verbose_name='Username'
     )
