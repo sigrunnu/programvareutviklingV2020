@@ -4,6 +4,7 @@ from django.contrib.postgres.search import SearchVector
 from django.db import models
 from django.db.models import Q
 from six import python_2_unicode_compatible
+import profile_page.models
 
 
 @python_2_unicode_compatible
@@ -70,10 +71,12 @@ class Exercise(models.Model):
         blank=True,
         verbose_name='Utførelse av øvelsen'
     )
+    '''
     createdByPro = models.BooleanField(
         default=False,
         verbose_name='Profesjonell'
     )
+    '''
     exerciseImage = models.ImageField(
         null=True,
         blank=True,
@@ -84,6 +87,12 @@ class Exercise(models.Model):
         MuscleGroup,
         blank=True,
         verbose_name='Muskelgrupper'
+    )
+    createdBy = models.ForeignKey(
+        to='profile_page.User',
+        null=True,
+        on_delete=models.SET_NULL,
+        verbose_name='Bruker'
     )
 
     class Meta(object):
