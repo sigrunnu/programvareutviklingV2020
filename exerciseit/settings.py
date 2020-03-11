@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
-
-
 from elasticsearch import Elasticsearch, RequestsHttpConnection
 from requests_aws4auth import AWS4Auth
 
@@ -83,9 +81,10 @@ REST_FRAMEWORK = {
 # Elasticsearch configuration
 ELASTICSEARCH_DSL = {
     'default': {
-        'hosts': 'https://643bbf071faf46e89dec98df57394888.'
-                 + 'eu-central-1.aws.cloud.es.io:9243',
-        'http_auth': ('elastic', '2WXZ2mUwSLjwSVKp7zkn1o0h'),
+        'hosts': 'https://'
+                 'search-exercise-it-xqtq2p2smafhonvguja7tsfccy.us-east-2.'
+                 'es.amazonaws.com',
+        'http_auth': ('root', '3X3rs1s317!?'),
     },
 }
 
@@ -131,8 +130,6 @@ DATABASES = {
         'PORT': '5432'
     }
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -193,6 +190,7 @@ if DATABASES['default']['NAME'] == 'dabfubmjtdho1p':
 else:
     print("\033[95mRunning django with production settings:\033[0m")
     print("\033[95mDatabase is: exercise-it-db\033[0m")
+print("Elastic endpoint: " + ELASTICSEARCH_DSL['default']['hosts'])
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
