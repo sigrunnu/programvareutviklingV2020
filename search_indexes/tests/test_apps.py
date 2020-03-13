@@ -1,7 +1,8 @@
 import pytest
-from search_indexes.apps import SearchIndexesConfig
 from django.test import TestCase
+
 import search_indexes
+from search_indexes.apps import SearchIndexesConfig
 
 
 @pytest.mark.django_db

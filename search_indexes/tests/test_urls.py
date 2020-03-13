@@ -1,7 +1,5 @@
 # django 2.x
-from django.urls import reverse
 import pytest
-from unittest import TestCase
 from django.test import TestCase, Client
 
 
