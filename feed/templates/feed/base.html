@@ -63,13 +63,23 @@
 
 
             <div class="item" id="profileContainer">
+                 {% if user.is_authenticated %}
+                    <a href="{% url 'profile' %}">
+                    <i class="material-icons">person</i>
+                    Min profil
+                </a>
+                <a  href="{% url 'logout' %}">
+                    Logg ut
+                </a>
 
-                 <a id="login" href="{% url 'loginView' %}">
+                    {% else %}
+                <a id="login" href="{% url 'login' %}">
                      Logg inn
                  </a>
-                <a id="signup" href="{% url 'signUpView' %}">
-                    Register bruker
+                <a id="signup" href="{% url 'signup' %}">
+                    Registrer bruker
                  </a>
+                {% endif %}
 
             </div>
 

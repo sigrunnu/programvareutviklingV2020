@@ -31,17 +31,11 @@
                      </a>
                 </div>
                 <div class="card-body">
-                    <h2 class="title">Logg inn</h2>
-                    <form method="POST">
-                        <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="E-post" name="E-post">
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="passord" name="passord">
-                        </div>
-                        <div class="p-t-30">
-                            <button class="btn btn--radius btn--green" type="submit">Logg inn</button>
-                        </div>
+                     <h2>Logg inn</h2>
+                  <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button>Logg inn</button>
                     </form>
                 </div>
             </div>

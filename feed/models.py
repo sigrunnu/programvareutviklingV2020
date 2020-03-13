@@ -89,7 +89,7 @@ class Exercise(models.Model):
         verbose_name='Muskelgrupper'
     )
     createdBy = models.ForeignKey(
-        to='profile_page.User',
+        to='profile_page.OwnUser',
         null=True,
         on_delete=models.SET_NULL,
         verbose_name='Bruker'

@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import CreateView
 from elasticsearch_dsl import Q
+
 
 from search_indexes.documents.exercise import ExerciseDocument
 from .models import Exercise
@@ -84,13 +86,4 @@ class ExerciseCreateView(CreateView):
         'exerciseTitle', 'exerciseAuthor', 'exerciseInfo', 'exerciseHowTo', 'muscleGroup')
 
 
-def loginView(request):
-    context = {
-    }
-    return render(request, "feed/login.html", context)
-
-def signUpView(request):
-    context = {
-    }
-    return render(request, "feed/signup.html", context)
 
