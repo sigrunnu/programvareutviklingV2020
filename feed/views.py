@@ -87,6 +87,3 @@ class ExerciseCreateView(CreateView):
     fields = (
         'exerciseTitle', 'exerciseAuthor', 'exerciseInfo', 'exerciseHowTo',
         'exerciseImage', 'muscleGroup')
-
-
-
