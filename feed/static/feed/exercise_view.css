@@ -114,11 +114,10 @@
 
 #exerciseView_likes {
 
-    justify-content: space-evenly;
+    justify-content: left;
 
-    width: 60%;
+    width: 30%;
 
     align-items: center;
 
-    background-color: aquamarine;
 }

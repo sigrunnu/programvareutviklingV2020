@@ -23,4 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('feed.urls')),
     url(r'^search/', include(search_index_urls)),
+    path('profile/', include('profile_page.urls'))
+
 ]
