@@ -1,7 +1,11 @@
+from datetime import datetime
+import profile_page.models
+
 from django.contrib.postgres.search import SearchVector
 from django.db import models
 from django.db.models import Q
 from six import python_2_unicode_compatible
+from image_cropping import ImageRatioField, ImageCropField
 
 
 @python_2_unicode_compatible
@@ -68,18 +72,21 @@ class Exercise(models.Model):
         blank=True,
         verbose_name='Utførelse av øvelsen'
     )
+
     '''
     createdByPro = models.BooleanField(
         default=False,
         verbose_name='Profesjonell'
     )
     '''
+
     exerciseImage = models.ImageField(
         null=True,
         blank=True,
         upload_to='exercises/',
         verbose_name='Bilde av øvelsen'
     )
+
     muscleGroup = models.ManyToManyField(
         MuscleGroup,
         blank=True,
