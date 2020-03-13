@@ -86,6 +86,6 @@ class ExerciseCreateView(CreateView):
     success_url = '/'
     fields = (
         'exerciseTitle', 'exerciseAuthor', 'exerciseInfo', 'exerciseHowTo',
-        'createdByPro', 'exerciseImage', 'muscleGroup')
+        'exerciseImage', 'muscleGroup')
 
 

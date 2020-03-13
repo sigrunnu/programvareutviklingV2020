@@ -71,17 +71,13 @@ class Exercise(models.Model):
         blank=True,
         verbose_name='Utførelse av øvelsen'
     )
-    createdByPro = models.BooleanField(
-        default=False,
-        verbose_name='Profesjonell'
-    )
+
     exerciseImage = models.ImageField(
         null=True,
         blank=True,
         upload_to='exercises/',
         verbose_name='Bilde av øvelsen'
     )
-
 
     muscleGroup = models.ManyToManyField(
         MuscleGroup,
@@ -126,4 +122,3 @@ class Exercise(models.Model):
         return Exercise.objects.filter(
             Q(exerciseInfo__icontains=search_word)
             | Q(exerciseTitle__icontains=search_word))
-
