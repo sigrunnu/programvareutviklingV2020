@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import CreateView
 from elasticsearch_dsl import Q
-
 from search_indexes.documents.exercise import ExerciseDocument
 from .models import Exercise
+from image_cropping import ImageCropWidget
 
 
 # Create your views here.
@@ -47,12 +47,16 @@ def search(request):
 
     query = ExerciseDocument.search().query(q3)
     result = query.execute()
-
-    print(result.to_dict())
+    exercises = []
+    for exercise in result['hits']['hits']:
+        exercises.append(
+            Exercise.objects.filter(
+                pk=int(exercise['_source']['id'])).values()[0]
+        )
 
     # TODO: Make the result index fetch the relevant Exercises from the db
     context = {
-        'exercises': result
+        'exercises': exercises
     }
     return render(request, 'feed/feed.html', context)
 
@@ -81,5 +85,5 @@ class ExerciseCreateView(CreateView):
     template_name = 'feed/exercise_form.html'
     success_url = '/'
     fields = (
-        'exerciseTitle', 'exerciseAuthor', 'exerciseInfo',
-        'exerciseHowTo', 'muscleGroup')
+        'exerciseTitle', 'exerciseAuthor', 'exerciseInfo', 'exerciseHowTo',
+        'exerciseImage', 'muscleGroup')

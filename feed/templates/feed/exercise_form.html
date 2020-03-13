@@ -17,7 +17,7 @@
             <div class="col-8">
                 <h1 class="mt-2">Legg til øvelse</h1>
                 <hr class="mt-0 mb-4">
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
                       <div class="col-6">
@@ -29,6 +29,7 @@
                     </div>
                    {{ form.exerciseInfo|as_crispy_field }}
                      {{ form.exerciseHowTo|as_crispy_field }}
+                    {{ form.exerciseImage|as_crispy_field }}
                      {{ form.muscleGroup|as_crispy_field }}
 
                     <button type="submit" class="btn btn-success">Lagre
