@@ -74,6 +74,11 @@
 
 }
 
+#exerciseView_Information > div:first-of-type {
+
+
+}
+
 #exerciseView_Information form {
     padding-left: 0;
 }
