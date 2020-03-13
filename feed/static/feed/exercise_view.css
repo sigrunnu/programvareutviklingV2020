@@ -74,13 +74,27 @@
 
 }
 
-#exerciseView_Information > div:first-of-type {
-
+#exerciseView_Information > div:first-of-type img {
+    width: 40px;
+    height: 30px;
 
 }
 
+
+
 #exerciseView_Information form {
     padding-left: 0;
+
+}
+
+#exerciseView_Information form input {
+    width: 200px;
+
+}
+
+#exerciseView_Information form button {
+    width: 100px;
+
 }
 
 #exerciseView_DescriptionContainer {
@@ -128,4 +142,5 @@
 
     align-items: center;
 
+    font-size: 30px;
 }
