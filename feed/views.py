@@ -89,3 +89,4 @@ class ExerciseCreateView(CreateView):
         'exerciseImage', 'muscleGroup')
 
 
+
