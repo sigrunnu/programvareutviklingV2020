@@ -1,4 +1,5 @@
 from datetime import datetime
+import profile_page.models
 
 from django.contrib.postgres.search import SearchVector
 from django.db import models
@@ -72,6 +73,13 @@ class Exercise(models.Model):
         verbose_name='Utførelse av øvelsen'
     )
 
+    '''
+    createdByPro = models.BooleanField(
+        default=False,
+        verbose_name='Profesjonell'
+    )
+    '''
+
     exerciseImage = models.ImageField(
         null=True,
         blank=True,
@@ -83,6 +91,12 @@ class Exercise(models.Model):
         MuscleGroup,
         blank=True,
         verbose_name='Muskelgrupper'
+    )
+    createdBy = models.ForeignKey(
+        to='profile_page.User',
+        null=True,
+        on_delete=models.SET_NULL,
+        verbose_name='Bruker'
     )
 
     class Meta(object):

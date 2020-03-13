@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'easy_thumbnails',
     'image_cropping',
+    'profile_page',
+
 ]
 
 THUMBNAIL_PROCESSORS = (

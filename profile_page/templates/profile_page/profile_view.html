@@ -1,0 +1,104 @@
+{% extends "profile_page/profile_base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise view</title>
+
+</head>
+<body>
+
+
+{% block content %}
+
+    <div id="profile_wrapper">
+
+        <div id="profile_containerWrapper">
+
+            <div id="profile_infoWrapper">
+
+                <div id="profile_infoContainer">
+
+                    <div style="font-size: 25px">
+                        Andreas Amundsen
+                    </div>
+
+                    <div style="font-size: 17px; border: 1px none grey; border-bottom-style: solid;">
+                        testomundsen123
+                    </div>
+
+                    <button href="">
+                        Rediger profil
+                    </button>
+
+                </div>
+
+                <div id="profile_publishedExercisesWrapper">
+
+                    <div style="font-size: 25px; border: 2px none grey; border-bottom-style: solid;">
+                        Mine publiserte økter
+                    </div>
+
+                    <div id="profile_publishedExercisesContainer">
+
+                        {% for i in '12345678901234567890'|make_list %}
+                            <a href="">
+                                Exercise: Military press - 22.02.2020
+                            </a>
+
+                        {% endfor %}
+
+                    </div>
+
+                    <div id="profile_ranking">
+                        Gjennomsnittslig rangering: 3.5 ⭐
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="profile_favouritesWrapper">
+
+                <div id="profile_favouritesTitle">
+                    Dine favoritter
+                </div>
+
+                <div id="profile_favouritesContainer">
+
+
+                    {% for i in '12345678901234567890'|make_list %}
+
+                        <div>
+                            <button>
+                                {% load static %}
+                                <img id="entityImage"
+                                     src="{% static 'feed/images/weightlifting.jpg' %}"
+                                     alt="Exercise image">
+
+                            </button>
+
+                            <div>
+                                Armhevinger
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
+
+                                <div class="item-noImage"
+                                     style="display:none;">
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+</body>
+</html>

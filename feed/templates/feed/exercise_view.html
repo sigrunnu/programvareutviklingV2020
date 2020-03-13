@@ -47,15 +47,16 @@
                     </div>
 
 
-                    {% comment %}<div id="exerciseLikes">
-                        54
+                    <div id="exerciseView_likes">
+                        {{ exercise.exerciseLikes }}
                         {% load static %}
-                        <img src="{% static "feed/" %}"
-                             alt="Heart image">
+                        <img src="{% static "feed/images/heart.png" %}"
+                             alt="Heart image" style="margin-left: 10%">
                     </div>
+
                     <div id="exerciseStarRating">
-                        5 STARS
-                    </div>{% endcomment %}
+                        Rating: {{ exercise.exerciseRating|floatformat:"1" }}
+                    </div>
 
                     <div>
                         Trener:
@@ -65,7 +66,9 @@
                         {% endfor %}
                     </div>
 
-                    <div> {{ exercise.exerciseInfo }}</div>
+                    <div>
+                        {{ exercise.exerciseInfo }}
+                    </div>
 
 
                 </div>
