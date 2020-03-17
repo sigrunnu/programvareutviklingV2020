@@ -1,8 +1,8 @@
 from django.contrib import admin
+from image_cropping import ImageCroppingMixin
 
 from .models import Exercise
 from .models import MuscleGroup
-from image_cropping import ImageCroppingMixin
 
 
 class ExerciseAdmin(ImageCroppingMixin,

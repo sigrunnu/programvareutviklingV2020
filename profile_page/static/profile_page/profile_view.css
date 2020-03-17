@@ -143,7 +143,6 @@
     background-color: #ffffff;
 
 
-
 }
 
 #profile_favouritesContainer {
@@ -151,7 +150,6 @@
     /*background-color: #63837F;*/
 
     justify-content: space-evenly;
-
 
 
     flex-wrap: wrap;
@@ -169,7 +167,7 @@
 
 }
 
-#profile_favouritesTitle  {
+#profile_favouritesTitle {
     font-size: 25px;
 
     width: auto;
@@ -187,9 +185,7 @@
     width: 30%;
 
 
-
     margin-bottom: 5%;
-
 
 
 }

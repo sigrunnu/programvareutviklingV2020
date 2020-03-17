@@ -1,8 +1,4 @@
-from datetime import datetime
-
-from django.contrib.postgres.search import SearchVector
 from django.db import models
-from django.db.models import Q
 from six import python_2_unicode_compatible
 
 

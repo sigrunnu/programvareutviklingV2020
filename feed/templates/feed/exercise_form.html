@@ -20,17 +20,17 @@
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
-                      <div class="col-6">
-                        {{ form.exerciseTitle|as_crispy_field }}
-                      </div>
-                      <div class="col-6">
-                        {{ form.exerciseAuthor|as_crispy_field }}
-                      </div>
+                        <div class="col-6">
+                            {{ form.exerciseTitle|as_crispy_field }}
+                        </div>
+                        <div class="col-6">
+                            {{ form.exerciseAuthor|as_crispy_field }}
+                        </div>
                     </div>
-                   {{ form.exerciseInfo|as_crispy_field }}
-                     {{ form.exerciseHowTo|as_crispy_field }}
+                    {{ form.exerciseInfo|as_crispy_field }}
+                    {{ form.exerciseHowTo|as_crispy_field }}
                     {{ form.exerciseImage|as_crispy_field }}
-                     {{ form.muscleGroup|as_crispy_field }}
+                    {{ form.muscleGroup|as_crispy_field }}
 
                     <button type="submit" class="btn btn-success">Lagre
 

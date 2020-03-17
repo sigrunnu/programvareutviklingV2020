@@ -18,10 +18,10 @@
             {% for exercise in exercises %}
 
                 <div class="feed_entity">
-                     <button onclick="window.location= '{% url 'exerciseView' exercise.id %}';">
+                    <button onclick="window.location= '{% url 'exerciseView' exercise.id %}';">
                         {% load thumbnail %}
-                    {% thumbnail exercise.exerciseImage 250x250 box=exercise.cropping crop detail as im %}
-                    <img src="{{ im.url }}" >
+                        {% thumbnail exercise.exerciseImage 250x250 box=exercise.cropping crop detail as im %}
+                        <img src="{{ im.url }}">
 
 
                     </button>
@@ -32,7 +32,8 @@
                             <div class="item-image">
                                 {% load static %}
 
-                                <img src="{% static 'feed/images/verified.png' %}"
+                                <img src="
+                            {% static 'feed/images/verified.png' %}"
                                      style="width:20px;height:20px;">
                             </div>
                         {% endif %}
@@ -49,16 +50,16 @@
 
 
     </div>
-<div class="tooltip1" id="addExerciseContainer">
-       <p class="tooltiptext">Lag øvelse!</p>
-            {% load static %}
-            <a  id="addExerciseBtn" href="{% url 'addExercise' %}">
-                <img  id="addExercise"
-                     src="{% static 'feed/images/addExercise.png' %}"
-                     alt="Exercise"/>
-            </a>
+    <div class="tooltip1" id="addExerciseContainer">
+        <p class="tooltiptext">Lag øvelse!</p>
+        {% load static %}
+        <a id="addExerciseBtn" href="{% url 'addExercise' %}">
+            <img id="addExercise"
+                 src="{% static 'feed/images/addExercise.png' %}"
+                 alt="Exercise"/>
+        </a>
 
-        </div>
+    </div>
 
 
 {% endblock content %}
