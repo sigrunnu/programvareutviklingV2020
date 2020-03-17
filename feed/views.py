@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import CreateView
 from elasticsearch_dsl import Q
+
 from search_indexes.documents.exercise import ExerciseDocument
 from .models import Exercise
-from image_cropping import ImageCropWidget
 
 
 # Create your views here.

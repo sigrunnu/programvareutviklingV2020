@@ -1,7 +1,4 @@
 # django 2.x
-import pytest
-from django.test import TestCase, Client
-
 
 # @pytest.mark.django_db
 # class TestUrls(TestCase):

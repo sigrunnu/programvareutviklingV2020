@@ -13,7 +13,8 @@
 #         self.feed_url = reverse('feedHome')
 #         self.exercise1 = mixer.blend('feed.exercise',
 #                                      exerciseTitle='exercise1')
-#         self.exercise_view = reverse('exerciseView', args=[self.exercise1.pk])
+#         self.exercise_view =
+#         reverse('exerciseView', args=[self.exercise1.pk])
 #         self.create_exercise_view = reverse('addExercise')
 #
 #     @pytest.mark.filterwarnings('ignore:test_project_home_get')

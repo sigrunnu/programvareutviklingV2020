@@ -1,5 +1,6 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
+
 from feed.views import home, exercise_view, ExerciseCreateView, search
 
 
@@ -20,4 +21,3 @@ class TestUrls(SimpleTestCase):
     def test_search_is_resolved(self):
         url = reverse('search')
         self.assertEqual(resolve(url).func, search)
-

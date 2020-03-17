@@ -1,6 +1,6 @@
-from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.urls import path
 
 from feed.views import ExerciseCreateView
 from . import views
@@ -12,7 +12,6 @@ urlpatterns = [
     path('search/', views.search, name='search'),
     path('<int:exercise_id>', views.exercise_view, name='exerciseView'),
     path('addExercise', ExerciseCreateView.as_view(), name="addExercise")
-
 
 ]
 

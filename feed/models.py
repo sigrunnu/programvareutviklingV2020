@@ -1,11 +1,7 @@
-from datetime import datetime
-import profile_page.models
-
 from django.contrib.postgres.search import SearchVector
 from django.db import models
 from django.db.models import Q
 from six import python_2_unicode_compatible
-from image_cropping import ImageRatioField, ImageCropField
 
 
 @python_2_unicode_compatible
