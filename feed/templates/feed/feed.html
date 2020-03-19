@@ -10,29 +10,35 @@
 </head>
 <body>
 
+{% load static %}
 
 {% block content %}
 
     <div id="feed_wrapper">
         <div class="feed_content">
-            {% for exercise in exercises %}
 
+            {% for exercise in exercises %}
                 <div class="feed_entity">
                     <button onclick="window.location= '{% url 'exerciseView' exercise.id %}';">
                         {% load thumbnail %}
                         {% thumbnail exercise.exerciseImage 250x250 box=exercise.cropping crop detail as im %}
                         <img src="{{ im.url }}">
 
-
                     </button>
                     <div class="exerciseTitle">
                         {{ exercise.exerciseTitle }}
+
+                        {% if exercise.createdBy.user.profile.isPro %}
+                            <div class="item-image">
+                                <img src="{% static 'feed/images/verified.png' %}"
+                                     style="width:20px;height:20px;">
+                            </div>
+                        {% endif %}
+                        <div class="item-noImage" style="display:none;">
+                        </div>
+
                     </div>
-
-
                 </div>
-
-
             {% endfor %}
 
         </div>
