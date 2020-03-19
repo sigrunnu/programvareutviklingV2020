@@ -15,6 +15,9 @@ import os
 from easy_thumbnails.conf import Settings as thumbnailSettings
 from elasticsearch import Elasticsearch, RequestsHttpConnection
 from requests_aws4auth import AWS4Auth
+from easy_thumbnails.conf import Settings as thumbnailSettings
+
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -51,10 +54,13 @@ INSTALLED_APPS = [
 
 ]
 
+
 THUMBNAIL_PROCESSORS = (
-                           'image_cropping.thumbnail_processors.crop_corners',
-                       ) + thumbnailSettings.THUMBNAIL_PROCESSORS
+    'image_cropping.thumbnail_processors.crop_corners',
+) + thumbnailSettings.THUMBNAIL_PROCESSORS
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -195,3 +201,8 @@ print("Elastic endpoint: " + ELASTICSEARCH_DSL['default']['hosts'])
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
+
+LOGIN_REDIRECT_URL = '/profile/'
+LOGOUT_REDIRECT_URL = '/'
+
+

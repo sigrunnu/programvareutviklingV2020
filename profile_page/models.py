@@ -1,34 +1,38 @@
+import sys
+
+from django.contrib.auth.models import User
 from django.db import models
-from six import python_2_unicode_compatible
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+sys.path.append('/64/feed/models')
 
 
-@python_2_unicode_compatible
-class User(models.Model):
-    userName = models.CharField(
-        max_length=50,
-        verbose_name='Username'
-    )
-    email = models.CharField(
-        max_length=100,
-        verbose_name='Email'
-    )
-    password = models.CharField(
-        max_length=32,
-        verbose_name='Password'
-    )
-    pro = models.BooleanField(
-        default=False,
-        verbose_name='Profesjonell bruker'
-    )
-    hasLiked = models.ManyToManyField(
-        to='feed.Exercise',
-        blank=True,
-        related_name='hasLiked',
-        verbose_name='Liked Exercises'
-    )
-
-    class Meta(object):
-        ordering = ["userName", "email", "password", "pro"]
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    isPro = models.BooleanField(default=False, blank=False)
 
     def __str__(self):
-        return self.userName
+        return self.user.username
+
+
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
+
+
+class CreatedBy(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        return self.user.username

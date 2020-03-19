@@ -1,7 +1,13 @@
+from datetime import datetime
+import profile_page.models
+from django.contrib.auth.models import User
+
 from django.contrib.postgres.search import SearchVector
 from django.db import models
-from django.db.models import Q
+from django.db.models import Q, SET_NULL
 from six import python_2_unicode_compatible
+from image_cropping import ImageRatioField, ImageCropField
+from profile_page.models import CreatedBy
 
 
 @python_2_unicode_compatible
@@ -38,11 +44,7 @@ class Exercise(models.Model):
         max_length=200,
         verbose_name='Tittel på øvelsen'
     )
-    exerciseAuthor = models.CharField(
-        max_length=50,
-        verbose_name='Forfatternavn',
-        null=True
-    )
+
     exerciseInfo = models.TextField(
         max_length=500,
         null=True,
@@ -53,14 +55,15 @@ class Exercise(models.Model):
         auto_now_add=True,
         editable=False,
     )
-    exerciseLikes = models.IntegerField(
-        default=0
-    )
-    exerciseRating = models.DecimalField(
-        null=True,
+    favorisations = models.ManyToManyField(
+        User,
+        through='Favorisation',
         blank=True,
-        decimal_places=3,
-        max_digits=4
+        verbose_name='Favoriseringer'
+    )
+    isPublic = models.BooleanField(
+        default=False,
+        blank=False
     )
     exerciseHowTo = models.TextField(
         max_length=500,
@@ -68,14 +71,6 @@ class Exercise(models.Model):
         blank=True,
         verbose_name='Utførelse av øvelsen'
     )
-
-    '''
-    createdByPro = models.BooleanField(
-        default=False,
-        verbose_name='Profesjonell'
-    )
-    '''
-
     exerciseImage = models.ImageField(
         null=True,
         blank=True,
@@ -89,17 +84,23 @@ class Exercise(models.Model):
         verbose_name='Muskelgrupper'
     )
     createdBy = models.ForeignKey(
-        to='profile_page.User',
+        CreatedBy,
+        blank=True,
         null=True,
-        on_delete=models.SET_NULL,
-        verbose_name='Bruker'
+        on_delete=SET_NULL,
+        verbose_name='Laget av'
     )
 
     class Meta(object):
-        ordering = ["exerciseLikes", "exerciseRating", "exerciseTitle"]
+        ordering = ["exerciseTitle"]
 
     def __str__(self):
         return self.exerciseTitle
+
+    def get_number_of_favorisations(self):
+        return Favorisation.objects.filter(
+            exercise__id=self.id
+        )
 
     @property
     def muscle_group_indexing(self):
@@ -132,3 +133,11 @@ class Exercise(models.Model):
         return Exercise.objects.filter(
             Q(exerciseInfo__icontains=search_word)
             | Q(exerciseTitle__icontains=search_word))
+
+
+class Favorisation(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.username + " for " + self.exercise.exerciseTitle

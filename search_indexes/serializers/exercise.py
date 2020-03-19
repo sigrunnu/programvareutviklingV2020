@@ -22,11 +22,11 @@ class ExerciseDocumentSerializer(DocumentSerializer):
             'id',
             'exerciseTitle',
             'pub_date',
-            'createdByPro',
             'exerciseHowTo',
             'exerciseImage',
             'exerciseInfo',
+            'createdBy',
             'exerciseLikes',
             'exerciseRating',
-            'exerciseAuthor'
+
         )

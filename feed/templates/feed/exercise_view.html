@@ -18,11 +18,12 @@
 
                 <div id="exerciseView_ImageContainer">
 
-                    {% load thumbnail %}
+                     {% load thumbnail %}
                     {% thumbnail exercise.exerciseImage 250x250 box=exercise.cropping crop detail as im %}
-                    <img src="{{ im.url }}">
+                    <img src="{{ im.url }}" >
 
                 </div>
+
 
                 <div id="exerciseView_Information">
                     <div>
@@ -42,18 +43,10 @@
 
                     {% load static %}
                     <div>
-                        Publisert av:
-                        {{ exercise.exerciseAuthor }}
 
-                        <!-- {% if exercise.createdByPro == True %}
-                            <div class="item-image">
-                                <img src="
-                            {% static 'feed/images/verified.png' %}"
-                                     style="width: 25px; height: 20px;">
-                            </div>
-                        {% endif %}
-                        <div class="item-noImage" style="display:none;">
-                        </div>-->
+
+
+
                     </div>
 
 
