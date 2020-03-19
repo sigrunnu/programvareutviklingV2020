@@ -1,11 +1,10 @@
-from django.contrib.auth import authenticate, login
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import CreateView
 from elasticsearch_dsl import Q
 
 
 from search_indexes.documents.exercise import ExerciseDocument
-from .models import Exercise
+from feed.models import Exercise
 
 
 # Create your views here.

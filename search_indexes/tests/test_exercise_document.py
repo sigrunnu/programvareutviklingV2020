@@ -1,21 +1,13 @@
-from django.core.management import call_command
-from django.test import TestCase
-from django.db import models
-from feed.models import Exercise, MuscleGroup
+from feed.models import Exercise
 import pytest
-from unittest import TestCase
-from django_elasticsearch_dsl import Document, Index, fields
-from django.conf import settings
 from search_indexes.documents.exercise import ExerciseDocument
 from unittest import TestCase
 from django_elasticsearch_dsl.registries import registry
 from django_elasticsearch_dsl.exceptions import (ModelFieldNotMappedError,
                                                  RedeclaredFieldError)
 from django_elasticsearch_dsl import fields
-from elasticsearch_dsl import GeoPoint, MetaField
 from django_elasticsearch_dsl.documents import DocType
 from elasticsearch_dsl import analyzer
-from mock import patch, Mock, PropertyMock
 
 
 @pytest.mark.django_db
