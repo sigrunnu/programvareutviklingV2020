@@ -91,14 +91,17 @@
 
                             <div>
                                 {{ favourite.exerciseTitle }}
-                                <div class="item-image">
-                                    <img src="{% static 'feed/images/verified.png' %}"
-                                         style="width:20px;height:20px;">
-                                </div>
 
-                                <div class="item-noImage"
-                                     style="display:none;">
-                                </div>
+                                {% if favourite.createdBy.user.profile.isPro %}
+                                    <div class="item-image">
+                                        {% load static %}
+                                        <img src="{% static 'feed/images/verified.png' %}"
+                                             style="width:20px;height:20px;">
+                                    </div>
+                                    <div class="item-noImage"
+                                         style="display:none;">
+                                    </div>
+                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}

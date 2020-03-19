@@ -2,8 +2,10 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import CreateView
 from elasticsearch_dsl import Q
 
-from feed.models import Exercise
+from feed.models import Exercise, Favorisation, User
 from search_indexes.documents.exercise import ExerciseDocument
+
+from django.contrib import auth
 
 
 # Create your views here.
@@ -61,6 +63,25 @@ def search(request):
     return render(request, 'feed/feed.html', context)
 
 
+def favorise(request, exercise_id):
+    user = auth.get_user(request)
+
+    exerciseIsLikedBy = []
+
+    for favourite in Favorisation.objects.all():
+        if favourite.exercise.id == exercise_id:
+            exerciseIsLikedBy.append(favourite.user_id)
+
+    if user.id not in exerciseIsLikedBy:
+        favourisation = Favorisation(
+            user=user,
+            exercise=get_object_or_404(Exercise, pk=exercise_id))
+
+        Favorisation.save(favourisation)
+
+    return exercise_view(request, exercise_id)
+
+
 def exercise_view(request, exercise_id):
     """
     :param request:
@@ -74,9 +95,18 @@ def exercise_view(request, exercise_id):
     exercise = get_object_or_404(Exercise, pk=exercise_id)
     favouirites = len(exercise.get_number_of_favorisations())
 
+    user = auth.get_user(request)
+
+    canSee = True
+
+    # Determines if the user is not logged in
+    if str(user) == "AnonymousUser":
+        canSee = False
+
     context = {
         'exercise': exercise,
-        'favouirites': favouirites
+        'favouirites': favouirites,
+        'canSee': canSee
     }
 
     return render(request, 'feed/exercise_view.html', context)

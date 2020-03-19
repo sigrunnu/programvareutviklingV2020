@@ -14,82 +14,117 @@
     <div id="exerciseView_wrapper">
         <div id="exerciseView_Container">
 
-            <div id="exerciseView_InformationContainer">
+            {% if canSee %}
 
-                <div id="exerciseView_ImageContainer">
+                <div id="exerciseView_InformationContainer">
 
-                    {% load thumbnail %}
-                    {% thumbnail exercise.exerciseImage 250x250 box=exercise.cropping crop detail as im %}
-                    <img src="{{ im.url }}">
+                    <div id="exerciseView_ImageContainer">
 
-                </div>
+                        {% load thumbnail %}
+                        {% thumbnail exercise.exerciseImage 250x250 box=exercise.cropping crop detail as im %}
+                        <img src="{{ im.url }}">
+
+                    </div>
 
 
-                <div id="exerciseView_Information">
-                    <div>
-                        <div style="font-size: 30px; padding: 0; margin: 0">
-                            {{ exercise.exerciseTitle }}
+                    <div id="exerciseView_Information">
+                        <div>
+                            <div style="font-size: 30px; padding: 0; margin: 0">
+                                {{ exercise.exerciseTitle }}
+
+                            </div>
+
+                            <div id="exerciseView_likes">
+                                {{ favouirites }}
+
+                                {% load static %}
+                                <img src="{% static "feed/images/heart.png" %}"
+                                     alt="Heart image" style="margin-left: 10%">
+                            </div>
+
                         </div>
 
-                        <div id="exerciseView_likes">
-                            {{ favouirites }}
+                        {% load static %}
+                        <div>
+                            Publisert av:
+                            {{ exercise.createdBy }}
 
-                            {% load static %}
-                            <img src="{% static "feed/images/heart.png" %}"
-                                 alt="Heart image" style="margin-left: 10%">
+                            {% if exercise.createdBy.user.profile.isPro %}
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width: 25px; height: 20px;">
+                                </div>
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
+                            </div>
+
+
+                        </div>
+
+
+                        <div id="exerciseStarRating">
+                            ⭐ {{ exercise.exerciseRating|floatformat:"1" }}
+                        </div>
+
+                        <div>
+                            Trener:
+
+                            {% for muscleGroup in exercise.muscleGroup.all %}
+                                {{ muscleGroup|lower }}
+                            {% endfor %}
+                        </div>
+
+                        <div>
+                            {{ exercise.exerciseInfo }}
+                        </div>
+
+                        <div>
+                            <form id="" action="">
+                                <input placeholder="Vurder øvelse (1-5)"
+                                       type="number"
+                                       min="1"
+                                       max="5"
+                                       name="rating_field"/>
+
+                                <button style="margin-left: 2%" type="submit">
+                                    Vurder
+                                </button>
+
+                            </form>
+                        </div>
+                        {% comment %}<button onclick='{% url 'favoriseExercise' exercise.id %}'>
+                                Favoriser
+                            </button>{% endcomment %}
+
+                        <div>
+                            <form id="" action="{% url 'favoriseExercise' exercise.id%}">
+                                <button type="submit">Favoriser</button>
+                            </form>
                         </div>
 
                     </div>
+                </div>
 
-                    {% load static %}
-                    <div>
-                        {{ exercise.createdBy }}
+                <div id="exerciseView_DescriptionContainer">
 
-                    </div>
+                    <div id="exerciseView_description">
+                        <h5>Utførelse</h5>
 
+                        {{ exercise.exerciseHowTo }}
 
-                    <div id="exerciseStarRating">
-                        ⭐ {{ exercise.exerciseRating|floatformat:"1" }}
-                    </div>
-
-                    <div>
-                        Trener:
-
-                        {% for muscleGroup in exercise.muscleGroup.all %}
-                            {{ muscleGroup|lower }}
-                        {% endfor %}
-                    </div>
-
-                    <div>
-                        {{ exercise.exerciseInfo }}
-                    </div>
-
-                    <div>
-                        <form id="" action="">
-                            <input placeholder="Vurder øvelse (1-5)"
-                                   type="number"
-                                   min="1"
-                                   max="5"
-                                   name="rating_field"/>
-
-                            <button style="margin-left: 2%" type="submit">
-                                Vurder
-                            </button>
-
-                        </form>
                     </div>
                 </div>
-            </div>
 
-            <div id="exerciseView_DescriptionContainer">
 
-                <div id="exerciseView_description">
-                    <h5>Utførelse</h5>
+            {% else %}
 
-                    {{ exercise.exerciseHowTo }}
-
+                <div>
+                    <h1>
+                        Du må ha en bruker for å kunne se denne øvelsen
+                    </h1>
                 </div>
-            </div>
+
+            {% endif %}
         </div>
     </div>
 {% endblock content %}

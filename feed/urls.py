@@ -11,7 +11,9 @@ urlpatterns = [
     path('', views.home, name='feedHome'),
     path('search/', views.search, name='search'),
     path('<int:exercise_id>', views.exercise_view, name='exerciseView'),
-    path('addExercise', ExerciseCreateView.as_view(), name="addExercise")
+    path('addExercise', ExerciseCreateView.as_view(), name="addExercise"),
+    path('favoriseExercise/<int:exercise_id>', views.favorise,
+         name='favoriseExercise')
 
 ]
 
