@@ -69,16 +69,12 @@ class Exercise(models.Model):
         blank=True,
         verbose_name='Utførelse av øvelsen'
     )
-
-
-
     exerciseImage = models.ImageField(
         null=True,
         blank=True,
         upload_to='exercises/',
         verbose_name='Bilde av øvelsen'
     )
-
     muscleGroup = models.ManyToManyField(
         MuscleGroup,
         blank=True,
