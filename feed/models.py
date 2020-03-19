@@ -1,10 +1,12 @@
 from datetime import datetime
+import profile_page.models
+from django.contrib.auth.models import User
 
 from django.contrib.postgres.search import SearchVector
 from django.db import models
-from django.db.models import Q
+from django.db.models import Q, SET_NULL
 from six import python_2_unicode_compatible
-import profile_page.models
+from image_cropping import ImageRatioField, ImageCropField
 
 
 @python_2_unicode_compatible
@@ -41,11 +43,7 @@ class Exercise(models.Model):
         max_length=200,
         verbose_name='Tittel på øvelsen'
     )
-    exerciseAuthor = models.CharField(
-        max_length=50,
-        verbose_name='Forfatternavn',
-        null=True
-    )
+
     exerciseInfo = models.TextField(
         max_length=500,
         null=True,
@@ -71,28 +69,26 @@ class Exercise(models.Model):
         blank=True,
         verbose_name='Utførelse av øvelsen'
     )
-    '''
-    createdByPro = models.BooleanField(
-        default=False,
-        verbose_name='Profesjonell'
-    )
-    '''
+
+
+
     exerciseImage = models.ImageField(
         null=True,
         blank=True,
         upload_to='exercises/',
         verbose_name='Bilde av øvelsen'
     )
+
     muscleGroup = models.ManyToManyField(
         MuscleGroup,
         blank=True,
         verbose_name='Muskelgrupper'
     )
     createdBy = models.ForeignKey(
-        to='profile_page.OwnUser',
+        User,
+        blank=True,
         null=True,
-        on_delete=models.SET_NULL,
-        verbose_name='Bruker'
+        on_delete=SET_NULL,
     )
 
     class Meta(object):

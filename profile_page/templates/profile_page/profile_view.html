@@ -21,11 +21,12 @@
                 <div id="profile_infoContainer">
 
                     <div style="font-size: 25px">
-                        Andreas Amundsen
-                    </div>
+                         {{ user.first_name }}
+                        {{ user.last_name }}
 
+                    </div>
                     <div style="font-size: 17px; border: 1px none grey; border-bottom-style: solid;">
-                        testomundsen123
+                       {{ user.username }}
                     </div>
 
                     <button href="">
@@ -40,14 +41,17 @@
                         Mine publiserte økter
                     </div>
 
+
                     <div id="profile_publishedExercisesContainer">
 
-                        {% for i in '12345678901234567890'|make_list %}
-                            <a href="">
-                                Exercise: Military press - 22.02.2020
-                            </a>
-
+                        {% for exercise in exercises %}
+                            {% if exercise.createdBy == user %}
+                                <a href="">
+                                    {{ exercise.exerciseTitle }}
+                                </a>
+                             {% endif %}
                         {% endfor %}
+
 
                     </div>
 

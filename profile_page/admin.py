@@ -1,9 +1,10 @@
+
 from django.contrib import admin
-from .models import OwnUser
+from .models import Profile
 
-
-class UserAdmin(admin.ModelAdmin):
+'''
+class ProfileAdmin(admin.ModelAdmin):
     filter_horizontal = ('hasLiked',)
+'''
 
-
-admin.site.register(OwnUser, UserAdmin)
+admin.site.register(Profile)

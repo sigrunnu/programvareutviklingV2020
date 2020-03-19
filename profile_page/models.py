@@ -1,38 +1,24 @@
-from datetime import datetime
+import sys
 
-from django.contrib.postgres.search import SearchVector
+from django.contrib.auth.models import User
 from django.db import models
-from django.db.models import Q
-from six import python_2_unicode_compatible
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+sys.path.append('/64/feed/models')
 
 
-@python_2_unicode_compatible
-class OwnUser(models.Model):
-    userName = models.CharField(
-        max_length=50,
-        verbose_name='Username'
-    )
-    email = models.CharField(
-        max_length=100,
-        verbose_name='Email'
-    )
-    password = models.CharField(
-        max_length=32,
-        verbose_name='Password'
-    )
-    pro = models.BooleanField(
-        default=False,
-        verbose_name='Profesjonell bruker'
-    )
-    hasLiked = models.ManyToManyField(
-        to='feed.Exercise',
-        blank=True,
-        related_name='hasLiked',
-        verbose_name='Liked Exercises'
-    )
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    isPro = models.BooleanField(default=False, blank=False)
 
-    class Meta(object):
-        ordering = ["userName", "email", "password", "pro"]
 
-    def __str__(self):
-        return self.userName
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
