@@ -55,12 +55,10 @@
 
                     <div id="profile_publishedExercisesContainer">
 
-                        {% for exercise in exercises %}
-                            {% if exercise.createdBy == user %}
-                                <a href="">
-                                    {{ exercise.exerciseTitle }}
-                                </a>
-                            {% endif %}
+                        {% for exercise in publishedExercises %}
+                            <a href='{% url 'exerciseView' exercise.id %}'>
+                                {{ exercise.exerciseTitle }}
+                            </a>
                         {% endfor %}
 
 
