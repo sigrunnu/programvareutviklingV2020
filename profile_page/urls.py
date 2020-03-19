@@ -1,6 +1,5 @@
-from django.urls import path
-from django.conf.urls import url
 from django.contrib.auth.views import LoginView, LogoutView
+from django.urls import path
 
 import profile_page.views
 

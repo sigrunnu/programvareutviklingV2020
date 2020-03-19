@@ -9,7 +9,7 @@
 
     <!-- Main CSS-->
     {% load static %}
-    <link href='{% static "feed/login.css"%}' rel="stylesheet" media="all">
+    <link href='{% static "feed/login.css" %}' rel="stylesheet" media="all">
     <link rel="stylesheet" type="text/css"
           href="//fonts.googleapis.com/css?family=Play"/>
 
@@ -17,28 +17,30 @@
 <body>
 {% block content %}
 
- <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
+    <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
         <div class="wrapper wrapper--w960">
             <div class="card card-2">
                 <div class="card-heading">
-                      <a href="{% url 'feedHome' %}" style="text-decoration: none;">
-                     <div id="logoLoginSignUp">
-                    ExerciseIt!
+                    <a href="{% url 'feedHome' %}"
+                       style="text-decoration: none;">
+                        <div id="logoLoginSignUp">
+                            ExerciseIt!
 
 
-                    <img id="logo" src="{% static 'feed/images/logo.png' %}"
-                         alt="My image"
-                         style="width: 60px; height: 60px;">
-                </div>
-                </a>
+                            <img id="logo"
+                                 src="{% static 'feed/images/logo.png' %}"
+                                 alt="My image"
+                                 style="width: 60px; height: 60px;">
+                        </div>
+                    </a>
                 </div>
                 <div class="card-body">
                     <h2>Sign up</h2>
-                  <form method="POST">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button>Sign up</button>
-                       </form>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button>Sign up</button>
+                    </form>
                 </div>
             </div>
         </div>

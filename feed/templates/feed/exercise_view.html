@@ -18,9 +18,9 @@
 
                 <div id="exerciseView_ImageContainer">
 
-                     {% load thumbnail %}
+                    {% load thumbnail %}
                     {% thumbnail exercise.exerciseImage 250x250 box=exercise.cropping crop detail as im %}
-                    <img src="{{ im.url }}" >
+                    <img src="{{ im.url }}">
 
                 </div>
 
@@ -32,7 +32,7 @@
                         </div>
 
                         <div id="exerciseView_likes">
-                            {{ exercise.exerciseLikes }}
+                            {{ favouirites }}
 
                             {% load static %}
                             <img src="{% static "feed/images/heart.png" %}"
@@ -43,9 +43,7 @@
 
                     {% load static %}
                     <div>
-
-
-
+                        {{ exercise.createdBy }}
 
                     </div>
 
