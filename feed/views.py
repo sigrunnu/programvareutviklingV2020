@@ -16,7 +16,18 @@ def home(request):
    :return: render: response with all the exercises listed in a QuerySet
    :rtype: HttpResponse
    """
-    latest_exercises = Exercise.objects.all()
+    latest_exercises = []
+
+    user = auth.get_user(request)
+
+    # Determines if the user is not logged in
+    if str(user) == "AnonymousUser":
+        for exercise in Exercise.objects.all():
+            print(exercise)
+            if exercise.isPublic:
+                latest_exercises.append(exercise)
+    else:
+        latest_exercises = Exercise.objects.all()
 
     context = {
         'exercises': latest_exercises
@@ -56,9 +67,23 @@ def search(request):
                 pk=int(exercise['_source']['id'])).values()[0]
         )
 
+
+    user = auth.get_user(request)
+
+    visibleExercises = []
+
+    # Determines if the user is not logged in
+    if str(user) == "AnonymousUser":
+        for exercise in exercises:
+            print(exercise)
+            if exercise["isPublic"]:
+                visibleExercises.append(exercise)
+    else:
+        visibleExercises = Exercise.objects.all()
+
     # TODO: Make the result index fetch the relevant Exercises from the db
     context = {
-        'exercises': exercises
+        'exercises': visibleExercises
     }
     return render(request, 'feed/feed.html', context)
 
