@@ -23,9 +23,19 @@
                     <div style="font-size: 25px">
                          {{ user.first_name }}
                         {{ user.last_name }}
-                        {{ user.profile.isPro }}
 
-                    </div>
+                        {% if user.profile.isPro %}
+                            <div class="item-image">
+                                {% load static %}
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width:20px;height:20px;">
+                                </div>
+                                <div class="item-noImage"
+                                     style="display:none;">
+                                </div>
+                        {% endif %}
+                        </div>
+
                     <div style="font-size: 17px; border: 1px none grey; border-bottom-style: solid;">
                        {{ user.username }}
                     </div>
