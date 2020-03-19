@@ -21,23 +21,23 @@
                 <div id="profile_infoContainer">
 
                     <div style="font-size: 25px">
-                         {{ user.first_name }}
+                        {{ user.first_name }}
                         {{ user.last_name }}
 
                         {% if user.profile.isPro %}
                             <div class="item-image">
                                 {% load static %}
-                                    <img src="{% static 'feed/images/verified.png' %}"
-                                         style="width:20px;height:20px;">
-                                </div>
-                                <div class="item-noImage"
-                                     style="display:none;">
-                                </div>
+                                <img src="{% static 'feed/images/verified.png' %}"
+                                     style="width:20px;height:20px;">
+                            </div>
+                            <div class="item-noImage"
+                                 style="display:none;">
+                            </div>
                         {% endif %}
-                        </div>
+                    </div>
 
                     <div style="font-size: 17px; border: 1px none grey; border-bottom-style: solid;">
-                       {{ user.username }}
+                        {{ user.username }}
                     </div>
 
                     <button href="">
@@ -60,7 +60,7 @@
                                 <a href="">
                                     {{ exercise.exerciseTitle }}
                                 </a>
-                             {% endif %}
+                            {% endif %}
                         {% endfor %}
 
 
@@ -82,20 +82,17 @@
 
                 <div id="profile_favouritesContainer">
 
-
-                    {% for i in '12345678901234567890'|make_list %}
-
+                    {% for favourite in favourites %}
                         <div>
-                            <button>
-                                {% load static %}
-                                <img id="entityImage"
-                                     src="{% static 'feed/images/weightlifting.jpg' %}"
-                                     alt="Exercise image">
+                            <button onclick="window.location= '{% url 'exerciseView' favourite.id %}';">
+                                {% load thumbnail %}
+                                {% thumbnail favourite.exerciseImage 250x250 box=exercise.cropping crop detail as im %}
+                                <img src="{{ im.url }}">
 
                             </button>
 
                             <div>
-                                Armhevinger
+                                {{ favourite.exerciseTitle }}
                                 <div class="item-image">
                                     <img src="{% static 'feed/images/verified.png' %}"
                                          style="width:20px;height:20px;">
@@ -106,9 +103,7 @@
                                 </div>
                             </div>
                         </div>
-
                     {% endfor %}
-
 
                 </div>
             </div>

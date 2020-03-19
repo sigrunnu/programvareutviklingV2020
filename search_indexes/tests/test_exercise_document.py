@@ -1,10 +1,6 @@
-from feed.models import Exercise
-import pytest
-from search_indexes.documents.exercise import ExerciseDocument
 from unittest import TestCase
-from django_elasticsearch_dsl.registries import registry
-from django_elasticsearch_dsl.exceptions import (ModelFieldNotMappedError,
-                                                 RedeclaredFieldError)
+
+import pytest
 from django_elasticsearch_dsl import fields
 from django_elasticsearch_dsl.documents import DocType
 from django_elasticsearch_dsl.exceptions import (ModelFieldNotMappedError,

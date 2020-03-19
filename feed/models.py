@@ -1,12 +1,9 @@
-from datetime import datetime
-import profile_page.models
 from django.contrib.auth.models import User
-
 from django.contrib.postgres.search import SearchVector
 from django.db import models
 from django.db.models import Q, SET_NULL
 from six import python_2_unicode_compatible
-from image_cropping import ImageRatioField, ImageCropField
+
 from profile_page.models import CreatedBy
 
 

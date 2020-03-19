@@ -2,9 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import CreateView
 from elasticsearch_dsl import Q
 
-
-from search_indexes.documents.exercise import ExerciseDocument
 from feed.models import Exercise
+from search_indexes.documents.exercise import ExerciseDocument
 
 
 # Create your views here.
@@ -86,7 +85,5 @@ class ExerciseCreateView(CreateView):
     template_name = 'feed/exercise_form.html'
     success_url = '/'
     fields = (
-        'exerciseTitle', 'exerciseInfo', 'exerciseHowTo', 'exerciseImage', 'muscleGroup')
-
-
-
+        'exerciseTitle', 'exerciseInfo', 'exerciseHowTo', 'exerciseImage',
+        'muscleGroup')
