@@ -67,7 +67,6 @@ def search(request):
                 pk=int(exercise['_source']['id'])).values()[0]
         )
 
-
     user = auth.get_user(request)
 
     visibleExercises = []
