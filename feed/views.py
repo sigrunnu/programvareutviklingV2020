@@ -121,7 +121,7 @@ def exercise_view(request, exercise_id):
 
     user = auth.get_user(request)
 
-    print(str(user) == "AnonymousUser")
+    context = {}
 
     # Determines if the user is not logged in and exercise is hidden
     if str(user) == "AnonymousUser":
