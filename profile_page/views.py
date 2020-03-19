@@ -3,14 +3,20 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 sys.path.append('/64/feed/models')
-from feed.models import Exercise
-
-
+from feed.models import Exercise, Favorisation
+from django.contrib import auth
 
 @login_required
 def profile(request):
     latest_exercises = Exercise.objects.all()
 
+    user = auth.get_user(request)
+    favorised_exercises = []
+    for f in Favorisation.objects.all():
+        if f.user.id == user.id:
+            favorised_exercises.append(f.exercise)
+
+    print(favorised_exercises)
     context = {
         'exercises': latest_exercises
     }

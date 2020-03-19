@@ -34,19 +34,31 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='exercise',
             name='createdBy',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='profile_page.CreatedBy', verbose_name='Laget av'),
+            field=models.ForeignKey(
+                blank=True, null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to='profile_page.CreatedBy', verbose_name='Laget av'),
         ),
         migrations.CreateModel(
             name='Favorisation',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('exercise', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='feed.Exercise')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('id', models.AutoField(
+                    auto_created=True,
+                    primary_key=True, serialize=False,
+                    verbose_name='ID')),
+                ('exercise', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to='feed.Exercise')),
+                ('user', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.AddField(
             model_name='exercise',
             name='favorisations',
-            field=models.ManyToManyField(blank=True, through='feed.Favorisation', to=settings.AUTH_USER_MODEL, verbose_name='Favoriseringer'),
+            field=models.ManyToManyField(
+                blank=True, through='feed.Favorisation',
+                to=settings.AUTH_USER_MODEL, verbose_name='Favoriseringer'),
         ),
     ]
