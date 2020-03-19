@@ -16,9 +16,9 @@ def profile(request):
         if f.user.id == user.id:
             favorised_exercises.append(f.exercise)
 
-    print(favorised_exercises)
     context = {
-        'exercises': latest_exercises
+        'exercises': latest_exercises,
+        'favourites': favorised_exercises,
     }
 
     return render(request, 'profile_page/profile_view.html', context)
