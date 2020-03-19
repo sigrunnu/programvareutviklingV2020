@@ -72,9 +72,11 @@ def exercise_view(request, exercise_id):
     """
 
     exercise = get_object_or_404(Exercise, pk=exercise_id)
+    favouirites = len(exercise.get_number_of_favorisations())
 
     context = {
-        'exercise': exercise
+        'exercise': exercise,
+        'favouirites': favouirites
     }
 
     return render(request, 'feed/exercise_view.html', context)
