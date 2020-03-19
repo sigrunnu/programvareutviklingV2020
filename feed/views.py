@@ -125,16 +125,21 @@ def exercise_view(request, exercise_id):
 
     # Determines if the user is not logged in and exercise is hidden
     if str(user) == "AnonymousUser":
-        if not exercise.isPublic:
-            print("Ikke tilgjengelig")
 
+        if not exercise.isPublic:
             context = {
                 'exercise': exercise,
                 'favouirites': favouirites,
             }
 
+        else:
+            context = {
+                'exercise': exercise,
+                'favouirites': favouirites,
+                'can_see': True
+            }
+
     else:
-        print("Kan se")
         context = {
             'exercise': exercise,
             'favouirites': favouirites,
