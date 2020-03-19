@@ -133,13 +133,13 @@ def exercise_view(request, exercise_id):
                 'favouirites': favouirites,
             }
 
-        else:
-            print("Kan se")
-            context = {
-                'exercise': exercise,
-                'favouirites': favouirites,
-                'can_see': True
-            }
+    else:
+        print("Kan se")
+        context = {
+            'exercise': exercise,
+            'favouirites': favouirites,
+            'can_see': True
+        }
 
     return render(request, 'feed/exercise_view.html', context)
 
