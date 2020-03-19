@@ -12,16 +12,20 @@ sys.path.append('/64/feed/models')
 
 @login_required
 def profile(request):
-    latest_exercises = Exercise.objects.all()
-
     user = auth.get_user(request)
+
     favorised_exercises = []
     for f in Favorisation.objects.all():
         if f.user.id == user.id:
             favorised_exercises.append(f.exercise)
 
+    published_exercises = []
+    for exercise in Exercise.objects.all():
+        if str(exercise.createdBy) == user.username:
+            published_exercises.append(exercise)
+
     context = {
-        'exercises': latest_exercises,
+        'publishedExercises': published_exercises,
         'favourites': favorised_exercises,
     }
 
