@@ -121,17 +121,25 @@ def exercise_view(request, exercise_id):
 
     user = auth.get_user(request)
 
-    canSee = True
+    print(str(user) == "AnonymousUser")
 
-    # Determines if the user is not logged in
+    # Determines if the user is not logged in and exercise is hidden
     if str(user) == "AnonymousUser":
-        canSee = False
+        if not exercise.isPublic:
+            print("Ikke tilgjengelig")
 
-    context = {
-        'exercise': exercise,
-        'favouirites': favouirites,
-        'canSee': canSee
-    }
+            context = {
+                'exercise': exercise,
+                'favouirites': favouirites,
+            }
+
+        else:
+            print("Kan se")
+            context = {
+                'exercise': exercise,
+                'favouirites': favouirites,
+                'can_see': True
+            }
 
     return render(request, 'feed/exercise_view.html', context)
 
