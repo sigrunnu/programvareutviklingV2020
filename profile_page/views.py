@@ -1,10 +1,14 @@
 import sys
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
+
 from django.contrib.auth.decorators import login_required
-sys.path.append('/64/feed/models')
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+
 from feed.models import Exercise, Favorisation
 from django.contrib import auth
+
+sys.path.append('/64/feed/models')
+
 
 @login_required
 def profile(request):
