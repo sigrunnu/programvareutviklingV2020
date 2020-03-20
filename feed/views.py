@@ -1,7 +1,10 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import CreateView
 from elasticsearch_dsl import Q
-
+from search_indexes.documents.exercise import ExerciseDocument
+from .models import Exercise
+from profile_page.models import CreatedBy
 from feed.models import Exercise, Favorisation, User
 from search_indexes.documents.exercise import ExerciseDocument
 
@@ -154,5 +157,12 @@ class ExerciseCreateView(CreateView):
     template_name = 'feed/exercise_form.html'
     success_url = '/'
     fields = (
-        'exerciseTitle', 'exerciseInfo', 'exerciseHowTo', 'exerciseImage',
-        'muscleGroup')
+        'exerciseTitle', 'exerciseInfo', 'exerciseHowTo',
+        'exerciseImage', 'muscleGroup')
+
+    def form_valid(self, form):
+        model = form.save(commit=False)
+        if self.request.user.is_authenticated:
+            model.createdBy = CreatedBy.objects.get(user=self.request.user)
+        model.save()
+        return HttpResponseRedirect(self.success_url)

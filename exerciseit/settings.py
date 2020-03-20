@@ -16,6 +16,7 @@ from easy_thumbnails.conf import Settings as thumbnailSettings
 from easy_thumbnails.conf import Settings as thumbnailSettings
 from elasticsearch import Elasticsearch, RequestsHttpConnection
 from requests_aws4auth import AWS4Auth
+from easy_thumbnails.conf import Settings as thumbnailSettings
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

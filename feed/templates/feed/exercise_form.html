@@ -20,9 +20,9 @@
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
-                        <div class="col-6">
-                            {{ form.exerciseTitle|as_crispy_field }}
-                        </div>
+                      <div class="col-12">
+                        {{ form.exerciseTitle|as_crispy_field }}
+                      </div>
 
                     </div>
                     {{ form.exerciseInfo|as_crispy_field }}
