@@ -85,6 +85,8 @@ def search(request):
                 except ValueError as e:
                     print(e)
                     pass
+    if search_content == '':
+        exercises = Exercise.objects.all()
 
     context = {
         'exercises': exercises
