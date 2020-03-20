@@ -157,12 +157,14 @@ class ExerciseCreateView(CreateView):
     template_name = 'feed/exercise_form.html'
     success_url = '/'
     fields = (
-        'exerciseTitle', 'exerciseInfo', 'exerciseHowTo',
+        'exerciseTitle', 'exerciseInfo', 'exerciseHowTo', 'isPublic',
         'exerciseImage', 'muscleGroup')
 
     def form_valid(self, form):
         model = form.save(commit=False)
         if self.request.user.is_authenticated:
             model.createdBy = CreatedBy.objects.get(user=self.request.user)
+        else:
+            model.isPublic = True
         model.save()
         return HttpResponseRedirect(self.success_url)

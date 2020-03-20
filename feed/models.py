@@ -59,7 +59,8 @@ class Exercise(models.Model):
     )
     isPublic = models.BooleanField(
         default=False,
-        blank=False
+        blank=False,
+        verbose_name='Offentlig for ikke registrerte brukere'
     )
     exerciseHowTo = models.TextField(
         max_length=500,
