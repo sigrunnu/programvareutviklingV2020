@@ -60,32 +60,34 @@ def search(request):
     )
 
     q3 = q1 | q2
-
     query = ExerciseDocument.search().query(q3)
     result = query.execute()
     exercises = []
+    print(result['hits']['hits'])
     for exercise in result['hits']['hits']:
-        exercises.append(
-            Exercise.objects.filter(
-                pk=int(exercise['_source']['id'])).values()[0]
-        )
+        try:
+            exercises.append(
+                Exercise.objects.filter(
+                    pk=int(exercise['_source']['id'])).values()[0]
+            )
+        except IndexError as e:
+            print(e)
+            pass
 
     user = auth.get_user(request)
-
-    visibleExercises = []
-
     # Determines if the user is not logged in
     if str(user) == "AnonymousUser":
-        for exercise in exercises:
-            print(exercise)
-            if exercise["isPublic"]:
-                visibleExercises.append(exercise)
-    else:
-        visibleExercises = Exercise.objects.all()
+        for i in range(len(exercises)):
+            print(exercises[i])
+            if not exercises[i]["isPublic"]:
+                try:
+                    exercises.remove(i)
+                except ValueError as e:
+                    print(e)
+                    pass
 
-    # TODO: Make the result index fetch the relevant Exercises from the db
     context = {
-        'exercises': visibleExercises
+        'exercises': exercises
     }
     return render(request, 'feed/feed.html', context)
 
