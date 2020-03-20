@@ -44,12 +44,17 @@
 
                         </div>
 
-                        {% load static %}
+
                         <div>
-                            Publisert av:
-                            {{ exercise.createdBy }}
+                            {% if exercise.createdBy == None %}
+                                Publisert av: Ukjent bruker
+                            {% else %}
+                                Publisert av:
+                                {{ exercise.createdBy }}
+                            {% endif %}
 
                             {% if exercise.createdBy.user.profile.isPro %}
+                             {% load static %}
                                 <div class="item-image">
                                     <img src="{% static 'feed/images/verified.png' %}"
                                          style="width: 25px; height: 20px;">
