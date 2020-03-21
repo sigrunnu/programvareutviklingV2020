@@ -33,10 +33,16 @@ class CreatedBy(models.Model):
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
-        Profile.objects.create(user=instance)
-        CreatedBy.objects.create(user=instance)
+        if instance.is_superuser:
+            Profile.objects.create(user=instance, is_pro=True)
+            CreatedBy.objects.create(user=instance)
+        else:
+            Profile.objects.create(user=instance)
+            CreatedBy.objects.create(user=instance)
 
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
+    if instance.is_superuser:
+        instance.profile.is_pro = True
     instance.profile.save()
