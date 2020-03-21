@@ -10,10 +10,14 @@ sys.path.append('/64/feed/models')
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    isPro = models.BooleanField(default=False, blank=False)
+    is_pro = models.BooleanField(default=False, blank=False)
 
     def __str__(self):
         return self.user.username
+
+    @staticmethod
+    def get_professional_user_ids():
+        return [user.id for user in User.objects.filter(profile__is_pro=True)]
 
 
 class CreatedBy(models.Model):
