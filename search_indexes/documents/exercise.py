@@ -27,8 +27,8 @@ class ExerciseDocument(Document):
 
     id = fields.IntegerField(attr='id')
 
-    exerciseTitle = fields.TextField(
-        attr='exerciseTitle',
+    exercise_title = fields.TextField(
+        attr='exercise_title',
         analyzer=html_strip,
         fields={
             'raw': fields.TextField(analyzer='keyword', multi=True),
@@ -36,7 +36,7 @@ class ExerciseDocument(Document):
         },
     )
 
-    muscleGroupTitle = fields.TextField(
+    muscle_group_title = fields.TextField(
         attr='muscle_group_indexing',
         analyzer=html_strip,
         fields={
