@@ -21,7 +21,7 @@
                     <div id="exerciseView_ImageContainer">
 
                         {% load thumbnail %}
-                        {% thumbnail exercise.exerciseImage 250x250 box=exercise.cropping crop detail as im %}
+                        {% thumbnail exercise.exercise_image 250x250 box=exercise.cropping crop detail as im %}
                         <img src="{{ im.url }}">
 
                     </div>
@@ -30,7 +30,7 @@
                     <div id="exerciseView_Information">
                         <div>
                             <div style="font-size: 30px; padding: 0; margin: 0">
-                                {{ exercise.exerciseTitle }}
+                                {{ exercise.exercise_title }}
 
                             </div>
 
@@ -46,14 +46,14 @@
 
 
                         <div>
-                            {% if exercise.createdBy == None %}
+                            {% if exercise.created_by == None %}
                                 Publisert av: Ukjent bruker
                             {% else %}
                                 Publisert av:
-                                {{ exercise.createdBy }}
+                                {{ exercise.created_by }}
                             {% endif %}
 
-                            {% if exercise.createdBy.user.profile.isPro %}
+                            {% if exercise.created_by.user.profile.is_pro %}
                              {% load static %}
                                 <div class="item-image">
                                     <img src="{% static 'feed/images/verified.png' %}"
@@ -68,13 +68,13 @@
 
 
                         <div id="exerciseStarRating">
-                            ⭐ {{ exercise.exerciseRating|floatformat:"1" }}
+                            ⭐ {{ exercise.exercise_rating|floatformat:"1" }}
                         </div>
 
                         <div>
                             Trener:
 
-                            {% for muscleGroup in exercise.muscleGroup.all %}
+                            {% for muscleGroup in exercise.muscle_group.all %}
                                 {{ muscleGroup|lower }}
                             {% endfor %}
                         </div>
@@ -115,7 +115,7 @@
                     <div id="exerciseView_description">
                         <h5>Utførelse</h5>
 
-                        {{ exercise.exerciseHowTo }}
+                        {{ exercise.exercise_how_to }}
 
                     </div>
                 </div>

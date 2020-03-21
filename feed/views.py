@@ -5,7 +5,7 @@ from elasticsearch_dsl import Q
 from search_indexes.documents.exercise import ExerciseDocument
 from .models import Exercise
 from profile_page.models import CreatedBy
-from feed.models import Exercise, Favorisation, User
+from feed.models import Exercise, Favorisation, User, Rating
 from search_indexes.documents.exercise import ExerciseDocument
 
 from django.contrib import auth
@@ -27,7 +27,7 @@ def home(request):
     if str(user) == "AnonymousUser":
         for exercise in Exercise.objects.all():
             print(exercise)
-            if exercise.isPublic:
+            if exercise.is_public:
                 latest_exercises.append(exercise)
     else:
         latest_exercises = Exercise.objects.all()
@@ -52,11 +52,11 @@ def search(request):
 
     q1 = Q(
         "wildcard",
-        exerciseTitle={'value': f'*{search_content}*'}
+        exercise_title={'value': f'*{search_content}*'}
     )
     q2 = Q(
         "wildcard",
-        muscleGroupTitle={'value': f'*{search_content}*'}
+        muscle_group_title={'value': f'*{search_content}*'}
     )
 
     q3 = q1 | q2
@@ -79,7 +79,7 @@ def search(request):
     if str(user) == "AnonymousUser":
         for i in range(len(exercises)):
             print(exercises[i])
-            if not exercises[i]["isPublic"]:
+            if not exercises[i]["is_public"]:
                 try:
                     exercises.remove(i)
                 except ValueError as e:
@@ -97,19 +97,37 @@ def search(request):
 def favorise(request, exercise_id):
     user = auth.get_user(request)
 
-    exerciseIsLikedBy = []
+    exercise_is_liked_by = []
 
     for favourite in Favorisation.objects.all():
         if favourite.exercise.id == exercise_id:
-            exerciseIsLikedBy.append(favourite.user_id)
+            exercise_is_liked_by.append(favourite.user_id)
 
-    if user.id not in exerciseIsLikedBy:
+    if user.id not in exercise_is_liked_by:
         favourisation = Favorisation(
             user=user,
             exercise=get_object_or_404(Exercise, pk=exercise_id))
 
         Favorisation.save(favourisation)
 
+    return exercise_view(request, exercise_id)
+
+
+def rate_exercise(request, exercise_id, rating_number):
+    user = auth.get_user(request)
+
+    exercise_is_rated_by = []
+
+    for rating in Rating.objects.all():
+        if rating.exercise.id == exercise_id:
+            exercise_is_rated_by.append(rating.user_id)
+
+    if user.id not in exercise_is_rated_by:
+        rating = Rating(
+            user=user,
+            exercise=get_object_or_404(Exercise, pk=exercise_id))
+
+        Rating.save(rating)
     return exercise_view(request, exercise_id)
 
 
@@ -124,8 +142,8 @@ def exercise_view(request, exercise_id):
     """
 
     exercise = get_object_or_404(Exercise, pk=exercise_id)
-    favouirites = len(exercise.get_number_of_favorisations())
-
+    favouirites = exercise.get_number_of_favorisations()
+    rating_score = exercise.get_rating_score()
     user = auth.get_user(request)
 
     context = {}
@@ -133,16 +151,18 @@ def exercise_view(request, exercise_id):
     # Determines if the user is not logged in and exercise is hidden
     if str(user) == "AnonymousUser":
 
-        if not exercise.isPublic:
+        if not exercise.is_public:
             context = {
                 'exercise': exercise,
                 'favouirites': favouirites,
+                'rating_score': rating_score
             }
 
         else:
             context = {
                 'exercise': exercise,
                 'favouirites': favouirites,
+                'rating_score': rating_score,
                 'can_see': True
             }
 
@@ -150,6 +170,7 @@ def exercise_view(request, exercise_id):
         context = {
             'exercise': exercise,
             'favouirites': favouirites,
+            'rating_score': rating_score,
             'can_see': True
         }
 
@@ -161,14 +182,14 @@ class ExerciseCreateView(CreateView):
     template_name = 'feed/exercise_form.html'
     success_url = '/'
     fields = (
-        'exerciseTitle', 'exerciseInfo', 'exerciseHowTo', 'isPublic',
-        'exerciseImage', 'muscleGroup')
+        'exercise_title', 'exercise_info', 'exercise_how_to', 'is_public',
+        'exercise_image', 'muscle_group')
 
     def form_valid(self, form):
         model = form.save(commit=False)
         if self.request.user.is_authenticated:
-            model.createdBy = CreatedBy.objects.get(user=self.request.user)
+            model.created_by = CreatedBy.objects.get(user=self.request.user)
         else:
-            model.isPublic = True
+            model.is_public = True
         model.save()
         return HttpResponseRedirect(self.success_url)
