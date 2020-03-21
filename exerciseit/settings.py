@@ -12,8 +12,11 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+from easy_thumbnails.conf import Settings as thumbnailSettings
+from easy_thumbnails.conf import Settings as thumbnailSettings
 from elasticsearch import Elasticsearch, RequestsHttpConnection
 from requests_aws4auth import AWS4Auth
+from easy_thumbnails.conf import Settings as thumbnailSettings
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +30,7 @@ SECRET_KEY = '6!9f=yao2t)-vvoc0)x(lr55ob01cgipl=$snx2#0eu8i^=_mx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['exercise-it.herokuapp.com']
 
 # Application definition
 
@@ -44,11 +47,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'easy_thumbnails',
+    'image_cropping',
+    'profile_page',
+
 ]
 
+THUMBNAIL_PROCESSORS = (
+                           'image_cropping.thumbnail_processors.crop_corners',
+                       ) + thumbnailSettings.THUMBNAIL_PROCESSORS
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -72,9 +83,10 @@ REST_FRAMEWORK = {
 # Elasticsearch configuration
 ELASTICSEARCH_DSL = {
     'default': {
-        'hosts': 'https://59d039eba59a428d829f21971b4bbbcb.'
-                 + 'eu-central-1.aws.cloud.es.io:9243/',
-        'http_auth': ('elastic', 'icsoaFY5MXOkQKj2Kug4sODg'),
+        'hosts': 'https://'
+                 'search-exercise-it-xqtq2p2smafhonvguja7tsfccy.us-east-2.'
+                 'es.amazonaws.com',
+        'http_auth': ('root', '3X3rs1s317!?'),
     },
 }
 
@@ -112,10 +124,10 @@ WSGI_APPLICATION = 'exerciseit.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd6sjscv3eebbki',
-        'USER': 'ubpdyphavronmv',
+        'NAME': 'd5cktgdu3vpeu',
+        'USER': 'kumsvgtfzzimon',
         'PASSWORD':
-            'a7da20baceb36792a6a474cd07e60c04148b33bc9f77e5b53d98da2b0c1a9e95',
+            '231c2db8940957be9244f42b1c2fd109224be17e0658e6f2c76c21012cb668b3',
         'HOST': 'ec2-18-210-51-239.compute-1.amazonaws.com',
         'PORT': '5432'
     }
@@ -158,10 +170,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 try:
     from .local_settings import *
@@ -173,13 +186,17 @@ except ImportError:
     such as in the production environment.
 """
 
-if DATABASES['default']['NAME'] == 'danqmuh2tkpv2h':
+if DATABASES['default']['NAME'] == 'dabfubmjtdho1p':
     print("\033[95mRunning django with local settings: \033[0m")
     print("\033[95mDatabase is: exercise-it-db-development\033[0m")
 else:
     print("\033[95mRunning django with production settings:\033[0m")
     print("\033[95mDatabase is: exercise-it-db\033[0m")
+print("Elastic endpoint: " + ELASTICSEARCH_DSL['default']['hosts'])
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
+
+LOGIN_REDIRECT_URL = '/profile/'
+LOGOUT_REDIRECT_URL = '/'

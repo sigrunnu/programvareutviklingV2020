@@ -14,72 +14,128 @@
     <div id="exerciseView_wrapper">
         <div id="exerciseView_Container">
 
-            <div id="exerciseView_InformationContainer">
+            {% if can_see %}
 
-                <div id="exerciseView_ImageContainer">
-                    {% load static %}
-                    <img id="exerciseView_Image"
-                         src="{% static "feed/images/bench_press.jpg" %}"
-                         alt="Exercise image">
-                </div>
+                <div id="exerciseView_InformationContainer">
 
-                <div id="exerciseView_Information">
-                    <div>
-                        <div style="font-size: 40px; padding: 0; margin: 0">
-                            {{ exercise.exerciseTitle }}
-                        </div>
+                    <div id="exerciseView_ImageContainer">
+
+                        {% load thumbnail %}
+                        {% thumbnail exercise.exercise_image 250x250 box=exercise.cropping crop detail as im %}
+                        <img src="{{ im.url }}">
+
                     </div>
 
 
-                    <div>
-                        Publisert av:
-                        {{ exercise.exerciseAuthor }}
+                    <div id="exerciseView_Information">
+                        <div>
+                            <div style="font-size: 30px; padding: 0; margin: 0">
+                                {{ exercise.exercise_title }}
 
-                        {% if exercise.createdByPro == True %}
-                            <div class="item-image">
-                                <img src="{% static 'feed/images/verified.png' %}"
-                                     style="width: 25px; height: 20px;">
                             </div>
-                        {% endif %}
-                        <div class="item-noImage" style="display:none;">
+
+                            <div id="exerciseView_likes">
+                                {{ favouirites }}
+
+                                {% load static %}
+                                <img src="{% static "feed/images/heart.png" %}"
+                                     alt="Heart image" style="margin-left: 10%">
+                            </div>
+
                         </div>
+
+
+                        <div>
+                            {% if exercise.created_by == None %}
+                                Publisert av: Ukjent bruker
+                            {% else %}
+                                Publisert av:
+                                {{ exercise.created_by }}
+                            {% endif %}
+
+                            {% if exercise.created_by.user.profile.is_pro %}
+                             {% load static %}
+                                <div class="item-image">
+                                    <img src="{% static 'feed/images/verified.png' %}"
+                                         style="width: 25px; height: 20px;">
+                                </div>
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
+                            </div>
+
+
+                        </div>
+
+
+                        <div id="exerciseStarRating">
+                            ⭐ {% if rating_score is None %}
+                                Øvelsen har ingen rating
+                                {% else %}
+                                {{ rating_score|floatformat:"1" }}
+                                {% endif %}
+                            {{ rating_message }}
+                        </div>
+
+                        <div>
+                            Trener:
+
+                            {% for muscleGroup in exercise.muscle_group.all %}
+                                {{ muscleGroup|lower }}
+                            {% endfor %}
+                        </div>
+
+                        <div>
+                            {{ exercise.exerciseInfo }}
+                        </div>
+
+                        <div>
+                        {% if user.is_authenticated and user.profile.is_pro %}
+                            <form action="{% url 'rateExercise' exercise.id %}">
+                                <input placeholder="Vurder øvelse (1-5)"
+                                       type="number"
+                                       min="1"
+                                       max="5"
+                                       name="rating_field"/>
+                                <button style="margin-left: 2%" type="submit">
+                                    Vurder
+                                </button>
+
+                            </form>
+                            {% endif %}
+                        </div>
+                        {% comment %}<button onclick='{% url 'favoriseExercise' exercise.id %}'>
+                                Favoriser
+                            </button>{% endcomment %}
+
+                        <div>
+                            <form id="" action="{% url 'favoriseExercise' exercise.id %}">
+                                <button type="submit">Favoriser</button>
+                            </form>
+                        </div>
+
                     </div>
-
-
-                    {% comment %}<div id="exerciseLikes">
-                        54
-                        {% load static %}
-                        <img src="{% static "feed/" %}"
-                             alt="Heart image">
-                    </div>
-                    <div id="exerciseStarRating">
-                        5 STARS
-                    </div>{% endcomment %}
-
-                    <div>
-                        Trener:
-
-                        {% for muscleGroup in exercise.muscleGroup.all %}
-                            {{ muscleGroup|lower }}
-                        {% endfor %}
-                    </div>
-
-                    <div> {{ exercise.exerciseInfo }}</div>
-
-
                 </div>
-            </div>
 
-            <div id="exerciseView_DescriptionContainer">
+                <div id="exerciseView_DescriptionContainer">
 
-                <div id="exerciseView_description">
-                    <h5>Utførelse</h5>
+                    <div id="exerciseView_description">
+                        <h5>Utførelse</h5>
 
-                    {{ exercise.exerciseHowTo }}
+                        {{ exercise.exercise_how_to }}
 
+                    </div>
                 </div>
-            </div>
 
+
+            {% else %}
+
+                <div>
+                    <h1>
+                        Du må ha en bruker for å kunne se denne øvelsen
+                    </h1>
+                </div>
+
+            {% endif %}
         </div>
     </div>
 {% endblock content %}

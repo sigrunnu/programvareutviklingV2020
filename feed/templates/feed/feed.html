@@ -10,52 +10,66 @@
 </head>
 <body>
 
+{% load static %}
 
 {% block content %}
 
     <div id="feed_wrapper">
         <div class="feed_content">
-            {% for exercise in exercises %}
 
+            {% for exercise in exercises %}
                 <div class="feed_entity">
                     <button onclick="window.location= '{% url 'exerciseView' exercise.id %}';">
-                        {% load static %}
-                        <img id="entityImage"
-                             src="{% static 'feed/images/weightlifting.jpg' %}"
-                             alt="Exercise image">
+                        {% load thumbnail %}
+                        {% thumbnail exercise.exercise_image 250x250 box=exercise.cropping crop detail as im %}
+                        <img src="{{ im.url }}">
 
                     </button>
 
                     <div class="exerciseTitle">
-                        {{ exercise.exerciseTitle }}
-                        {% if exercise.createdByPro == True %}
-                            <div class="item-image">
+                        <div>
+
+                            {{ exercise.exercise_title }}
+
+                            {% if exercise.created_by.user.profile.is_pro %}
+
                                 <img src="{% static 'feed/images/verified.png' %}"
                                      style="width:20px;height:20px;">
+
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
                             </div>
-                        {% endif %}
-                        <div class="item-noImage" style="display:none;">
+
+                        </div>
+
+                        <div>
+                            {{ exercise.get_number_of_favorisations }}
+
+                            <img src="{% static "feed/images/heart.png" %}"
+                                 alt="Heart image" style="width: 20px;
+                                 height: 20px;">
+
                         </div>
                     </div>
 
 
                 </div>
-
             {% endfor %}
+
         </div>
 
 
     </div>
-<div class="tooltip1" id="addExerciseContainer">
-       <p class="tooltiptext">Lag øvelse!</p>
-            {% load static %}
-            <a  id="addExerciseBtn" href="{% url 'addExercise' %}">
-                <img  id="addExercise"
-                     src="{% static 'feed/images/addExercise.png' %}"
-                     alt="Exercise"/>
-            </a>
+    <div class="tooltip1" id="addExerciseContainer">
+        <p class="tooltiptext">Lag øvelse!</p>
+        {% load static %}
+        <a id="addExerciseBtn" href="{% url 'addExercise' %}">
+            <img id="addExercise"
+                 src="{% static 'feed/images/addExercise.png' %}"
+                 alt="Exercise"/>
+        </a>
 
-        </div>
+    </div>
 
 
 {% endblock content %}

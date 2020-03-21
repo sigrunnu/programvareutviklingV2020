@@ -54,7 +54,7 @@
 
 
             <form id="searchForm" action="{% url 'search' %}">
-                <input placeholder="Søk i etter øvelser eller muskelgrupper"
+                <input placeholder="Søk etter øvelser eller muskelgrupper"
                        type="search" name="search_field"/>
 
                 <button style="margin-left: 2%" type="submit">Søk</button>
@@ -63,28 +63,36 @@
 
 
             <div class="item" id="profileContainer">
-                <i class="material-icons">person</i>
-                Min profil
+                {% if user.is_authenticated %}
+                    {% if user.is_superuser %}
+                    <a href="{% url 'admin:index' %}">
+                        <i class="material-icons">person</i>
+                        Admin sidene
+                    </a>
+                    {% endif %}
+                    <a href="{% url 'profile' %}">
+                        <i class="material-icons">person</i>
+                        Min profil
+                    </a>
+                    <a href="{% url 'logout' %}">
+                        Logg ut
+                    </a>
+
+                {% else %}
+                    <a id="login" href="{% url 'login' %}">
+                        Logg inn
+                    </a>
+                    <a id="signup" href="{% url 'signup' %}">
+                        Registrer bruker
+                    </a>
+                {% endif %}
+
             </div>
+
 
         </div>
 
         <div id="separator">
-            <!--
-            <div class="dropdown">
-                <div class="dropbtn">
-                    Muskelgrupper <i class="fa fa-caret-down"></i>
-                </div>
-                <div class="dropdown-content">
-                    <a href="#">Rygg</a>
-                    <a href="#">Mage</a>
-                    <a href="#">Bein</a>
-                    <a href="#">Skuldre</a>
-                    <a href="#">Armer</a>
-                    <a href="#">Overkropp</a>
-                </div>
-            </div>
-            -->
 
         </div>
 

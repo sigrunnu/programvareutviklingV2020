@@ -19,6 +19,7 @@ def update_document(sender, **kwargs):
         if model_name == 'exercise':
             instances = instance.exercises.all()
             for _instance in instances:
+                print(_instance)
                 registry.update(_instance)
         if model_name == 'muscleGroup':
             instances = instance.exercises.all()
@@ -42,10 +43,10 @@ def delete_document(sender, **kwargs):
         if model_name == 'exercise':
             instances = instance.exercises.all()
             for _instance in instances:
-                registry.update(_instance)
-                # registry.delete(_instance, raise_on_error=False)
+                # registry.update(_instance)
+                registry.delete(_instance, raise_on_error=False)
         if model_name == 'muscleGroup':
             instances = instance.exercises.all()
             for _instance in instances:
-                registry.update(_instance)
-                # registry.delete(_instance, raise_on_error=False)
+                # registry.update(_instance)
+                registry.delete(_instance, raise_on_error=False)

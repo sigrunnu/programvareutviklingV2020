@@ -7,8 +7,8 @@ from search_indexes.documents.exercise import ExerciseDocument
 class ExerciseDocumentSerializer(DocumentSerializer):
     """Serializer for the Book document."""
     id = serializers.IntegerField(read_only=True)
-    exerciseTitle = serializers.CharField(read_only=True)
-    exerciseInfo = serializers.CharField(read_only=True)
+    exercise_title = serializers.CharField(read_only=True)
+    exercise_info = serializers.CharField(read_only=True)
 
     class Meta(object):
         """Meta options."""
@@ -20,13 +20,13 @@ class ExerciseDocumentSerializer(DocumentSerializer):
         # is preserved in the ViewSet.
         fields = (
             'id',
-            'exerciseTitle',
+            'exercise_title',
             'pub_date',
-            'createdByPro',
-            'exerciseHowTo',
-            'exerciseImage',
-            'exerciseInfo',
-            'exerciseLikes',
-            'exerciseRating',
-            'exerciseAuthor'
+            'exercise_how_to',
+            'exercise_image',
+            'exercise_info',
+            'created_by',
+            'exercise_likes',
+            'exercise_rating',
+
         )

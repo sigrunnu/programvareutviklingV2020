@@ -1,0 +1,115 @@
+{% extends "profile_page/profile_base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise view</title>
+
+</head>
+<body>
+
+
+{% block content %}
+
+    <div id="profile_wrapper">
+
+        <div id="profile_containerWrapper">
+
+            <div id="profile_infoWrapper">
+
+                <div id="profile_infoContainer">
+
+                    <div style="font-size: 25px">
+                        {{ user.first_name }}
+                        {{ user.last_name }}
+
+                        {% if user.profile.is_pro %}
+                            <div class="item-image">
+                                {% load static %}
+                                <img src="{% static 'feed/images/verified.png' %}"
+                                     style="width:20px;height:20px;">
+                            </div>
+                            <div class="item-noImage"
+                                 style="display:none;">
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div style="font-size: 17px; border: 1px none grey; border-bottom-style: solid;">
+                        {{ user.username }}
+                    </div>
+
+                    <button href="">
+                        Rediger profil
+                    </button>
+
+                </div>
+
+                <div id="profile_publishedExercisesWrapper">
+
+                    <div style="font-size: 25px; border: 2px none grey; border-bottom-style: solid;">
+                        Mine publiserte økter
+                    </div>
+
+
+                    <div id="profile_publishedExercisesContainer">
+
+                        {% for exercise in publishedExercises %}
+                            <a href='{% url 'exerciseView' exercise.id %}'>
+                                {{ exercise.exercise_title }}
+                            </a>
+                        {% endfor %}
+
+
+                    </div>
+
+                    <div id="profile_ranking">
+                        Gjennomsnittslig rangering: 3.5 ⭐
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="profile_favouritesWrapper">
+
+                <div id="profile_favouritesTitle">
+                    Dine favoritter
+                </div>
+
+                <div id="profile_favouritesContainer">
+
+                    {% for favourite in favourites %}
+                        <div>
+                            <button onclick="window.location= '{% url 'exerciseView' favourite.id %}';">
+                                {% load thumbnail %}
+                                {% thumbnail favourite.exercise_image 250x250 box=exercise.cropping crop detail as im %}
+                                <img src="{{ im.url }}">
+
+                            </button>
+
+                            <div>
+                                {{ favourite.exercise_title }}
+
+                                {% if favourite.created_by.user.profile.is_pro %}
+                                    <div class="item-image">
+                                        {% load static %}
+                                        <img src="{% static 'feed/images/verified.png' %}"
+                                             style="width:20px;height:20px;">
+                                    </div>
+                                    <div class="item-noImage"
+                                         style="display:none;">
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+</body>
+</html>

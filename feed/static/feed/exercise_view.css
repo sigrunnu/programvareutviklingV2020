@@ -55,7 +55,8 @@
 }
 
 #exerciseView_Image {
-    height: 300px;
+    height: 100%;
+    width: 80%;
 
 }
 
@@ -71,6 +72,28 @@
     justify-content: space-evenly;
 
     margin-left: 1%;
+
+}
+
+#exerciseView_Information > div:first-of-type img {
+    width: 40px;
+    height: 30px;
+
+}
+
+
+#exerciseView_Information form {
+    padding-left: 0;
+
+}
+
+#exerciseView_Information form input {
+    width: 200px;
+
+}
+
+#exerciseView_Information form button {
+    width: 100px;
 
 }
 
@@ -113,11 +136,11 @@
 
 #exerciseView_likes {
 
-    justify-content: space-evenly;
+    justify-content: left;
 
-    width: 60%;
+    width: 30%;
 
     align-items: center;
 
-    background-color: aquamarine;
+    font-size: 30px;
 }
