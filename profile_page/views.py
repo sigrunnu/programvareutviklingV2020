@@ -20,7 +20,7 @@ def profile(request):
 
     published_exercises = []
     for exercise in Exercise.objects.all():
-        if str(exercise.createdBy) == user.username:
+        if str(exercise.created_by) == user.username:
             published_exercises.append(exercise)
 
     context = {
@@ -39,7 +39,7 @@ def signupView(request):
         user.first_name = form.cleaned_data.get('first_name')
         user.last_name = form.cleaned_data.get('last_name')
         user.email = form.cleaned_data.get('email')
-        user.profile.isPro = form.cleaned_data.get('isPro')
+        user.profile.is_pro = form.cleaned_data.get('is_pro')
         user.save()
         username = form.cleaned_data.get('username')
         password = form.cleaned_data.get('password1')
