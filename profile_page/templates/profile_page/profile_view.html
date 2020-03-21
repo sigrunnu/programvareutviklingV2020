@@ -24,7 +24,7 @@
                         {{ user.first_name }}
                         {{ user.last_name }}
 
-                        {% if user.profile.isPro %}
+                        {% if user.profile.is_pro %}
                             <div class="item-image">
                                 {% load static %}
                                 <img src="{% static 'feed/images/verified.png' %}"
@@ -57,7 +57,7 @@
 
                         {% for exercise in publishedExercises %}
                             <a href='{% url 'exerciseView' exercise.id %}'>
-                                {{ exercise.exerciseTitle }}
+                                {{ exercise.exercise_title }}
                             </a>
                         {% endfor %}
 
@@ -84,15 +84,15 @@
                         <div>
                             <button onclick="window.location= '{% url 'exerciseView' favourite.id %}';">
                                 {% load thumbnail %}
-                                {% thumbnail favourite.exerciseImage 250x250 box=exercise.cropping crop detail as im %}
+                                {% thumbnail favourite.exercise_image 250x250 box=exercise.cropping crop detail as im %}
                                 <img src="{{ im.url }}">
 
                             </button>
 
                             <div>
-                                {{ favourite.exerciseTitle }}
+                                {{ favourite.exercise_title }}
 
-                                {% if favourite.createdBy.user.profile.isPro %}
+                                {% if favourite.created_by.user.profile.is_pro %}
                                     <div class="item-image">
                                         {% load static %}
                                         <img src="{% static 'feed/images/verified.png' %}"

@@ -21,14 +21,14 @@
                 <div class="feed_entity">
                     <button onclick="window.location= '{% url 'exerciseView' exercise.id %}';">
                         {% load thumbnail %}
-                        {% thumbnail exercise.exerciseImage 250x250 box=exercise.cropping crop detail as im %}
+                        {% thumbnail exercise.exercise_image 250x250 box=exercise.cropping crop detail as im %}
                         <img src="{{ im.url }}">
 
                     </button>
                     <div class="exerciseTitle">
-                        {{ exercise.exerciseTitle }}
+                        {{ exercise.exercise_title }}
 
-                        {% if exercise.createdBy.user.profile.isPro %}
+                        {% if exercise.created_by.user.profile.is_pro %}
                             <div class="item-image">
                                 <img src="{% static 'feed/images/verified.png' %}"
                                      style="width:20px;height:20px;">

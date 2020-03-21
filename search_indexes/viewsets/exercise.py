@@ -37,8 +37,8 @@ class ExerciseDocumentView(BaseDocumentViewSet):
     ]
 
     search_fields = (
-        'exerciseTitle',
-        'exerciseInfo',
+        'exercise_title',
+        'exercise_info',
     )
 
     filter_fields = {
@@ -53,8 +53,8 @@ class ExerciseDocumentView(BaseDocumentViewSet):
                 LOOKUP_QUERY_LTE,
             ],
         },
-        'exerciseTitle': {
-            'field': 'exerciseTitle.raw',
+        'exercise_title': {
+            'field': 'exercise_title.raw',
             # Note, that we limit the lookups of `tags` field in
             # this example, to `terms, `prefix`, `wildcard`, `in` and
             # `exclude` filters.
@@ -66,8 +66,8 @@ class ExerciseDocumentView(BaseDocumentViewSet):
                 LOOKUP_QUERY_EXCLUDE,
             ]
         },
-        'exerciseTitle.raw': {
-            'field': 'exerciseTitle.raw',
+        'exercise_title.raw': {
+            'field': 'exercise_title.raw',
             # Note, that we limit the lookups of `tags.raw` field in
             # this example, to `terms, `prefix`, `wildcard`, `in` and
             # `exclude` filters.
@@ -83,12 +83,12 @@ class ExerciseDocumentView(BaseDocumentViewSet):
 
     ordering_fields = {
         'id': 'id',
-        'exerciseTitle': 'exerciseTitle.raw',
+        'exercise_title': 'exercise_title.raw',
     }
 
     suggester_fields = {
         'name_suggest': {
-            'field': 'exerciseTitle.suggest',
+            'field': 'exercise_title.suggest',
             'suggesters': [
                 SUGGESTER_COMPLETION,
             ],

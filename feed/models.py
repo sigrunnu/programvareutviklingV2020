@@ -1,24 +1,24 @@
 from django.contrib.auth.models import User
 from django.contrib.postgres.search import SearchVector
 from django.db import models
-from django.db.models import Q, SET_NULL
+from django.db.models import Q, SET_NULL, Avg
 from six import python_2_unicode_compatible
-from profile_page.models import CreatedBy
+from profile_page.models import CreatedBy, Profile
 
 
 @python_2_unicode_compatible
 class MuscleGroup(models.Model):
-    muscleGroupTitle = models.CharField(
+    muscle_group_title = models.CharField(
         max_length=200
     )
 
     def __str__(self):
-        return self.muscleGroupTitle
+        return self.muscle_group_title
 
     @staticmethod
     def get_search_vector():
         return (
-            SearchVector('muscleGroupTitle', weight='B')
+            SearchVector('muscle_group_title', weight='B')
         )
 
     @staticmethod
@@ -31,17 +31,17 @@ class MuscleGroup(models.Model):
         :rtype: QuerySet
         """
         return MuscleGroup.objects.filter(
-            Q(muscleGroupTitle__icontains=search_word))
+            Q(muscle_group_title__icontains=search_word))
 
 
 @python_2_unicode_compatible
 class Exercise(models.Model):
-    exerciseTitle = models.CharField(
+    exercise_title = models.CharField(
         max_length=200,
         verbose_name='Tittel på øvelsen'
     )
 
-    exerciseInfo = models.TextField(
+    exercise_info = models.TextField(
         max_length=500,
         null=True,
         blank=True,
@@ -55,32 +55,39 @@ class Exercise(models.Model):
         User,
         through='Favorisation',
         blank=True,
-        verbose_name='Favoriseringer'
+        verbose_name='Favoriseringer',
+        related_name='favorisations'
     )
-    isPublic = models.BooleanField(
+    ratings = models.ManyToManyField(
+        User,
+        through='Rating',
+        blank=True,
+        verbose_name='Rangering',
+        related_name='ratings'
+    )
+    is_public = models.BooleanField(
         default=False,
-        blank=False,
         verbose_name='Offentlig for ikke registrerte brukere'
     )
-    exerciseHowTo = models.TextField(
+    exercise_how_to = models.TextField(
         max_length=500,
         null=True,
         blank=True,
         verbose_name='Utførelse av øvelsen'
     )
-    exerciseImage = models.ImageField(
+    exercise_image = models.ImageField(
         null=True,
         blank=True,
         upload_to='exercises/',
         verbose_name='Bilde av øvelsen'
     )
 
-    muscleGroup = models.ManyToManyField(
+    muscle_group = models.ManyToManyField(
         MuscleGroup,
         blank=True,
         verbose_name='Muskelgrupper'
     )
-    createdBy = models.ForeignKey(
+    created_by = models.ForeignKey(
         CreatedBy,
         blank=True,
         null=True,
@@ -89,15 +96,24 @@ class Exercise(models.Model):
     )
 
     class Meta(object):
-        ordering = ["exerciseTitle"]
+        ordering = ["exercise_title"]
 
     def __str__(self):
-        return self.exerciseTitle
+        return self.exercise_title
 
     def get_number_of_favorisations(self):
-        return Favorisation.objects.filter(
+        return len(Favorisation.objects.filter(
             exercise__id=self.id
-        )
+        ))
+
+    def get_rating_score(self):
+        ratings = [r.rating_number for r in Rating.objects.filter(
+            exercise__id=self.id
+        )]
+        if len(ratings) == 0:
+            return None
+        average = sum(ratings) / len(ratings)
+        return round(average, 2)
 
     @property
     def muscle_group_indexing(self):
@@ -108,14 +124,14 @@ class Exercise(models.Model):
             the current Exercise model object.
         """
         return [
-            muscleGroup.muscleGroupTitle
-            for muscleGroup in self.muscleGroup.all()
+            muscle_group.muscle_group_title
+            for muscle_group in self.muscle_group.all()
         ]
 
     @staticmethod
     def get_search_vector():
         return (
-            SearchVector('exerciseTitle', weight='A', config='norwegian')
+            SearchVector('exercise_title', weight='A', config='norwegian')
         )
 
     @staticmethod
@@ -133,8 +149,46 @@ class Exercise(models.Model):
 
 
 class Favorisation(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='user_in_favorisation'
+    )
+    exercise = models.ForeignKey(
+        Exercise,
+        on_delete=models.CASCADE,
+        related_name='exercise_in_favorisation')
 
     def __str__(self):
-        return self.user.username + " for " + self.exercise.exerciseTitle
+        return self.user.username + " for " + self.exercise.exercise_title
+
+
+class Rating(models.Model):
+    VERY_LOW = 1
+    LOW = 2
+    NORMAL = 3
+    HIGH = 4
+    VERY_HIGH = 5
+    RATING_CHOICES = (
+        (VERY_LOW, 'Very low'),
+        (LOW, 'Low'),
+        (NORMAL, 'Normal'),
+        (HIGH, 'High'),
+        (VERY_HIGH, 'Very high'),
+    )
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='user_in_rating',
+        limit_choices_to=Q(profile__is_pro=True)
+    )
+
+    exercise = models.ForeignKey(
+        Exercise,
+        on_delete=models.CASCADE,
+        related_name='exercise_in_rating'
+    )
+    rating_number = models.IntegerField(choices=RATING_CHOICES)
+
+    def __str__(self):
+        return self.user.username + " for " + self.exercise.exercise_title

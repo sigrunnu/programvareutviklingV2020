@@ -56,7 +56,7 @@ class TestExerciseDocument(TestCase):
         mapping = ExerciseDocument._doc_type.mapping
         self.assertEqual(
             set(mapping.properties.properties.to_dict().keys()),
-            {'id', 'exerciseTitle', 'muscleGroupTitle'}
+            {'id', 'exercise_title', 'muscle_group_title'}
         )
 
     def test_duplicate_field_names_not_allowed(self):
@@ -72,8 +72,8 @@ class TestExerciseDocument(TestCase):
             class ExerciseDocument(DocType):
                 id = fields.IntegerField(attr='id')
 
-                exerciseTitle = fields.TextField(
-                    attr='exerciseTitle',
+                exercise_title = fields.TextField(
+                    attr='exercise_title',
                     analyzer=html_strip,
                     fields={
                         'raw': fields.TextField(analyzer='keyword',
@@ -82,7 +82,7 @@ class TestExerciseDocument(TestCase):
                     },
                 )
 
-                muscleGroupTitle = fields.TextField(
+                muscle_group_title = fields.TextField(
                     attr='muscle_group_indexing',
                     analyzer=html_strip,
                     fields={
@@ -94,17 +94,17 @@ class TestExerciseDocument(TestCase):
                 )
 
                 class Django:
-                    fields = ['id', 'exerciseTitle', 'muscleGroupTitle']
+                    fields = ['id', 'exercise_title', 'muscle_group_title']
                     model = Exercise
 
     def test_to_field(self):
         doc = DocType()
         exercise_title = doc.to_field(
-            'exerciseTitle',
-            Exercise._meta.get_field('exerciseTitle')
+            'exercise_title',
+            Exercise._meta.get_field('exercise_title')
         )
         self.assertIsInstance(exercise_title, fields.TextField)
-        self.assertEqual(exercise_title._path, ['exerciseTitle'])
+        self.assertEqual(exercise_title._path, ['exercise_title'])
         id_field = doc.to_field(
             'id',
             Exercise._meta.get_field('id')
@@ -116,6 +116,6 @@ class TestExerciseDocument(TestCase):
         doc = DocType()
         with self.assertRaises(ModelFieldNotMappedError):
             doc.to_field(
-                'muscleGroup',
-                Exercise._meta.get_field('muscleGroup')
+                'muscle_group',
+                Exercise._meta.get_field('muscle_group')
             )

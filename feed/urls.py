@@ -12,8 +12,15 @@ urlpatterns = [
     path('search/', views.search, name='search'),
     path('<int:exercise_id>', views.exercise_view, name='exerciseView'),
     path('addExercise', ExerciseCreateView.as_view(), name="addExercise"),
-    path('favoriseExercise/<int:exercise_id>', views.favorise,
-         name='favoriseExercise')
+    path(
+        'favoriseExercise/<int:exercise_id>',
+        views.favorise,
+        name='favoriseExercise'),
+    path(
+        'rateExercise/<int:exercise_id>',
+        views.rate_exercise,
+        name='rateExercise'
+    )
 
 ]
 
