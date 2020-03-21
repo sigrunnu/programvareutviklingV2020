@@ -16,6 +16,11 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='rating',
             name='user',
-            field=models.ForeignKey(limit_choices_to=models.Q(profile__is_pro=True), on_delete=django.db.models.deletion.CASCADE, related_name='user_in_rating', to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(
+                limit_choices_to=models.Q(
+                    profile__is_pro=True),
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='user_in_rating',
+                to=settings.AUTH_USER_MODEL),
         ),
     ]
