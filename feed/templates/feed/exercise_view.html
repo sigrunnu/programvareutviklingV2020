@@ -68,7 +68,12 @@
 
 
                         <div id="exerciseStarRating">
-                            ⭐ {{ exercise.exercise_rating|floatformat:"1" }}
+                            ⭐ {% if rating_score is None %}
+                                Øvelsen har ingen rating
+                                {% else %}
+                                {{ rating_score|floatformat:"1" }}
+                                {% endif %}
+                            {{ rating_message }}
                         </div>
 
                         <div>
@@ -84,25 +89,26 @@
                         </div>
 
                         <div>
-                            <form id="" action="">
+                        {% if user.is_authenticated and user.profile.is_pro %}
+                            <form action="{% url 'rateExercise' exercise.id %}">
                                 <input placeholder="Vurder øvelse (1-5)"
                                        type="number"
                                        min="1"
                                        max="5"
                                        name="rating_field"/>
-
                                 <button style="margin-left: 2%" type="submit">
                                     Vurder
                                 </button>
 
                             </form>
+                            {% endif %}
                         </div>
                         {% comment %}<button onclick='{% url 'favoriseExercise' exercise.id %}'>
                                 Favoriser
                             </button>{% endcomment %}
 
                         <div>
-                            <form id="" action="{% url 'favoriseExercise' exercise.id%}">
+                            <form id="" action="{% url 'favoriseExercise' exercise.id %}">
                                 <button type="submit">Favoriser</button>
                             </form>
                         </div>

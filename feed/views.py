@@ -113,7 +113,7 @@ def favorise(request, exercise_id):
     return exercise_view(request, exercise_id)
 
 
-def rate_exercise(request, exercise_id, rating_number):
+def rate_exercise(request, exercise_id):
     user = auth.get_user(request)
 
     exercise_is_rated_by = []
@@ -125,13 +125,21 @@ def rate_exercise(request, exercise_id, rating_number):
     if user.id not in exercise_is_rated_by:
         rating = Rating(
             user=user,
-            exercise=get_object_or_404(Exercise, pk=exercise_id))
-
+            exercise=get_object_or_404(Exercise, pk=exercise_id),
+            rating_number=request.GET['rating_field']
+        )
         Rating.save(rating)
-    return exercise_view(request, exercise_id)
+        rating_message = 'Ratingen er lagret'
+    else:
+        rating_message = 'Du har allerede ratet denne øvelsen'
+    return exercise_view(
+        request,
+        exercise_id,
+        rating_message=rating_message
+    )
 
 
-def exercise_view(request, exercise_id):
+def exercise_view(request, exercise_id, **kwargs):
     """
     :param request:
     :type request:
@@ -147,6 +155,11 @@ def exercise_view(request, exercise_id):
     user = auth.get_user(request)
 
     context = {}
+
+    try:
+        rating_message = kwargs['rating_message']
+    except KeyError:
+        rating_message = ''
 
     # Determines if the user is not logged in and exercise is hidden
     if str(user) == "AnonymousUser":
@@ -171,6 +184,7 @@ def exercise_view(request, exercise_id):
             'exercise': exercise,
             'favouirites': favouirites,
             'rating_score': rating_score,
+            'rating_message': rating_message,
             'can_see': True
         }
 
