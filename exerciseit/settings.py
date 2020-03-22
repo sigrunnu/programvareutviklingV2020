@@ -173,7 +173,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'feed/static/feed/images')
+STATIC_ROOT = os.path.join(BASE_DIR, '/feed/static/feed/images/')
 
 STATIC_URL = '/static/'
 
@@ -183,7 +183,6 @@ try:
     from .local_settings import *
 except ImportError:
     pass
-
 """
     ImportError Is thrown when local_settings.py is not present,
     such as in the production environment.
