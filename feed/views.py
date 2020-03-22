@@ -238,7 +238,8 @@ def exercise_view(request, exercise_id, **kwargs):
             'favouirites': favouirites,
             'rating_score': rating_score,
             'rating_message': rating_message,
-            'can_see': True
+            'can_see': True,
+            'logged_in': True
         }
 
     return render(request, 'feed/exercise_view.html', context)
