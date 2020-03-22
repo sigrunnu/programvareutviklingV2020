@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserChangeForm
 sys.path.append('/64/feed/models')
 
 
@@ -53,3 +54,17 @@ def signupView(request):
 
 def LoginView(request):
     return render(request, "registration/login.html")
+
+
+def editProfile(request):
+    if request.method == 'POST':
+        form = UserChangeForm(request.POST, instance=request.user)
+
+        if form.is_valid:
+            form.save()
+            return redirect('')
+
+    else:
+        form = UserChangeForm(instance=request.user)
+        args = {'form': form}
+        return render(request, 'profile_page/templates/edit_profile.html', args)
