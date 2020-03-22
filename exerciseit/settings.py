@@ -83,10 +83,9 @@ REST_FRAMEWORK = {
 # Elasticsearch configuration
 ELASTICSEARCH_DSL = {
     'default': {
-        'hosts': 'https://'
-                 'search-exercise-it-development-h36m2weu5dzg57tcv22d26afk4.'
-                 'us-east-2.es.amazonaws.com',
-        'http_auth': ('root', '3X3rs1s317!?'),
+        'hosts': 'https://c4129f4e85a842b99e5e6de7ca1d4e48.'
+                 'eu-central-1.aws.cloud.es.io:9243',
+        'http_auth': ('elastic', '8KOd1sCp1jBrK1cmIEvHDJjr'),
     }
 }
 
