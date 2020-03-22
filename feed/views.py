@@ -7,6 +7,9 @@ from feed.models import Exercise, Favorisation, Rating
 from search_indexes.documents.exercise import ExerciseDocument
 from feed.utils import counting_sort_exercises_based_on_rating
 from django.contrib import auth
+from django.http import (
+    Http404
+)
 
 
 # Create your views here.
@@ -30,7 +33,6 @@ def home(request):
     else:
         latest_exercises = Exercise.objects.all()
 
-    print(latest_exercises[0].get_number_of_favorisations())
     latest_exercises = counting_sort_exercises_based_on_rating(
         latest_exercises
     )
@@ -89,8 +91,10 @@ def search(request):
                         pk=int(exercise['_source']['id'])
                     )
                 )
-                print(exercises)
-            except IndexError as e:
+            except ValueError as e:
+                print(e)
+                pass
+            except Http404 as e:
                 print(e)
                 pass
         # Exercises now contains all Exercise objects that matches the search

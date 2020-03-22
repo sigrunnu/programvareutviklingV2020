@@ -1,8 +1,6 @@
-from django.shortcuts import get_object_or_404
 from django.http import (
     Http404
 )
-from feed.models import Exercise
 
 
 def counting_sort_exercises_based_on_rating(exercises):
