@@ -43,12 +43,18 @@
                         </div>
 
                         <div>
-                            {{ exercise.get_number_of_favorisations }}
+
 
                             <img src="{% static "feed/images/heart.png" %}"
                                  alt="Heart image" style="width: 20px;
                                  height: 20px;">
 
+
+                            {{ exercise.get_number_of_favorisations }}
+
+                        </div>
+                        <div>
+                            ⭐ {{ exercise.get_rating_score }}
                         </div>
                     </div>
 

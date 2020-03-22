@@ -24,6 +24,10 @@
                         {{ user.first_name }}
                         {{ user.last_name }}
 
+                    </div>
+
+                    <div style="font-size: 17px; border: 1px none grey; border-bottom-style: solid;">
+                        {{ user.username }}
                         {% if user.profile.is_pro %}
                             <div class="item-image">
                                 {% load static %}
@@ -35,12 +39,17 @@
                             </div>
                         {% endif %}
                     </div>
+<<<<<<< HEAD
 
                     <div style="font-size: 17px; border: 1px none grey; border-bottom-style: solid;">
                         {{ user.username }}
                     </div>
 
                     <button href="">
+=======
+                    <a  href="{% url 'editProfile' %}">
+                    <button>
+>>>>>>> development
                         Rediger profil
                     </button>
 
@@ -61,11 +70,6 @@
                             </a>
                         {% endfor %}
 
-
-                    </div>
-
-                    <div id="profile_ranking">
-                        Gjennomsnittslig rangering: 3.5 ⭐
 
                     </div>
                 </div>
