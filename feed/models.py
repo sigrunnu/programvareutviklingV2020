@@ -77,7 +77,7 @@ class Exercise(models.Model):
     )
     exercise_image = models.ImageField(
         null=True,
-        blank=True,
+        blank=False,
         upload_to='exercises/',
         verbose_name='Bilde av øvelsen'
     )
