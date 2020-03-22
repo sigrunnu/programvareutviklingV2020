@@ -24,6 +24,10 @@
                         {{ user.first_name }}
                         {{ user.last_name }}
 
+                    </div>
+
+                    <div style="font-size: 17px; border: 1px none grey; border-bottom-style: solid;">
+                        {{ user.username }}
                         {% if user.profile.is_pro %}
                             <div class="item-image">
                                 {% load static %}
@@ -34,10 +38,6 @@
                                  style="display:none;">
                             </div>
                         {% endif %}
-                    </div>
-
-                    <div style="font-size: 17px; border: 1px none grey; border-bottom-style: solid;">
-                        {{ user.username }}
                     </div>
                     <a  href="{% url 'editProfile' %}">
                     <button>
