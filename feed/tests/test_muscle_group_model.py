@@ -1,12 +1,7 @@
-from audioop import error
-
 import pytest
 import unittest
-from django.db.backends.utils import CursorWrapper
-from django.db import transaction
 from mixer.backend.django import mixer
 from django.db.utils import DataError
-import sys
 
 
 @pytest.mark.django_db
