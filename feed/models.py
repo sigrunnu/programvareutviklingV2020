@@ -77,7 +77,7 @@ class Exercise(models.Model):
     )
     exercise_image = models.ImageField(
         null=True,
-        blank=True,
+        blank=False,
         upload_to='exercises/',
         verbose_name='Bilde av øvelsen'
     )
@@ -111,9 +111,9 @@ class Exercise(models.Model):
             exercise__id=self.id
         )]
         if len(ratings) == 0:
-            return None
+            return 0
         average = sum(ratings) / len(ratings)
-        return round(average, 2)
+        return round(average, 1)
 
     @property
     def muscle_group_indexing(self):

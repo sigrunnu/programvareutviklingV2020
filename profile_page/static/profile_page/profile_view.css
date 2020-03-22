@@ -116,21 +116,6 @@
     color: black;
 }
 
-#profile_ranking {
-    width: 98%;
-
-    font-size: 17px;
-
-    flex-direction: row;
-
-    justify-content: space-evenly;
-
-    align-items: center;
-
-    margin-bottom: 2%;
-
-}
-
 /* RIGHT SIDE */
 #profile_favouritesWrapper {
 

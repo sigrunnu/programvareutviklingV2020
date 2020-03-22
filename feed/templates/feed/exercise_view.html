@@ -107,11 +107,14 @@
                                 Favoriser
                             </button>{% endcomment %}
 
-                        <div>
-                            <form id="" action="{% url 'favoriseExercise' exercise.id %}">
-                                <button type="submit">Favoriser</button>
-                            </form>
-                        </div>
+
+                        {% if logged_in %}
+                            <div>
+                                <form id="" action="{% url 'favoriseExercise' exercise.id %}">
+                                    <button type="submit">Favoriser</button>
+                                </form>
+                            </div>
+                        {% endif %}
 
                     </div>
                 </div>
