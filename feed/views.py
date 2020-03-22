@@ -31,7 +31,9 @@ def home(request):
         latest_exercises = Exercise.objects.all()
 
     print(latest_exercises[0].get_number_of_favorisations())
-
+    latest_exercises = counting_sort_exercises_based_on_rating(
+        latest_exercises
+    )
     context = {
         'exercises': latest_exercises
     }
