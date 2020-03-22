@@ -20,21 +20,15 @@ def counting_sort_exercises_based_on_rating(exercises):
         exercise_result_list = [0 for i in range(len(exercises))]
         c = [0 for i in range(highest_value+1)]
         for j in range(len(exercises)):
-            rating_score = get_object_or_404(
-                Exercise,
-                pk=exercises[j]['id']
-            ).get_rating_score()
+            rating_score = exercises[j].get_rating_score()
             c[int(rating_score * 10)] = c[int(rating_score * 10)] + 1
         for i in range(1, highest_value+1):
             c[i] = c[i] + c[i-1]
         for j in range(len(exercises)-1, -1, -1):
-            rating_score = get_object_or_404(
-                Exercise,
-                pk=exercises[j]['id']
-            ).get_rating_score()
+            rating_score = exercises[j].get_rating_score()
             exercise_result_list[c[int(rating_score * 10)]-1] = exercises[j]
             c[int(rating_score * 10)] -= 1
-        return reversed(exercise_result_list)
+        return list(reversed(exercise_result_list))
     except ValueError as e:
         print("counting sort got an error, sorting failed: " + str(e))
         return exercises
