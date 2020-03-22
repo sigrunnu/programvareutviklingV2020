@@ -31,7 +31,9 @@ def home(request):
         latest_exercises = Exercise.objects.all()
 
     print(latest_exercises[0].get_number_of_favorisations())
-
+    latest_exercises = counting_sort_exercises_based_on_rating(
+        latest_exercises
+    )
     context = {
         'exercises': latest_exercises
     }
@@ -99,7 +101,7 @@ def search(request):
     if str(user) == "AnonymousUser":
         for i in range(len(exercises)):
             print(exercises[i])
-            if not exercises[i]["is_public"]:
+            if not exercises[i].is_public is True:
                 try:
                     # Is the user is not registered and the exercise is
                     # not public. Remove it form the list we are going
