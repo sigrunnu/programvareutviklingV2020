@@ -84,10 +84,10 @@ REST_FRAMEWORK = {
 ELASTICSEARCH_DSL = {
     'default': {
         'hosts': 'https://'
-                 'search-exercise-it-xqtq2p2smafhonvguja7tsfccy.us-east-2.'
-                 'es.amazonaws.com',
+                 'search-exercise-it-development-h36m2weu5dzg57tcv22d26afk4.'
+                 'us-east-2.es.amazonaws.com',
         'http_auth': ('root', '3X3rs1s317!?'),
-    },
+    }
 }
 
 ELASTICSEARCH_INDEX_NAMES = {
@@ -129,7 +129,11 @@ DATABASES = {
         'PASSWORD':
             '231c2db8940957be9244f42b1c2fd109224be17e0658e6f2c76c21012cb668b3',
         'HOST': 'ec2-18-210-51-239.compute-1.amazonaws.com',
-        'PORT': '5432'
+        'PORT': '5432',
+        'TEST': {
+                    'ENGINE': 'django.db.backends.sqlite3',
+                    'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+                }
     }
 }
 
