@@ -84,10 +84,10 @@ REST_FRAMEWORK = {
 ELASTICSEARCH_DSL = {
     'default': {
         'hosts': 'https://'
-                 'search-exercise-it-xqtq2p2smafhonvguja7tsfccy.us-east-2.'
-                 'es.amazonaws.com',
+                 'search-exercise-it-development-h36m2weu5dzg57tcv22d26afk4.'
+                 'us-east-2.es.amazonaws.com',
         'http_auth': ('root', '3X3rs1s317!?'),
-    },
+    }
 }
 
 ELASTICSEARCH_INDEX_NAMES = {
