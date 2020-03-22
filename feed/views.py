@@ -53,7 +53,7 @@ def search(request):
     if search_content == '':
         # Just pressing enter in the search field is a shortcut for fetching
         # all the exercises. Thus all the exercise objects are rendered
-        exercises = Exercise.objects.all().values()
+        exercises = Exercise.objects.all()
     else:
         # Search queries are made for the elastic search.
         # Uses "wildcard" meaning that it searches fro strings that contains
