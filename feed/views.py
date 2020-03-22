@@ -44,7 +44,7 @@ def search(request):
     :return: render: if search content not empty string:
     response with search content. Else: all exercise objects.
     The response list is always sorted based on the professional ranking
-    :rtype: HttpResponse with a list of exercises represented as dictionaries
+    :rtype: HttpResponse with a list of exercise objects
     """
 
     # search_content fetches the string entered into search_field
@@ -80,9 +80,12 @@ def search(request):
         for exercise in result['hits']['hits']:
             try:
                 exercises.append(
-                    Exercise.objects.filter(
-                        pk=int(exercise['_source']['id'])).values()[0]
+                    get_object_or_404(
+                        Exercise,
+                        pk=int(exercise['_source']['id'])
+                    )
                 )
+                print(exercises)
             except IndexError as e:
                 print(e)
                 pass
@@ -106,6 +109,7 @@ def search(request):
 
     # Now we have the final list of exercises. We then need to sort it based
     # on the professional rating
+
     exercises = counting_sort_exercises_based_on_rating(exercises)
 
     context = {
