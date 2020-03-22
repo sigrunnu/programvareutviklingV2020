@@ -108,17 +108,17 @@ WSGI_APPLICATION = 'exerciseit.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd5cktgdu3vpeu',
-        'USER': 'kumsvgtfzzimon',
-        'PASSWORD':
-            '231c2db8940957be9244f42b1c2fd109224be17e0658e6f2c76c21012cb668b3',
-        'HOST': 'ec2-18-210-51-239.compute-1.amazonaws.com',
+        'NAME': 'dc1tppu4d6eo6b',
+        'USER': 'sfganiylhpomdd',
+        'PASSWORD': '916823b87d0dab2488be4c08c5e9e'
+                    '09a6c75eed9e6d815c56ce622932b36bb16',
+        'HOST': 'ec2-34-233-186-251.compute-1.amazonaws.com',
         'PORT': '5432',
         'TEST': {
-                    'ENGINE': 'django.db.backends.sqlite3',
-                    'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
-                }
-    }
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+        }
+    },
 }
 
 # Password validation
