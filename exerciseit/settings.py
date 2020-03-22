@@ -123,11 +123,11 @@ WSGI_APPLICATION = 'exerciseit.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd5cktgdu3vpeu',
-        'USER': 'kumsvgtfzzimon',
+        'NAME': 'da16e7ipi6qpnu',
+        'USER': 'ceuxmorvrolngr',
         'PASSWORD':
-            '231c2db8940957be9244f42b1c2fd109224be17e0658e6f2c76c21012cb668b3',
-        'HOST': 'ec2-18-210-51-239.compute-1.amazonaws.com',
+            'd3b9a372231a692d25d4e23de12011bf80502a2586053b23aa3d4166171e5f55',
+        'HOST': 'ec2-18-209-187-54.compute-1.amazonaws.com',
         'PORT': '5432',
         'TEST': {
                     'ENGINE': 'django.db.backends.sqlite3',
@@ -183,6 +183,7 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+
 """
     ImportError Is thrown when local_settings.py is not present,
     such as in the production environment.
