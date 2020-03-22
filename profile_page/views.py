@@ -1,12 +1,13 @@
 import sys
 from feed.models import Exercise, Favorisation
 from django.contrib import auth
-from .forms import SignUpForm
+from .forms import SignUpForm, EditProfileForm
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
+from django.contrib.auth import login, authenticate, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserChangeForm
+
 sys.path.append('/64/feed/models')
 
 
@@ -58,13 +59,30 @@ def LoginView(request):
 
 def editProfile(request):
     if request.method == 'POST':
-        form = UserChangeForm(request.POST, instance=request.user)
+        form = EditProfileForm(request.POST, instance=request.user)
 
         if form.is_valid:
             form.save()
-            return redirect('')
+            return redirect('profile')
 
     else:
-        form = UserChangeForm(instance=request.user)
+        form = EditProfileForm(instance=request.user)
         args = {'form': form}
-        return render(request, 'profile_page/templates/edit_profile.html', args)
+        return render(request, 'profile_page/edit_profile.html', args)
+
+
+def changePassword(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(data=request.POST, user=request.user)
+
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            return redirect('profile')
+        else:
+            redirect('/profile/password')
+
+    else:
+        form = PasswordChangeForm(user=request.user)
+        args = {'form': form}
+        return render(request, 'profile_page/password_change.html', args)
