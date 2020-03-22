@@ -25,19 +25,34 @@
                         <img src="{{ im.url }}">
 
                     </button>
-                    <div class="exerciseTitle">
-                        {{ exercise.exercise_title }}
 
-                        {% if exercise.created_by.user.profile.is_pro %}
-                            <div class="item-image">
+                    <div class="exerciseTitle">
+                        <div>
+
+                            {{ exercise.exercise_title }}
+
+                            {% if exercise.created_by.user.profile.is_pro %}
+
                                 <img src="{% static 'feed/images/verified.png' %}"
                                      style="width:20px;height:20px;">
+
+                            {% endif %}
+                            <div class="item-noImage" style="display:none;">
                             </div>
-                        {% endif %}
-                        <div class="item-noImage" style="display:none;">
+
                         </div>
 
+                        <div>
+                            {{ exercise.get_number_of_favorisations }}
+
+                            <img src="{% static "feed/images/heart.png" %}"
+                                 alt="Heart image" style="width: 20px;
+                                 height: 20px;">
+
+                        </div>
                     </div>
+
+
                 </div>
             {% endfor %}
 

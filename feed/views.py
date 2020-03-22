@@ -30,6 +30,8 @@ def home(request):
     else:
         latest_exercises = Exercise.objects.all()
 
+    print(latest_exercises[0].get_number_of_favorisations())
+
     context = {
         'exercises': latest_exercises
     }
