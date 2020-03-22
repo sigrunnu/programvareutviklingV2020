@@ -30,7 +30,7 @@ SECRET_KEY = '6!9f=yao2t)-vvoc0)x(lr55ob01cgipl=$snx2#0eu8i^=_mx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['exercise-it.herokuapp.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -76,20 +76,6 @@ REST_FRAMEWORK = {
         'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 100,
     'ORDERING_PARAM': 'ordering',
-}
-
-# Elasticsearch configuration
-ELASTICSEARCH_DSL = {
-    'default': {
-        'hosts': 'https://'
-                 'search-exercise-it-development-h36m2weu5dzg57tcv22d26afk4.'
-                 'us-east-2.es.amazonaws.com',
-        'http_auth': ('root', '3X3rs1s317!?'),
-    }
-}
-
-ELASTICSEARCH_INDEX_NAMES = {
-    'search_indexes.documents.exercise': 'exercise'
 }
 
 ROOT_URLCONF = 'exerciseit.urls'
@@ -157,18 +143,30 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': 'https://c4129f4e85a842b99e5e6de7ca1d4e48.'
+                 'eu-central-1.aws.cloud.es.io:9243',
+        'http_auth': ('elastic', '8KOd1sCp1jBrK1cmIEvHDJjr'),
+    }
+}
+
+ELASTICSEARCH_INDEX_NAMES = {
+    'search_indexes.documents.exercise': 'exercise'
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
 USE_L10N = True
 
 USE_TZ = True
+
+LANGUAGE_CODE = 'en-us'
+
+TIME_ZONE = 'UTC'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
@@ -177,24 +175,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
-
-"""
-    ImportError Is thrown when local_settings.py is not present,
-    such as in the production environment.
-"""
-
-if DATABASES['default']['NAME'] == 'dabfubmjtdho1p':
-    print("\033[95mRunning django with local settings: \033[0m")
-    print("\033[95mDatabase is: exercise-it-db-development\033[0m")
-else:
-    print("\033[95mRunning django with production settings:\033[0m")
-    print("\033[95mDatabase is: exercise-it-db\033[0m")
-print("Elastic endpoint: " + ELASTICSEARCH_DSL['default']['hosts'])
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
