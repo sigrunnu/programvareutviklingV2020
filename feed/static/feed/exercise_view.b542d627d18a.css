@@ -1,0 +1,146 @@
+#exerciseView_wrapper {
+    display: flex;
+
+    justify-content: center;
+
+    width: 100%;
+
+    height: 100%;
+
+}
+
+/* Tell every child of wrapper to use display: flex; */
+#exerciseView_wrapper * {
+    display: flex;
+}
+
+#exerciseView_Container {
+
+    flex-direction: column;
+
+    margin: 1% 5% 1% 5%;
+
+    font-size: 14px;
+
+    /* Use this parameter to adjust content width */
+    width: 60%;
+
+    align-items: center;
+
+    justify-content: space-evenly;
+
+    height: 100%;
+
+}
+
+#exerciseView_InformationContainer {
+    flex-direction: row;
+
+    justify-content: space-evenly;
+
+    width: 100%;
+
+}
+
+#exerciseView_ImageContainer {
+
+    width: 50%;
+    height: 100%;
+
+    background-color: white;
+
+    justify-content: center;
+
+    margin-right: 1%;
+}
+
+#exerciseView_Image {
+    height: 100%;
+    width: 80%;
+
+}
+
+#exerciseView_Information {
+
+    width: 50%;
+    min-height: 100%;
+
+    background-color: white;
+
+    flex-direction: column;
+
+    justify-content: space-evenly;
+
+    margin-left: 1%;
+
+}
+
+#exerciseView_Information > div:first-of-type img {
+    width: 40px;
+    height: 30px;
+
+}
+
+
+#exerciseView_Information form {
+    padding-left: 0;
+
+}
+
+#exerciseView_Information form input {
+    width: 200px;
+
+}
+
+#exerciseView_Information form button {
+    width: 100px;
+
+}
+
+#exerciseView_DescriptionContainer {
+    display: flex;
+
+    margin-top: 2%;
+
+    background-color: white;
+
+
+    min-height: 50%;
+
+    width: 100%;
+
+}
+
+#exerciseView_Information * {
+    padding: 0 8% 0 8%;
+}
+
+#exerciseView_description {
+    font-size: 15px;
+
+    text-align: left;
+
+    padding: 2% 10% 2% 10%;
+
+    flex-direction: column;
+
+    overflow-x: auto;
+
+
+}
+
+#exerciseView_TitleAndAuthor * {
+    margin-right: 12%;
+}
+
+
+#exerciseView_likes {
+
+    justify-content: left;
+
+    width: 30%;
+
+    align-items: center;
+
+    font-size: 30px;
+}
