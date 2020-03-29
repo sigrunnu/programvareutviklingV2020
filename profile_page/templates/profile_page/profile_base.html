@@ -33,7 +33,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" type="text/css"
-          href="{% static 'feed/exercise_form.css' %}">
+          href="{% static 'profile_page/profile_view.css' %}">
 
 </head>
 <body>
@@ -65,9 +65,30 @@
 
 
             <div class="item" id="profileContainer">
-                <a href="{% url 'logout' %}">
-                    Logg ut
-                </a>
+                {% if user.is_authenticated %}
+                    {% if user.is_superuser %}
+                    <a href="{% url 'admin:index' %}">
+                        <i class="material-icons">person</i>
+                        Admin sidene
+                    </a>
+                    {% endif %}
+                    <a href="{% url 'profile' %}">
+                        <i class="material-icons">person</i>
+                        Min profil
+                    </a>
+                    <a href="{% url 'logout' %}">
+                        Logg ut
+                    </a>
+
+                {% else %}
+                    <a id="login" href="{% url 'login' %}">
+                        Logg inn
+                    </a>
+                    <a id="signup" href="{% url 'signup' %}">
+                        Registrer bruker
+                    </a>
+                {% endif %}
+
             </div>
 
         </div>
