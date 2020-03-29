@@ -38,7 +38,7 @@
                                 {{ favouirites }}
 
                                 {% load static %}
-                                <img src="{% static "feed/images/heart.png" %}"
+                                <img src="{% static "feed/heart.png" %}"
                                      alt="Heart image" style="margin-left: 10%">
                             </div>
 
@@ -56,7 +56,7 @@
                             {% if exercise.created_by.user.profile.is_pro %}
                              {% load static %}
                                 <div class="item-image">
-                                    <img src="{% static 'feed/images/verified.png' %}"
+                                    <img src="{% static 'feed/verified.png' %}"
                                          style="width: 25px; height: 20px;">
                                 </div>
                             {% endif %}

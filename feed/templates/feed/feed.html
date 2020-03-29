@@ -33,7 +33,7 @@
 
                             {% if exercise.created_by.user.profile.is_pro %}
 
-                                <img src="{% static 'feed/images/verified.png' %}"
+                                <img src="{% static 'feed/verified.png' %}"
                                      style="width:20px;height:20px;">
 
                             {% endif %}
@@ -45,7 +45,7 @@
                         <div>
 
 
-                            <img src="{% static "feed/images/heart.png" %}"
+                            <img src="{% static "feed/heart.png" %}"
                                  alt="Heart image" style="width: 20px;
                                  height: 20px;">
 
@@ -71,7 +71,7 @@
         {% load static %}
         <a id="addExerciseBtn" href="{% url 'addExercise' %}">
             <img id="addExercise"
-                 src="{% static 'feed/images/addExercise.png' %}"
+                 src="{% static 'feed/addExercise.png' %}"
                  alt="Exercise"/>
         </a>
 
