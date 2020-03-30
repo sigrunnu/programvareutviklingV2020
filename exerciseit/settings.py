@@ -30,7 +30,7 @@ SECRET_KEY = '6!9f=yao2t)-vvoc0)x(lr55ob01cgipl=$snx2#0eu8i^=_mx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['exercise-it.herokuapp.com', '134.209.236.146']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -123,17 +123,17 @@ WSGI_APPLICATION = 'exerciseit.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'da16e7ipi6qpnu',
-        'USER': 'ceuxmorvrolngr',
-        'PASSWORD':
-            'd3b9a372231a692d25d4e23de12011bf80502a2586053b23aa3d4166171e5f55',
-        'HOST': 'ec2-18-209-187-54.compute-1.amazonaws.com',
+        'NAME': 'dc1tppu4d6eo6b',
+        'USER': 'sfganiylhpomdd',
+        'PASSWORD': '916823b87d0dab2488be4c08c5e9e'
+                    '09a6c75eed9e6d815c56ce622932b36bb16',
+        'HOST': 'ec2-34-233-186-251.compute-1.amazonaws.com',
         'PORT': '5432',
         'TEST': {
-                    'ENGINE': 'django.db.backends.sqlite3',
-                    'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
-                }
-    }
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+        }
+    },
 }
 
 # Password validation
@@ -193,10 +193,10 @@ except ImportError:
 """
 
 if DATABASES['default']['NAME'] == 'dc1tppu4d6eo6b':
-    print("\033[95mRunning django with local settings: \033[0m")
+    print("\033[95mRunning django with development settings: \033[0m")
     print("\033[95mDatabase is: exercise-it-db-development\033[0m")
 else:
-    print("\033[95mRunning django with production settings:\033[0m")
+    print("\033[95mRunning django with local production settings:\033[0m")
     print("\033[95mDatabase is: exercise-it-db\033[0m")
 print("Elastic endpoint: " + ELASTICSEARCH_DSL['default']['hosts'])
 
