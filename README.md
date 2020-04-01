@@ -58,23 +58,43 @@ is tidy and consistent. Since a Pep8 check is done in CI, you will need to
 follow the rules specified by this style guide, if you want to contribute.
 
 ## Installation
+## Setting up a development environment
+To make ExerciseIT as accessible as possible, we want to make it easy for you to contribute to the project. In order to do that, there are several ways you can set up a development environment.
+
 <details>
-  <summary>Click here to see the installation guide using Docker</summary>
+  <summary>Click here to set up a development environment using Docker</summary>
+
+  ### What is Docker?
+  Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications       from your infrastructure so you can deliver software quickly. ExerciseIT has features that allows it to run on Docker Toolbox.        Docker toolbox can be installed on both the Windows OS and MacOS. 
+
+  Note that running ExerciseIT on Docker requires specific changes to the operating system of your computer. If you are new to software development and dont feel comfortable editing the settings of your operative system. You should consider the guide for setting up a development environment on Windows or MacOS.
+  ### Prerequisites
+  To run ExerciseIT on Docker, you need to have Docker Toolbox installed. To install Docker Toolbox, please visit the official Docker   installation Guide.
+  - [**Install on Windows**](https://docs.docker.com/toolbox/toolbox_install_windows/)
+  - [**Install on MacOS**](https://docs.docker.com/toolbox/toolbox_install_mac/)
   
-  ## Prerequisites
+  When you have completed the installation, and successfully run the ```docker run hello-world``` command, proceed to the next step.
+  ### Step 1: Clone the repo from GitLab
+  ### Step 2: Build the Docker Image
+  ### Step 3: Verify your Docker Machine IP adress
+  ### Step 4: Run the Docker Container
+  </details>
+<details>
+  <summary>Click here to set up a development environment using the Windows OS</summary>
+  
+  ### Prerequisites
+  ### Step 1: Clone the repo from GitLab
+  ### Step 2: Install the requirered packages
+  ### Step 3: Run the Django server locally
 
 </details>
 <details>
-  <summary>Click here to see the installation guide using Windows</summary>
+  <summary>Click here to set up a development environment using MacOS</summary>
   
   ## Prerequisites
-
-</details>
-<details>
-  <summary>Click here to see the installation guide using MacOS</summary>
-  
-  ## Prerequisites
-
+  ### Step 1: Clone the repo from GitLab
+  ### Step 2: Install the requirered packages
+  ### Step 3: Run the Django server locally
 </details>
 
 ## Tech/framework used
