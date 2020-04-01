@@ -41,7 +41,7 @@
 ## Table of contents
 
 - [How to use?](#how-to-use)
-- [Installation](#installation)
+- [Set up a development environment](#setting-up-a-development-environment)
 - [Tech/framework used](#techframework-used)
 - [Tests and coverage](#tests-and-coverage)
 - [License](#license)
@@ -57,7 +57,6 @@ For a detailed guide on how to use Exercise It!, please click here [](wiki/)
 is tidy and consistent. Since a Pep8 check is done in CI, you will need to 
 follow the rules specified by this style guide, if you want to contribute.
 
-## Installation
 ## Setting up a development environment
 To make ExerciseIT as accessible as possible, we want to make it easy for you to contribute to the project. In order to do that, there are several ways you can set up a development environment.
 
