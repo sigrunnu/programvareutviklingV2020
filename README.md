@@ -1,19 +1,19 @@
 <div align="center">
       <a href="http://134.209.236.146">
-        <img src="http://134.209.236.146/static/feed/logo.png" alt="Exercise-it Logo" width="100" height="100">
+        <img src="http://134.209.236.146/static/feed/logo.png" alt="Exercise It! Logo" width="100" height="100">
       </a>
 </div>
 <div align="center">
-    <h3>Exercise-it</h3>
+    <h3>Exercise It!</h3>
 </div>
 <div align="center">
   <strong>Build the foundation for your active life:</strong><br>
-  Get inspiered and share exercises with Exercise-it
+  Get inspiered and share exercises with Exercise It!
 </div>
 <br/>
 <div align="center">
   <a href="https://gitlab.stud.idi.ntnu.no/tdt4140-2020/64/-/blob/master/LICENCE">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Exercise-it is released under the MIT license." />
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Exercise It! is released under the MIT license." />
   </a>
   <a href="https://gitlab.stud.idi.ntnu.no/tdt4140-2020/64/commits/master">
     <img src="https://gitlab.stud.idi.ntnu.no/tdt4140-2020/64/badges/master/pipeline.svg" alt="Pipeline status"/>
@@ -58,17 +58,17 @@ is tidy and consistent. Since a Pep8 check is done in CI, you will need to
 follow the rules specified by this style guide, if you want to contribute.
 
 ## Setting up a development environment
-To make ExerciseIT as accessible as possible, we want to make it easy for you to contribute to the project. In order to do that, there are several ways you can set up a development environment.
+To make Exercise It! as accessible as possible, we want to make it easy for you to contribute to the project. In order to do that, there are several ways you can set up a development environment.
 
 <details>
   <summary>Click here to set up a development environment using Docker</summary>
 
   ### What is Docker?
-  Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications       from your infrastructure so you can deliver software quickly. ExerciseIT has features that allows it to run on Docker Toolbox.        Docker toolbox can be installed on both the Windows OS and MacOS. 
+  Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications       from your infrastructure so you can deliver software quickly. Exercise It! has features that allows it to run on Docker Toolbox.        Docker toolbox can be installed on both the Windows OS and MacOS. 
 
-  Note that running ExerciseIT on Docker requires specific changes to the operating system of your computer. If you are new to software development and dont feel comfortable editing the settings of your operative system. You should consider the guide for setting up a development environment on Windows or MacOS.
+  Note that running Exercise It! on Docker requires specific changes to the operating system of your computer. If you are new to software development and dont feel comfortable editing the settings of your operative system. You should consider the guide for setting up a development environment on Windows or MacOS.
   ### Prerequisites
-  To run ExerciseIT on Docker, you need to have Docker Toolbox installed. To install Docker Toolbox, please visit the official Docker   installation Guide.
+  To run Exercise It! on Docker, you need to have Docker Toolbox installed. To install Docker Toolbox, please visit the official Docker   installation Guide.
   - [**Install on Windows**](https://docs.docker.com/toolbox/toolbox_install_windows/)
   - [**Install on MacOS**](https://docs.docker.com/toolbox/toolbox_install_mac/)
   
