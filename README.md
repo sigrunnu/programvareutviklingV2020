@@ -40,12 +40,24 @@
 
 ## Table of contents
 
+- [Motivation](#motivation)
 - [How to use?](#how-to-use)
 - [Set up a development environment](#setting-up-a-development-environment)
 - [Tech/framework used](#techframework-used)
 - [Tests and coverage](#tests-and-coverage)
 - [License](#license)
 
+## Motivation 
+
+Due to the recent years heavy focus on health and fitness, people are 
+now more than ever exercising. Instagram is overflowing of well trained bodies,
+but for many beginners it is hard to know where to start, and find out
+which type of exercise which will give the most effect.
+
+Exercise It! aims to make it more accessible for the everyday man to get
+into exercising. Our application accomplishes this by letting users post and 
+share exercises with each other. This way it will be easier for everyone to
+start exercising, no matter what starting point.
 
 ## How to use?
 
