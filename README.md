@@ -1,6 +1,6 @@
 <div align="center">
       <a href="http://134.209.236.146">
-        <img src="http://134.209.236.146/static/feed/logo.png" alt="Exercise-it Logo" width="72" height="72">
+        <img src="http://134.209.236.146/static/feed/logo.png" alt="Exercise-it Logo" width="100" height="100">
       </a>
 </div>
 <div align="center">
@@ -32,7 +32,7 @@
   <a href="http://134.209.236.146">
       <strong>
         Try out Exercise It!
-      <strong>
+      </strong>
   </a>
 </div>
  
@@ -49,7 +49,7 @@
 
 ## How to use?
 
-For a detailed guide on how to use Exercise It!, please click here [](wiki/)
+[Click here]() for a detailed guide on how to use Exercise It!
 
 ## Code style
 
@@ -98,13 +98,12 @@ To make ExerciseIT as accessible as possible, we want to make it easy for you to
 
 ## Tech/framework used
 
-Exercise is built with
+Exercise It! is built with
 - [Django](https://www.djangoproject.com/)
 - [Elasticsearch](https://www.elastic.co/)
 - [Bootstrap](https://getbootstrap.com/)
 
 ## Tests and coverage
-Describe and show how to run the tests with code examples.
 
 To run tests, type:
 ```
@@ -117,5 +116,5 @@ pytest --cov
 ```
 
 ## License
-Exercise-it is MIT licensed, as found in the
+Exercise It! is MIT licensed, as found in the
 [LICENSE](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/64/-/blob/master/LICENCE) file.
