@@ -26,11 +26,36 @@
   </a>
 </div>
 
+<br>
+ 
+<div align="center">
+  <a href="http://134.209.236.146">
+      <strong>
+        Try out Exercise It!
+      <strong>
+  </a>
+</div>
+ 
+<br>
 
 ## Table of contents
 
+- [How to use?](#how-to-use)
 - [Installation](#installation)
+- [Tech/framework used](#techframework-used)
+- [Tests and coverage](#tests-and-coverage)
 - [License](#license)
+
+
+## How to use?
+
+For a detailed guide on how to use Exercise It!, please click here [](wiki/)
+
+## Code style
+
+[Pep8](https://www.python.org/dev/peps/pep-0008/) is used to ensure code 
+is tidy and consistent. Since a Pep8 check is done in CI, you will need to 
+follow the rules specified by this style guide, if you want to contribute.
 
 ## Installation
 <details>
@@ -51,6 +76,26 @@
   ## Prerequisites
 
 </details>
+
+## Tech/framework used
+
+Exercise is built with
+- [Django](https://www.djangoproject.com/)
+- [Elasticsearch](https://www.elastic.co/)
+- [Bootstrap](https://getbootstrap.com/)
+
+## Tests and coverage
+Describe and show how to run the tests with code examples.
+
+To run tests, type:
+```
+pytest
+```
+
+To determine code coverage, type: 
+```
+pytest --cov
+```
 
 ## License
 Exercise-it is MIT licensed, as found in the
