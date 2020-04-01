@@ -17,10 +17,10 @@ pycodestyle:
 pytest:
   stage: Testing
   script:
-    - pytest feed/
+    - pytest
 
 coverage:
   stage: Testing
   script:
-    - pytest --cov=feed
+    - pytest --cov
   
