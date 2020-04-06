@@ -1,7 +1,7 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 
-from profile_page.views import profile, signupView
+from profile_page.views import profile, signup_view
 
 
 class TestUrls(SimpleTestCase):
@@ -12,4 +12,4 @@ class TestUrls(SimpleTestCase):
 
     def test_signupView_is_resolved(self):
         url = reverse('signup')
-        self.assertEqual(resolve(url).func, signupView)
+        self.assertEqual(resolve(url).func, signup_view)

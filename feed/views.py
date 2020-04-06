@@ -1,15 +1,16 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
-from django.views.generic import CreateView
-from elasticsearch_dsl import Q
-from profile_page.models import CreatedBy
-from feed.models import Exercise, Favorisation, Rating
-from search_indexes.documents.exercise import ExerciseDocument
-from feed.utils import counting_sort_exercises_based_on_rating
 from django.contrib import auth
 from django.http import (
     Http404
 )
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404
+from django.views.generic import CreateView
+from elasticsearch_dsl import Q
+
+from feed.models import Exercise, Favorisation, Rating
+from feed.utils import counting_sort_exercises_based_on_rating
+from profile_page.models import CreatedBy
+from search_indexes.documents.exercise import ExerciseDocument
 
 
 # Create your views here.

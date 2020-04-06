@@ -1,7 +1,8 @@
-import pytest
 import unittest
-from mixer.backend.django import mixer
+
+import pytest
 from django.db.utils import DataError
+from mixer.backend.django import mixer
 
 
 @pytest.mark.django_db

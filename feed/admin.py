@@ -1,7 +1,7 @@
 from django.contrib import admin
 from image_cropping import ImageCroppingMixin
+
 from .models import MuscleGroup, Favorisation, Rating, Exercise
-from profile_page.models import CreatedBy
 
 
 class ExerciseAdmin(ImageCroppingMixin, admin.ModelAdmin):
