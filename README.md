@@ -38,7 +38,7 @@
 ## Table of contents
 
 - [Motivation](#motivation)
-- [How to use?](#how-to-use)
+- [How to use](#how-to-use)
 - [Set up a development environment](#setting-up-a-development-environment)
 - [Tech/framework used](#techframework-used)
 - [Tests and coverage](#tests-and-coverage)
@@ -57,7 +57,7 @@ into exercising. Our application accomplishes this by letting users post and
 share exercises with each other. This way it will be easier for everyone to
 start exercising, no matter what starting point.
 
-## How to use?
+## How to use
 
 [Click here]() for a detailed guide on how to use Exercise It!
 
