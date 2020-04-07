@@ -18,9 +18,6 @@
   <a href="https://gitlab.stud.idi.ntnu.no/tdt4140-2020/64/commits/master">
     <img src="https://gitlab.stud.idi.ntnu.no/tdt4140-2020/64/badges/master/pipeline.svg" alt="Pipeline status"/>
   </a>
-  <a href="https://gitlab.stud.idi.ntnu.no/tdt4140-2020/64/commits/master">
-    <img src="https://gitlab.stud.idi.ntnu.no/tdt4140-2020/64/badges/master/coverage.svg" alt="Coverage report"/>
-  </a>
   <a href="https://www.python.org/dev/peps/pep-0008/">
     <img src="https://img.shields.io/badge/code%20style-pep8-orange.svg" alt="Coverage report"/>
   </a>
