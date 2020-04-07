@@ -45,17 +45,18 @@
 - [Set up a development environment](#setting-up-a-development-environment)
 - [Tech/framework used](#techframework-used)
 - [Tests and coverage](#tests-and-coverage)
+- [How to contribute](#how-to-contribute)
 - [License](#license)
 
-## Motivation 
+## Motivation
 
-Due to the recent years heavy focus on health and fitness, people are 
+Due to the recent years heavy focus on health and fitness, people are
 now more than ever exercising. Instagram is overflowing of well trained bodies,
 but for many beginners it is hard to know where to start, and find out
 which type of exercise which will give the most effect.
 
 Exercise It! aims to make it more accessible for the everyday man to get
-into exercising. Our application accomplishes this by letting users post and 
+into exercising. Our application accomplishes this by letting users post and
 share exercises with each other. This way it will be easier for everyone to
 start exercising, no matter what starting point.
 
@@ -65,30 +66,40 @@ start exercising, no matter what starting point.
 
 ## Code style
 
-[Pep8](https://www.python.org/dev/peps/pep-0008/) is used to ensure code 
-is tidy and consistent. Since a Pep8 check is done in CI, you will need to 
+[Pep8](https://www.python.org/dev/peps/pep-0008/) is used to ensure code
+is tidy and consistent. Since a Pep8 check is done in CI, you will need to
 follow the rules specified by this style guide, if you want to contribute.
 
 ## Setting up a development environment
+
 To make Exercise It! as accessible as possible, we want to make it easy for you to contribute to the project. In order to do that, there are several ways you can set up a development environment.
 
 <details>
   <summary>Click here to set up a development environment using Docker</summary>
 
-  ### What is Docker?
-  Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications       from your infrastructure so you can deliver software quickly. Exercise It! has features that allows it to run on Docker Toolbox.        Docker toolbox can be installed on both the Windows OS and MacOS. 
+### What is Docker?
 
-  Note that running Exercise It! on Docker requires specific changes to the operating system of your computer. If you are new to software development and dont feel comfortable editing the settings of your operative system. You should consider the guide for setting up a development environment on Windows or MacOS.
-  ### Prerequisites
-  To run Exercise It! on Docker, you need to have Docker Toolbox installed. To install Docker Toolbox, please visit the official Docker   installation Guide.
-  - [**Install on Windows**](https://docs.docker.com/toolbox/toolbox_install_windows/)
-  - [**Install on MacOS**](https://docs.docker.com/toolbox/toolbox_install_mac/)
-  
-  When you have completed the installation, and successfully run the ```docker run hello-world``` command, proceed to the next step.
-  ### Step 1: Clone the repo from GitLab
-  ### Step 2: Build the Docker Image
-  ### Step 3: Verify your Docker Machine IP adress
-  ### Step 4: Run the Docker Container
+Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. Exercise It! has features that allows it to run on Docker Toolbox. Docker toolbox can be installed on both the Windows OS and MacOS.
+
+Note that running Exercise It! on Docker requires specific changes to the operating system of your computer. If you are new to software development and dont feel comfortable editing the settings of your operative system. You should consider the guide for setting up a development environment on Windows or MacOS.
+
+### Prerequisites
+
+To run Exercise It! on Docker, you need to have Docker Toolbox installed. To install Docker Toolbox, please visit the official Docker installation Guide.
+
+- [**Install on Windows**](https://docs.docker.com/toolbox/toolbox_install_windows/)
+- [**Install on MacOS**](https://docs.docker.com/toolbox/toolbox_install_mac/)
+
+When you have completed the installation, and successfully run the `docker run hello-world` command, proceed to the next step.
+
+### Step 1: Clone the repo from GitLab
+
+### Step 2: Build the Docker Image
+
+### Step 3: Verify your Docker Machine IP adress
+
+### Step 4: Run the Docker Container
+
   </details>
 <details>
   <summary>Click here to set up a development environment using the Windows OS</summary>
@@ -111,6 +122,7 @@ To make Exercise It! as accessible as possible, we want to make it easy for you 
 ## Tech/framework used
 
 Exercise It! is built with
+
 - [Django](https://www.djangoproject.com/)
 - [Elasticsearch](https://www.elastic.co/)
 - [Bootstrap](https://getbootstrap.com/)
@@ -118,15 +130,26 @@ Exercise It! is built with
 ## Tests and coverage
 
 To run tests, type:
+
 ```
 pytest
 ```
 
-To determine code coverage, type: 
+To determine code coverage, type:
+
 ```
 pytest --cov
 ```
 
+## How to contribute
+
+1. Follow the steps listed in [Set up a development environment](#setting-up-a-development-environment) section to get the project working on your machine
+2. Create a branch
+3. Make some changes 👨‍💻
+4. Submit a pull request with a comprehensive list of changes made 📝
+
+We will review your changes and hopefully they will take a part of the project
+
 ## License
-Exercise It! is MIT licensed, as found in the
-[LICENSE](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/64/-/blob/master/LICENCE) file.
+
+Exercise It! is MIT licensed, as found in the [LICENSE](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/64/-/blob/master/LICENCE) file.
