@@ -8,7 +8,7 @@
 </div>
 <div align="center">
   <strong>Build the foundation for your active life:</strong><br>
-  Get inspiered and share exercises with Exercise It!
+  Get inspired and share exercises with Exercise It!
 </div>
 <br/>
 <div align="center">
@@ -89,11 +89,11 @@ To run Exercise It! on Docker, you need to have Docker Toolbox installed. To ins
 
 When you have completed the installation, and successfully run the `docker run hello-world` command, proceed to the next step.
 
-### Step 1: Clone the repo from GitLab
+### Step 1: Clone the repository from GitLab
 
 ### Step 2: Build the Docker Image
 
-### Step 3: Verify your Docker Machine IP adress
+### Step 3: Verify your Docker Machine IP address
 
 ### Step 4: Run the Docker Container
 
@@ -102,8 +102,8 @@ When you have completed the installation, and successfully run the `docker run h
   <summary>Click here to set up a development environment using the Windows OS</summary>
   
   ### Prerequisites
-  ### Step 1: Clone the repo from GitLab
-  ### Step 2: Install the requirered packages
+  ### Step 1: Clone the repository from GitLab
+  ### Step 2: Install the required packages
   ### Step 3: Run the Django server locally
 
 </details>
@@ -111,8 +111,8 @@ When you have completed the installation, and successfully run the `docker run h
   <summary>Click here to set up a development environment using MacOS</summary>
   
   ## Prerequisites
-  ### Step 1: Clone the repo from GitLab
-  ### Step 2: Install the requirered packages
+  ### Step 1: Clone the repository from GitLab
+  ### Step 2: Install the required packages
   ### Step 3: Run the Django server locally
 </details>
 
