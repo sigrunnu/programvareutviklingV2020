@@ -111,9 +111,79 @@ When you have completed the installation, and successfully run the `docker run h
   <summary>Click here to set up a development environment using MacOS</summary>
   
   ## Prerequisites
+
+  You will need Python 3.8 for this project
+
+  **Option 1 (beginner friendly)**
+
+  Visit [the official Python download page](https://www.python.org/downloads/)
+
+  **Option 2 (advanced)**
+
+  Make sure [Homebrew](https://brew.sh/index_nb) is installed
+
+  Install Python 3.8 by typing
+
+  ```
+  brew install python@3.8
+  ```
+
+  Add the newly added Python installation to path using 
+
+  ```
+  echo 'export PATH="/usr/local/Cellar/python@3.8/3.8.2/libexec/bin:$PATH"' >> ~/.bash_profile
+  ```
+
   ### Step 1: Clone the repository from GitLab
+
+  
+  
+  Either clone with SSH (SSH keys needs to be configured)
+  ```cmd
+  git clone git@gitlab.stud.idi.ntnu.no:tdt4140-2020/64.git
+  ```
+
+  or clone with HTTPS
+  ```
+  git clone https://gitlab.stud.idi.ntnu.no/tdt4140-2020/64.git
+  ```
+  
   ### Step 2: Install the required packages
+
+  Exercise It! use a bunch of Python packages to ensure seamless development
+
+  Install the required packages by typing
+
+  ```
+  pip install -r requirements.txt
+  ```
+
+  and
+
+  ```
+  pip install -r requirements-ci.txt
+  ```
+
+  Please note that you have to run both commands
+
+  
+  **Make sure you point to the correct Python installation!**
+  
+  By default on MacOS, the pre-installed Python 2.7 that comes with every mac, is the version that ```python``` points to. This means that you might have to replace ```pip``` with ```pip3```, or the packages will be installed for Python 2.7 version, if you did not configure an alias correctly. 
+
   ### Step 3: Run the Django server locally
+
+  To run the server type
+
+  ```
+  python3 manage.py runserver
+  ```
+
+  or if you managed to set up an alias
+
+  ```
+  python manage.py runserver
+  ```
 </details>
 
 ## Tech/framework used
