@@ -90,13 +90,94 @@ To run Exercise It! on Docker, you need to have Docker Toolbox installed. To ins
 When you have completed the installation, and successfully run the `docker run hello-world` command, proceed to the next step.
 
 ### Step 1: Clone the repository from GitLab
-
-### Step 2: Build the Docker Image
-
+Open your terminal and navigate to the folder in which you will clone the project. In this folder, run the following command:
+```
+git clone https://gitlab.stud.idi.ntnu.no/tdt4140-2020/64.git
+```
+When the cloning is finished, navigate inside the repo with 
+```
+cd 64
+```
+When you are inside the repo and the teminal looks something like this:
+```
+C:\Users\<Username>\<Coding_projects>\64>
+```
+proceed to the next step.
+### Step 2: Build the Docker container
+Now you need to build the docker container.This is done bu using Docker Compose, which is a tool for defining and running Docker applications. The configurations for the Docker container is found in the Dockerfile and in docker-compose.yml. To build the container, simply run:
+```
+docker-compose build --no-cache
+```
+The output should be something like this:
+```
+Building web
+Step 1/7 : FROM python:3
+ ---> f88b2f81f83a
+Step 2/7 : ENV PYTHONUNBUFFERED 1
+ ---> Using cache
+ ---> f37beef4faa5
+Step 3/7 : RUN mkdir /code
+ ---> Using cache
+ ---> 8986058c087d
+Step 4/7 : WORKDIR /code
+ ---> Using cache
+ ---> e322d7f36b34
+Step 5/7 : COPY requirements.txt /code/
+ ---> Using cache
+ ---> 1a3188355137
+Step 6/7 : RUN pip install -r requirements.txt
+ ---> Using cache
+ ---> 7105abaa6f6d
+Step 7/7 : COPY . /code/
+ ---> 9df05e8285ca
+Successfully built 9df05e8285ca
+Successfully tagged 64_web:latest
+```
+when successfully created the docker image, proceed to the next step.
 ### Step 3: Verify your Docker Machine IP address
-
+Docker Machine is a tool for provisioning and managing your Dockerized hosts (hosts with Docker Engine on them). You can view Docker Machine as a server that runs the project. The default Docker machine was created when you installed Docker Toolbox. The default ip adress for this server is: 192.168.99.100. To verify this, run:
+```
+docker-machine ls
+```
+from the 64 project repo. The output should be something like this:
+```
+NAME      ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER     ERRORS
+default   *        virtualbox   Running   tcp://192.168.99.100:2376           v19.03.5
+```
+If the URL shows a different IP-adress (tcp://different ip adress:2376), you should use this IP adress when running the Exercise-it projects locally on your computer.
 ### Step 4: Run the Docker Container
+Now all is set for running the Exercise-it repo with Docker. To start the Docker Container, simply run the following copmmand:
+```
+docker-compose up
+``` 
+make sure you are in the 64-folder when running this command. 
 
+You if you see no errors you should now be able to se the procject running on the IP adress of your docker machine at port 8000. If you have the default IP-adress: 192.168.99.100. You can write 192.168.99.100:8000 in the web browser and explore the Exercise-it project.
+
+### Running commands
+To run commands in the Docker application, open up a new terminal window and write (in the 64-folder):
+```
+docker-compose run web "your command here" 
+```
+
+For example, you may run the tests for the projects with:
+```
+docker-compose run web pytest feed/ search_indexes/ profile_page/
+```
+
+To run the migration files, you can run the following command:
+```
+docker-compose run web python manage.py migrate
+```
+### Encountering errors
+If you encounbter network errors, you may need to restart your Docker Machine. To do this write the following commands:
+```
+docker-machine stop
+docker-machine start
+docker-machine env
+```
+
+After restarting the docker machine, you must verify the IP-adress again.
   </details>
 <details>
   <summary>Click here to set up a development environment using the Windows OS</summary>
