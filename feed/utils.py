@@ -16,15 +16,15 @@ def counting_sort_exercises_based_on_rating(exercises):
     try:
         highest_value = 50
         exercise_result_list = [0 for i in range(len(exercises))]
-        c = [0 for i in range(highest_value+1)]
+        c = [0 for i in range(highest_value + 1)]
         for j in range(len(exercises)):
             rating_score = exercises[j].get_rating_score()
             c[int(rating_score * 10)] = c[int(rating_score * 10)] + 1
-        for i in range(1, highest_value+1):
-            c[i] = c[i] + c[i-1]
-        for j in range(len(exercises)-1, -1, -1):
+        for i in range(1, highest_value + 1):
+            c[i] = c[i] + c[i - 1]
+        for j in range(len(exercises) - 1, -1, -1):
             rating_score = exercises[j].get_rating_score()
-            exercise_result_list[c[int(rating_score * 10)]-1] = exercises[j]
+            exercise_result_list[c[int(rating_score * 10)] - 1] = exercises[j]
             c[int(rating_score * 10)] -= 1
         return list(reversed(exercise_result_list))
     except ValueError as e:

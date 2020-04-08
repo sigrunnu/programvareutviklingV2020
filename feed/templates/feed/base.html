@@ -65,10 +65,10 @@
             <div class="item" id="profileContainer">
                 {% if user.is_authenticated %}
                     {% if user.is_superuser %}
-                    <a href="{% url 'admin:index' %}">
-                        <i class="material-icons">person</i>
-                        Admin sidene
-                    </a>
+                        <a href="{% url 'admin:index' %}">
+                            <i class="material-icons">person</i>
+                            Admin sidene
+                        </a>
                     {% endif %}
                     <a href="{% url 'profile' %}">
                         <i class="material-icons">person</i>

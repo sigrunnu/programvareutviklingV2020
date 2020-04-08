@@ -39,7 +39,8 @@
 
                                 {% load static %}
                                 <img src="{% static "feed/heart.png" %}"
-                                     alt="Heart image" style="margin-left: 10%">
+                                     alt="Heart image"
+                                     style="margin-left: 10%">
                             </div>
 
                         </div>
@@ -54,7 +55,7 @@
                             {% endif %}
 
                             {% if exercise.created_by.user.profile.is_pro %}
-                             {% load static %}
+                                {% load static %}
                                 <div class="item-image">
                                     <img src="{% static 'feed/verified.png' %}"
                                          style="width: 25px; height: 20px;">
@@ -69,10 +70,10 @@
 
                         <div id="exerciseStarRating">
                             ⭐ {% if rating_score is None %}
-                                Øvelsen har ingen rating
-                                {% else %}
-                                {{ rating_score|floatformat:"1" }}
-                                {% endif %}
+                            Øvelsen har ingen rating
+                        {% else %}
+                            {{ rating_score|floatformat:"1" }}
+                        {% endif %}
                             {{ rating_message }}
                         </div>
 
@@ -89,18 +90,19 @@
                         </div>
 
                         <div>
-                        {% if user.is_authenticated and user.profile.is_pro %}
-                            <form action="{% url 'rateExercise' exercise.id %}">
-                                <input placeholder="Vurder øvelse (1-5)"
-                                       type="number"
-                                       min="1"
-                                       max="5"
-                                       name="rating_field"/>
-                                <button style="margin-left: 2%" type="submit">
-                                    Vurder
-                                </button>
+                            {% if user.is_authenticated and user.profile.is_pro %}
+                                <form action="{% url 'rateExercise' exercise.id %}">
+                                    <input placeholder="Vurder øvelse (1-5)"
+                                           type="number"
+                                           min="1"
+                                           max="5"
+                                           name="rating_field"/>
+                                    <button style="margin-left: 2%"
+                                            type="submit">
+                                        Vurder
+                                    </button>
 
-                            </form>
+                                </form>
                             {% endif %}
                         </div>
                         {% comment %}<button onclick='{% url 'favoriseExercise' exercise.id %}'>
@@ -110,7 +112,8 @@
 
                         {% if logged_in %}
                             <div>
-                                <form id="" action="{% url 'favoriseExercise' exercise.id %}">
+                                <form id=""
+                                      action="{% url 'favoriseExercise' exercise.id %}">
                                     <button type="submit">Favoriser</button>
                                 </form>
                             </div>
