@@ -120,23 +120,9 @@ When you have completed the installation, and successfully run the `docker run h
 
   **Option 2 (advanced)**
 
-  Make sure [Homebrew](https://brew.sh/index_nb) is installed
-
-  Install Python 3.8 by typing
-
-  ```
-  brew install python@3.8
-  ```
-
-  Add the newly added Python installation to path using 
-
-  ```
-  echo 'export PATH="/usr/local/Cellar/python@3.8/3.8.2/libexec/bin:$PATH"' >> ~/.bash_profile
-  ```
+  Install using [Homebrew](https://brew.sh/index_nb)
 
   ### Step 1: Clone the repository from GitLab
-
-  
   
   Either clone with SSH (SSH keys needs to be configured)
   ```cmd
