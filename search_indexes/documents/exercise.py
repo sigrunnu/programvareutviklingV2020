@@ -23,7 +23,7 @@ html_strip = analyzer(
 
 @INDEX.doc_type
 class ExerciseDocument(Document):
-    """Book Elasticsearch document."""
+    """Exercise Elasticsearch document."""
 
     id = fields.IntegerField(attr='id')
 

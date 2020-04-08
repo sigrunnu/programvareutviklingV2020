@@ -7,9 +7,7 @@ from django_elasticsearch_dsl.registries import registry
 def update_document(sender, **kwargs):
     """Update document on added/changed records.
 
-    Update Book document index if related `books.Publisher` (`publisher`),
-    `books.Author` (`authors`), `books.Tag` (`tags`) fields have been updated
-    in the database.
+    Updates index if fields exercise_title or related muscle groups is updated
     """
     app_label = sender._meta.app_label
     model_name = sender._meta.model_name
@@ -29,17 +27,14 @@ def update_document(sender, **kwargs):
 
 @receiver(post_delete)
 def delete_document(sender, **kwargs):
-    """Update document on deleted records.
+    """Deletes document on deleted records.
 
-    Updates Book document from index if related `books.Publisher`
-    (`publisher`), `books.Author` (`authors`), `books.Tag` (`tags`) fields
-    have been removed from database.
+    Deletes index if Exercise is deleted from database
     """
     app_label = sender._meta.app_label
     model_name = sender._meta.model_name
     instance = kwargs['instance']
     if app_label == 'feed':
-        # If it is `books.Publisher` that is being updated.
         if model_name == 'exercise':
             instances = instance.exercises.all()
             for _instance in instances:
