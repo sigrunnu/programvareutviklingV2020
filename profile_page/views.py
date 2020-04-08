@@ -1,11 +1,14 @@
 import sys
-from feed.models import Exercise, Favorisation
+
 from django.contrib import auth
-from .forms import SignUpForm, EditProfileForm
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth import login, authenticate, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import PasswordChangeForm
+from django.shortcuts import render, redirect
+
+from feed.models import Exercise, Favorisation
+from .forms import SignUpForm, EditProfileForm
+
 sys.path.append('/64/feed/models')
 
 
@@ -31,7 +34,7 @@ def profile(request):
     return render(request, 'profile_page/profile_view.html', context)
 
 
-def signupView(request):
+def signup_view(request):
     form = SignUpForm(request.POST)
     if form.is_valid():
         user = form.save()
@@ -51,11 +54,11 @@ def signupView(request):
     return render(request, "registration/signup.html", {'form': form})
 
 
-def LoginView(request):
+def login_view(request):
     return render(request, "registration/login.html")
 
 
-def editProfile(request):
+def edit_profile(request):
     if request.method == 'POST':
         form = EditProfileForm(request.POST, instance=request.user)
 
@@ -69,7 +72,7 @@ def editProfile(request):
         return render(request, 'profile_page/edit_profile.html', args)
 
 
-def changePassword(request):
+def change_password(request):
     if request.method == 'POST':
         form = PasswordChangeForm(data=request.POST, user=request.user)
 
