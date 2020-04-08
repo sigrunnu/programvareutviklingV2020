@@ -144,15 +144,15 @@ from the 64 project repo. The output should be something like this:
 NAME      ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER     ERRORS
 default   *        virtualbox   Running   tcp://192.168.99.100:2376           v19.03.5
 ```
-If the URL shows a different IP-adress (tcp://different ip adress:2376), you should use this IP adress when running the Exercise-it projects locally on your computer.
+If the URL shows a different IP-adress (tcp:// different ip adress :2376), you should use this IP adress when running the Exercise It! projects locally on your computer.
 ### Step 4: Run the Docker Container
-Now all is set for running the Exercise-it repo with Docker. To start the Docker Container, simply run the following copmmand:
+Now all is set for running the Exercise It! repo with Docker. To start the Docker Container, simply run the following copmmand:
 ```
 docker-compose up
 ``` 
 make sure you are in the 64-folder when running this command. 
 
-You if you see no errors you should now be able to se the procject running on the IP adress of your docker machine at port 8000. If you have the default IP-adress: 192.168.99.100. You can write 192.168.99.100:8000 in the web browser and explore the Exercise-it project.
+You if you see no errors you should now be able to se the procject running on the IP adress of your docker machine at port 8000. If you have the default IP-adress: 192.168.99.100. You can write 192.168.99.100:8000 in the web browser and explore the Exercise It! project. If not, use the ip adress you fond in step 3.
 
 ### Running commands
 To run commands in the Docker application, open up a new terminal window and write (in the 64-folder):
@@ -182,30 +182,78 @@ After restarting the docker machine, you must verify the IP-adress again.
 <details>
   <summary>Click here to set up a development environment using the Windows OS</summary>
   
-  ### Prerequisites
-  ### Step 1: Clone the repository from GitLab
-  ### Step 2: Install the required packages
-  ### Step 3: Run the Django server locally
-
-</details>
-<details>
-  <summary>Click here to set up a development environment using MacOS</summary>
-  
-## Prerequisites
+### Prerequisites
 
 The following section assumes that you have a working installation of **Python 3.8** with PIP
 
-If you don't have Python installed, follow [this installation guide](https://docs.python-guide.org/starting/install3/osx/)
+If you don't have Python installed, follow [this installation guide](https://docs.python-guide.org/starting/install3/win/)
 
 ### Step 1: Clone the repository from GitLab
 
-Either clone with SSH (SSH keys needs to be configured)
+Open a terminal and navigate to the folder in which you will clone the Exercise IT! repo. Then, clone the repo with HTTPS
 
-```cmd
-git clone git@gitlab.stud.idi.ntnu.no:tdt4140-2020/64.git
+```
+git clone https://gitlab.stud.idi.ntnu.no/tdt4140-2020/64.git
 ```
 
-or clone with HTTPS
+### Step 2: Install the required packages
+
+Exercise It! use a bunch of Python packages to ensure seamless development
+
+**Make sure you point to the correct Python installation**
+If you installed python 3 with Chocolatey, python 3 will be pushed as the default python version. Thus by writing ```python --version``` in your command line, you should see something like this:
+```
+C:\Users\"username">python --version
+Python 3.8.1
+```
+The python version should be at least 3.8
+
+If instead you get python 2.* as a result, you should try running ```python3 --version```, if the you get ```python 3.8.*``` as a result, you are good to go. If not, try reeinstalling python 3.
+
+Install the required packages by typing
+
+```
+pip install -r requirements.txt
+```
+
+and
+
+```
+pip install -r requirements-ci.txt
+```
+
+Please note that you have to run both commands
+
+### Step 3: Run the Django server locally
+
+To run the server type
+
+```
+python3 manage.py runserver
+```
+
+or if python 3 is the default version
+
+```
+python manage.py runserver
+```
+ You can now go to localhost:8000 and explore Exercise IT!
+
+</details>
+  
+ 
+<details>
+  <summary>Click here to set up a development environment using MacOS</summary>
+ 
+### Prerequisites
+
+The following section assumes that you have a working installation of **Python 3.8** with PIP
+
+If you don't have Python installed, follow [this installation guide]()
+
+### Step 1: Clone the repository from GitLab
+
+Navigate to the folder you wold like to clone the repo to and type:
 
 ```
 git clone https://gitlab.stud.idi.ntnu.no/tdt4140-2020/64.git
@@ -241,13 +289,15 @@ To run the server type
 python3 manage.py runserver
 ```
 
-or if you managed to set up an alias
+or if you have managed to set up an alias, type:
 
 ```
 python manage.py runserver
 ```
+ You can now go to localhost:8000 and explore Exercise IT!
 
 </details>
+
 
 ## Tech/framework used
 
@@ -276,7 +326,7 @@ pytest --cov
 1. Follow the steps listed in [Set up a development environment](#setting-up-a-development-environment) section to get the project working on your machine
 2. Create a branch
 3. Make some changes 👨‍💻
-4. Submit a pull request with a comprehensive list of changes made 📝
+4. Submit a merge request with a comprehensive list of changes made 📝
 
 We will review your changes and hopefully they will take a part of the project
 
