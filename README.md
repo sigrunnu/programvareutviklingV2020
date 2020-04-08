@@ -110,66 +110,62 @@ When you have completed the installation, and successfully run the `docker run h
 <details>
   <summary>Click here to set up a development environment using MacOS</summary>
   
-  ## Prerequisites
+## Prerequisites
 
-  You will need Python 3.8 for this project
+The following section assumes that you have a working installation of **Python 3.8** with PIP
 
-  **Option 1 (beginner friendly)**
+If you don't have Python installed, follow [this installation guide](https://docs.python-guide.org/starting/install3/osx/)
 
-  Visit [the official Python download page](https://www.python.org/downloads/)
+### Step 1: Clone the repository from GitLab
 
-  **Option 2 (advanced)**
+Either clone with SSH (SSH keys needs to be configured)
 
-  Install using [Homebrew](https://brew.sh/index_nb)
+```cmd
+git clone git@gitlab.stud.idi.ntnu.no:tdt4140-2020/64.git
+```
 
-  ### Step 1: Clone the repository from GitLab
-  
-  Either clone with SSH (SSH keys needs to be configured)
-  ```cmd
-  git clone git@gitlab.stud.idi.ntnu.no:tdt4140-2020/64.git
-  ```
+or clone with HTTPS
 
-  or clone with HTTPS
-  ```
-  git clone https://gitlab.stud.idi.ntnu.no/tdt4140-2020/64.git
-  ```
-  
-  ### Step 2: Install the required packages
+```
+git clone https://gitlab.stud.idi.ntnu.no/tdt4140-2020/64.git
+```
 
-  Exercise It! use a bunch of Python packages to ensure seamless development
+### Step 2: Install the required packages
 
-  Install the required packages by typing
+Exercise It! use a bunch of Python packages to ensure seamless development
 
-  ```
-  pip install -r requirements.txt
-  ```
+**Make sure you point to the correct Python installation**
 
-  and
+By default on MacOS, the `pip` will point to the pre-installed Python 2.7 version, if no aliases is configured. Make sure to replace `pip` with `pip3` if you did not configure aliases, or packages will be installed for Python 2.7.
 
-  ```
-  pip install -r requirements-ci.txt
-  ```
+Install the required packages by typing
 
-  Please note that you have to run both commands
+```
+pip install -r requirements.txt
+```
 
-  
-  **Make sure you point to the correct Python installation!**
-  
-  By default on MacOS, the pre-installed Python 2.7 that comes with every mac, is the version that ```python``` points to. This means that you might have to replace ```pip``` with ```pip3```, or the packages will be installed for Python 2.7 version, if you did not configure an alias correctly. 
+and
 
-  ### Step 3: Run the Django server locally
+```
+pip install -r requirements-ci.txt
+```
 
-  To run the server type
+Please note that you have to run both commands
 
-  ```
-  python3 manage.py runserver
-  ```
+### Step 3: Run the Django server locally
 
-  or if you managed to set up an alias
+To run the server type
 
-  ```
-  python manage.py runserver
-  ```
+```
+python3 manage.py runserver
+```
+
+or if you managed to set up an alias
+
+```
+python manage.py runserver
+```
+
 </details>
 
 ## Tech/framework used
