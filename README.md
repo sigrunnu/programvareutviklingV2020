@@ -43,6 +43,7 @@
 - [Tech/framework used](#techframework-used)
 - [Tests and coverage](#tests-and-coverage)
 - [How to contribute](#how-to-contribute)
+- [The release process](#the-release-process)
 - [License](#license)
 
 ## Motivation
@@ -332,10 +333,17 @@ Contributions to Exercise-it generally comes in the form of merge requests.  The
 The process off proposing a change to Exercise-it can be summarized as follows (see the figure above):
   1. New functionallity will be added as GitLab issues, choose one on which you want to contribute. Create a branch from master. Make sure you follow the naming conventions stated on the [GitLab wiki](https://gitlab.stud.iie.ntnu.no/tdt4140-2020/64/-/wikis/Home/Git-&-GitLab-101).
   2. When the change is finished, create a merge request from your branch into the **development** branch. Write a summary of your code together with a plan on how it should be tested. Fix eventual changes other developers have suggested to your merge request.
-  3. The developer team will go through your merge request and eighter merge og reject your request. It hte merge request is rejected, we will justify why. 
-  4. At each release, the developer team will merge the development branch into the master branch and push this live to the Digital Ocean server
+  3. The developer team will go through your merge request and eighter merge og reject your request. It the merge request is rejected, we will justify why. 
+  4. If your merge request was merged, your code will be live in the next release. See [release process](#the-release-process)
 
 Please visit the [Evolusjon ](https://gitlab.stud.iie.ntnu.no/tdt4140-2020/64/-/wikis/tdt4140-2020/64/-/wikis/Evolusjon) wiki for futher reading about contribution to Exercise-it.
+
+## The release process
+The release proces for Exercise-it can be summarized as follows:
+  1. All code is developed on a separate branch and runs throug a series of tests in a Continous Integration (CI) pipeline on every commit.
+  2. Finished code is beeing merged into the development branch through merge requests. The CI pipeline runs on every merge request.
+  3. By the end of each sprint, the development branch is beeing merged into master, this makes sure that all code developed in the current sprint is beeing merged into master in one singele merge request.
+  4. When all the code is up and running in master, and the CI pipeline indicates that the tests are passing, the development team loggs into the Digital Ocean server through SSH. This is done in the terminal. A ```git pull``` command is then run to fetch the recently merged code from the master branch in the gitlab repository. If any modifications has been done to the models, these has to be migrated to the Production database from the server. Finally, Nginx is restarted to detect the changes and the new release is live.
 ## License
 
 Exercise It! is MIT licensed, as found in the [LICENSE](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/64/-/blob/master/LICENCE) file.
