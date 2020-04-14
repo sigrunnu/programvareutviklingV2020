@@ -322,14 +322,20 @@ pytest --cov
 ```
 
 ## How to contribute
+Contributions to Exercise-it generally comes in the form of merge requests.  These are done by doing local changes. You can eighter create your own merge requests, or make comments on or suggest changes to merge requests made by other developers. This is made possible by our open source policy, which makes existing merge requests as well as the abillity to create new ones open to everyone. Access the merge requests [here](https://gitlab.stud.iie.ntnu.no/tdt4140-2020/64/-/merge_requests).
 
-1. Follow the steps listed in [Set up a development environment](#setting-up-a-development-environment) section to get the project working on your machine
-2. Create a branch
-3. Make some changes 👨‍💻
-4. Submit a merge request with a comprehensive list of changes made 📝
+<div align="center">
+      <img src="http://134.209.236.146/static/Sketch-til-PU-Diagram-Page-11.png" alt="">
+</div>
 
-We will review your changes and hopefully they will take a part of the project
 
+The process off proposing a change to Exercise-it can be summarized as follows (see the figure above):
+  1. New functionallity will be added as GitLab issues, choose one on which you want to contribute. Create a branch from master. Make sure you follow the naming conventions stated on the [GitLab wiki](https://gitlab.stud.iie.ntnu.no/tdt4140-2020/64/-/wikis/Home/Git-&-GitLab-101).
+  2. When the change is finished, create a merge request from your branch into the **development** branch. Write a summary of your code together with a plan on how it should be tested. Fix eventual changes other developers have suggested to your merge request.
+  3. The developer team will go through your merge request and eighter merge og reject your request. It hte merge request is rejected, we will justify why. 
+  4. At each release, the developer team will merge the development branch into the master branch and push this live to the Digital Ocean server
+
+Please visit the [Evolusjon ](https://gitlab.stud.iie.ntnu.no/tdt4140-2020/64/-/wikis/tdt4140-2020/64/-/wikis/Evolusjon) wiki for futher reading about contribution to Exercise-it.
 ## License
 
 Exercise It! is MIT licensed, as found in the [LICENSE](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/64/-/blob/master/LICENCE) file.
