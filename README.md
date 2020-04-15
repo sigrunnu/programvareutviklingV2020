@@ -302,7 +302,7 @@ python manage.py runserver
 
 ## Tech/framework used
 
-Exercise It! is built with
+Exercise It! is built with:
 
 - [Django](https://www.djangoproject.com/)
 - [Elasticsearch](https://www.elastic.co/)
