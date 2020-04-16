@@ -129,7 +129,7 @@ or if python 3 is the default version
 ```
 python manage.py runserver
 ```
- You can now go to localhost:8000 and explore Exercise IT!
+ You can now go to localhost:8000 and explore Exercise It!
 
 </details>
   
@@ -141,7 +141,7 @@ python manage.py runserver
 
 The following section assumes that you have a working installation of **Python 3.8** with PIP
 
-If you don't have Python installed, follow [this installation guide]()
+If you don't have Python installed, follow [this installation guide](https://docs.python-guide.org/starting/install3/osx/)
 
 ### Step 1: Clone the repository from GitLab
 
@@ -186,7 +186,7 @@ or if you have managed to set up an alias, type:
 ```
 python manage.py runserver
 ```
- You can now go to localhost:8000 and explore Exercise IT!
+ You can now go to localhost:8000 and explore Exercise It!
 
 </details>
 <details>
@@ -308,7 +308,7 @@ Exercise It! is built with:
 - [Bootstrap](https://getbootstrap.com/)
 
 ## Tests and coverage
-We are using [Pytest]() for testing. 
+We are using [Pytest](https://docs.pytest.org/en/latest/) for testing. 
 
 To run these tests, type:
 
@@ -321,6 +321,8 @@ To determine the code coverage, type:
 ```
 pytest --cov
 ```
+
+A folder named "*htmlcov* is then created in the 64 root folder. This folder contains html representations of all code coverage.
 
 ## How to contribute
 Contributions to Exercise It! generally comes in the form of merge requests.  These are done by doing local changes. You can either create your own merge requests, make comments on or suggest changes to merge requests made by other developers. This is made possible by our open source policy, which makes existing merge requests, as well as the abillity to create new ones, open for everyone. Access the merge requests [here](https://gitlab.stud.iie.ntnu.no/tdt4140-2020/64/-/merge_requests).
